@@ -7,7 +7,7 @@
 
 <body>
 <div>
-	<div><h1>你的访问出错了.222</h1></div>
+	<div><h1>你的访问出错了.</h1></div>
 </div>
 </body>
 </html>
