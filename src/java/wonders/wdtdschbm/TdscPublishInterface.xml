@@ -1,0 +1,69 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscPublishInterface" 
+    table="TDSC_PUBLISH_INTERFACE"
+>
+
+    <id
+        name="publishId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUBLISH_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="publishType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUBLISH_TYPE"
+        length="8"
+    />
+    <property
+        name="interfaceSelect"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INTERFACE_SELECT"
+        length="500"
+    />
+    <property
+        name="publishInterfaceTables"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUBLISH_INTERFACE_TABLES"
+        length="128"
+    />
+    <property
+        name="interfaceLimited"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INTERFACE_LIMITED"
+        length="200"
+    />
+    <property
+        name="interfaceOrder"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INTERFACE_ORDER"
+        length="128"
+    />
+    <property
+        name="publishReturnObject"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUBLISH_RETURN_OBJECT"
+        length="64"
+    />
+    <property
+        name="publishFtpWay"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUBLISH_FTP_WAY"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

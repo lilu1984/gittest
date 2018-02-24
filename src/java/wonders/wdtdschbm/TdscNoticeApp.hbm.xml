@@ -1,0 +1,182 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscNoticeApp" 
+    table="TDSC_NOTICE_APP"
+>
+
+    <id
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="noticeNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_NO"
+        length="100"
+    />
+    <property
+        name="noticeName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_NAME"
+        length="200"
+    />
+    <property
+        name="noticeType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_TYPE"
+        length="2"
+    />
+    <property
+        name="fileUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_URL"
+        length="100"
+    />
+    <property
+        name="linkManName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LINK_MAN_NAME"
+        length="300"
+    />
+    <property
+        name="linkManAddr"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LINK_MAN_ADDR"
+        length="500"
+    />
+    <property
+        name="linkManTel"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LINK_MAN_TEL"
+        length="300"
+    />
+    <property
+        name="tranManName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRAN_MAN_NAME"
+        length="300"
+    />
+    <property
+        name="tranManAddr"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRAN_MAN_ADDR"
+        length="500"
+    />
+    <property
+        name="tranManTel"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRAN_MAN_TEL"
+        length="300"
+    />
+    <property
+        name="ifReleased"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_RELEASED"
+        length="1"
+    />
+    <property
+        name="ifResultPublish"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_RESULT_PUBLISH"
+        length="1"
+    />
+    <property
+        name="noticeDate"
+        type="java.sql.Timestamp"
+        column="NOTICE_DATE"
+        length="20"
+    />
+    <property
+        name="noticeStatus"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_STATUS"
+        length="2"
+    />
+    <property
+        name="statusDate"
+        type="java.sql.Timestamp"
+        column="STATUS_DATE"
+        length="20"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+    <property
+        name="ifSendWondertek"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_SEND_WONDERTEK"
+        length="1"
+    />
+    <property
+        name="ifSendBlockWondertek"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_SEND_BLOCK_WONDERTEK"
+        length="1"
+    />
+    <property
+        name="noticeNoOld"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_NO_OLD"
+        length="100"
+    />
+    <property
+        name="resultRecordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_RECORD_ID"
+        length="16"
+    />
+    <property
+        name="resultPublishDate"
+        type="java.sql.Timestamp"
+        column="RESULT_PUBLISH_DATE"
+        length="20"
+    />
+    <property
+        name="tradeNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRADE_NUM"
+        length="200"
+    />
+    <property
+        name="transferMode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRANSFER_MODE"
+        length="10"
+    />
+    <property
+        name="uniteBlockName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="UNITE_BLOCK_NAME"
+        length="4000"
+    />
+    <property
+        name="landLocation"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAND_LOCATION"
+        length="4000"
+    />
+    <property
+        name="userId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USER_ID"
+        length="32"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

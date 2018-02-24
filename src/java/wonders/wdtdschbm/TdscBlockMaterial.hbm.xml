@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockMaterial" 
+    table="TDSC_BLOCK_MATERIAL"
+>
+
+    <id
+        name="materialId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MATERIAL_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="materialNum"
+        type="java.math.BigDecimal"
+        column="MATERIAL_NUM"
+        length="20"
+    />
+    <property
+        name="blockId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_ID"
+        length="100"
+    />
+    <property
+        name="materialNumb"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MATERIAL_NUMB"
+        length="200"
+    />
+    <property
+        name="materialType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MATERIAL_TYPE"
+        length="400"
+    />
+    <property
+        name="materialName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MATERIAL_NAME"
+        length="400"
+    />
+    <property
+        name="issueType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ISSUE_TYPE"
+        length="10"
+    />
+    <property
+        name="issueUnit"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ISSUE_UNIT"
+        length="10"
+    />
+    <property
+        name="issueUnitMemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ISSUE_UNIT_MEMO"
+        length="300"
+    />
+    <property
+        name="fileUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_URL"
+        length="100"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

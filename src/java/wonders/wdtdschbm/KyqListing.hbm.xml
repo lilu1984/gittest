@@ -1,0 +1,57 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.kyq.bo.KyqListing" 
+    table="JY_LISTING"
+>
+
+    <id
+        name="listingId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LISTING_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="certNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CERT_NO"
+        length="20"
+    />
+   <property
+        name="listDate"
+        type="java.sql.Date"
+        column="LIST_DATE"
+        length="10"
+    />
+    
+    <property
+        name="miningId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MINING_ID"
+        length="64"
+    />
+    <property
+        name="listPrice"
+        type="java.math.BigDecimal"
+        column="LIST_PRICE"
+        length="20"
+    />
+    <property
+        name="haoPai"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HAO_PAI"
+        length="10"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

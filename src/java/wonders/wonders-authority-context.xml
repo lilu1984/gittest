@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <!-- start dao -->
+    <bean id="authorityTreeDao" class="com.wonders.common.authority.dao.AuthorityTreeDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="roleInfoDao" class="com.wonders.common.authority.dao.RoleInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="userInfoDao" class="com.wonders.common.authority.dao.UserInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>    
+    <!-- end dao -->
+    
+    <!-- start service -->
+    <bean id="userManager" parent="tdscManagerProxyTemplate">
+        <property name="target">
+            <bean class="com.wonders.common.authority.service.UserManager">
+                            <property name="userInfoDao" ref="userInfoDao"/>
+                            <property name="authorityTreeDao" ref="authorityTreeDao"/>
+                            <property name="roleInfoDao" ref="roleInfoDao"/>                          
+                        </bean>
+        </property>
+    </bean>
+    
+    <bean id="authorityManager" parent="tdscManagerProxyTemplate">
+        <property name="target">
+            <bean class="com.wonders.common.authority.service.AuthorityManager">
+                            <property name="authorityTreeDao" ref="authorityTreeDao"/>
+                        </bean>
+        </property>
+    </bean>
+    <!-- end service -->
+    
+    <!-- start action -->
+    <bean name="/tdsc/user" class="com.wonders.common.authority.web.action.UserAction" singleton="false">
+        <property name="userManager"><ref bean="userManager"/></property>
+        <property name="authorityManager"><ref bean="authorityManager"/></property>
+    </bean>
+
+    <bean name="/tdsc/group" class="com.wonders.common.authority.web.action.GroupAction" singleton="false">
+        <property name="userManager"><ref bean="userManager"/></property>
+        <property name="authorityManager"><ref bean="authorityManager"/></property>
+    </bean>
+    <!-- end action -->
+</beans>

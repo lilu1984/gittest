@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping>
+	<class name="com.wonders.wsjy.bank.bo.BankPart">
+        <map-to xml="root"/>
+        <field name="bankHead" type="com.wonders.wsjy.bank.bo.BankHead">
+	    	<bind-xml name="head" node="element"/>
+	    </field>
+        <field name="bankBody" type="com.wonders.wsjy.bank.bo.BankBody">
+	    	<bind-xml name="body" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.wsjy.bank.bo.BankHead"> 
+        <field name="transCode" type="java.lang.String">
+	            <bind-xml name="TransCode" node="element"/>
+	    </field>
+	    <field name="transDate" type="java.lang.String">
+	            <bind-xml name="TransDate" node="element"/>
+	    </field>
+	    <field name="transTime" type="java.lang.String">
+	            <bind-xml name="TransTime" node="element"/>
+	    </field>
+        <field name="seqNo" type="java.lang.String">
+	            <bind-xml name="SeqNo" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.wsjy.bank.bo.BankBody"> 
+        <field name="instCode" type="java.lang.String">
+	            <bind-xml name="InstCode" node="element"/>
+	    </field>
+        <field name="inDate" type="java.lang.String">
+	            <bind-xml name="InDate" node="element"/>
+	    </field>
+        <field name="inAmount" type="java.lang.String">
+	            <bind-xml name="InAmount" node="element"/>
+	    </field>
+        <field name="inName" type="java.lang.String">
+	            <bind-xml name="InName" node="element"/>
+	    </field>
+        <field name="inAcct" type="java.lang.String">
+	            <bind-xml name="InAcct" node="element"/>
+	    </field>
+        <field name="inMemo" type="java.lang.String">
+	            <bind-xml name="InMemo" node="element"/>
+	    </field>
+        <field name="inBankFLCode" type="java.lang.String">
+	            <bind-xml name="InBankFLCode" node="element"/>
+	    </field>
+        <field name="instSeq" type="java.lang.String">
+	            <bind-xml name="InstSeq" node="element"/>
+	    </field>
+        <field name="matuDay" type="java.lang.String">
+	            <bind-xml name="MatuDay" node="element"/>
+	    </field>
+        <field name="result" type="java.lang.String">
+	            <bind-xml name="Result" node="element"/>
+	    </field>
+        <field name="addWord" type="java.lang.String">
+	            <bind-xml name="AddWord" node="element"/>
+	    </field>
+        <field name="acctNo" type="java.lang.String">
+	            <bind-xml name="AcctNo" node="element"/>
+	    </field>
+        <field name="count" type="java.lang.String">
+	            <bind-xml name="Count" node="element"/>
+	    </field>
+        <field name="bankEntityList" type="com.wonders.wsjy.bank.bo.BankEntityList">
+	    	<bind-xml name="listEntity" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.wsjy.bank.bo.BankEntityList"> 
+        <field name="bankEntityList" type="com.wonders.wsjy.bank.bo.BankEntity" collection="collection">
+	            <bind-xml name="Entity" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.wsjy.bank.bo.BankEntity"> 
+        <field name="inDate" type="java.lang.String">
+	            <bind-xml name="InDate" node="element"/>
+	    </field>
+        <field name="inAmount" type="java.lang.String">
+	            <bind-xml name="InAmount" node="element"/>
+	    </field>
+        <field name="inName" type="java.lang.String">
+	            <bind-xml name="InName" node="element"/>
+	    </field>
+        <field name="inAcct" type="java.lang.String">
+	            <bind-xml name="InAcct" node="element"/>
+	    </field>
+        <field name="inBankFLCode" type="java.lang.String">
+	            <bind-xml name="InBankFLCode" node="element"/>
+	    </field>
+        <field name="inMemo" type="java.lang.String">
+	            <bind-xml name="InMemo" node="element"/>
+	    </field>
+    </class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

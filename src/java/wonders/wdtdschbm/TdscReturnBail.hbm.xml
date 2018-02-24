@@ -1,0 +1,42 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.wonders.tdsc.bo.TdscReturnBail" table="TDSC_RETURN_BAIL">
+
+		<id name="bailId" type="com.wonders.esframework.common.type.AppString"
+			column="BAIL_ID">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="planId"
+			type="com.wonders.esframework.common.type.AppString" column="PLAN_ID"
+			length="64" />
+		<property name="appId"
+			type="com.wonders.esframework.common.type.AppString" column="APP_ID"
+			length="64" />
+		<property name="blockId"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_ID"
+			length="64" />
+		<property name="bidderId"
+			type="com.wonders.esframework.common.type.AppString" column="BIDDER_ID"
+			length="64" />
+		<property name="bidderBail" type="java.math.BigDecimal"
+			column="BIDDER_BAIL" length="20" />
+		<property name="actionUser"
+			type="com.wonders.esframework.common.type.AppString" column="ACTION_USER"
+			length="64" />
+		<property name="actionDate" type="java.sql.Timestamp" column="ACTION_DATE"
+			length="7" />
+		<property name="bzjBank"
+			type="com.wonders.esframework.common.type.AppString" column="BZJ_BANK"
+			length="2" />
+		<property name="ifReturn"
+			type="com.wonders.esframework.common.type.AppString" column="IF_RETURN"
+			length="2" />
+	</class>
+</hibernate-mapping>

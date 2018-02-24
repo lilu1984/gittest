@@ -1,0 +1,63 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscReviewOpnn" 
+    table="TDSC_REVIEW_OPNN"
+>
+
+    <id
+        name="reviewId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REVIEW_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="bidderAppNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_APP_NO"
+        length="64"
+    />
+    <property
+        name="specId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPEC_ID"
+        length="100"
+    />
+    <property
+        name="specName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPEC_NAME"
+        length="100"
+    />
+    <property
+        name="reviewResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REVIEW_RESULT"
+        length="2"
+    />
+    <property
+        name="reviewOpnn"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REVIEW_OPNN"
+        length="500"
+    />
+    <property
+        name="reviewDate"
+        type="java.sql.Date"
+        column="REVIEW_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

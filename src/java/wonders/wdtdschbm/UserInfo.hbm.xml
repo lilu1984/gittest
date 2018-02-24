@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+    
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.common.authority.bo.UserInfo" 
+    table="UA_USER_INFO"
+>
+
+    <id
+        name="userId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USER_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="logonName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LOGON_NAME"
+        length="30"
+    />
+    <property
+        name="password"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PASSWORD"
+        length="100"
+    />
+    <property
+        name="displayName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DISPLAY_NAME"
+        length="100"
+    />
+    <property
+        name="regionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REGION_ID"
+        length="10"
+    />
+    <property
+        name="state"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STATE"
+        length="1"
+    />
+    <property
+        name="currentLogonDate"
+        type="java.sql.Timestamp"
+        column="CURRENT_LOGON_DATE"
+        length="7"
+    />
+    <property
+        name="lastLogonDate"
+        type="java.sql.Timestamp"
+        column="LAST_LOGON_DATE"
+        length="7"
+    />
+    <property
+        name="logonFailTimes"
+        type="java.lang.Integer"
+        column="LOGON_FAIL_TIMES"
+        length="8"
+    />
+    <property
+        name="lockFlag"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LOCK_FLAG"
+        length="1"
+    />
+    <property
+        name="lockDate"
+        type="java.sql.Timestamp"
+        column="LOCK_DATE"
+        length="7"
+    />
+    <property
+        name="personId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PERSON_ID"
+        length="30"
+    />
+
+    <!-- Associations -->
+    <!-- user-authority-map -->
+    <set name="authority" table="UA_USER_AUTHORITY_MAP" lazy="true"> 
+        <key column="USER_ID" />
+        <many-to-many column="NODE_ID" class="com.wonders.common.authority.bo.AuthorityTree" />
+    </set>
+    
+    <!-- user-role-map -->
+    <set name="role" table="UA_USER_ROLE_MAP" lazy="true">
+        <key column="USER_ID" />
+        <many-to-many column="ROLE_ID" class="com.wonders.common.authority.bo.RoleInfo"/>
+    </set>
+
+</class>
+</hibernate-mapping>

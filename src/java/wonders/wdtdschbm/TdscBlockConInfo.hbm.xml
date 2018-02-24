@@ -1,0 +1,105 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockConInfo" 
+    table="TDSC_BLOCK_CON_INFO"
+>
+
+    <id
+        name="blockConId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_CON_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="blockId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_ID"
+        length="64"
+    />
+    <property
+        name="contractNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CONTRACT_NUM"
+        length="100"
+    />
+    <property
+        name="contractSignedDate"
+        type="java.sql.Date"
+        column="CONTRACT_SIGNED_DATE"
+        length="7"
+    />
+    <property
+        name="copyNumber"
+        type="java.math.BigDecimal"
+        column="COPY_NUMBER"
+        length="20"
+    />
+    <property
+        name="landUseExpirationDate"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAND_USE_EXPIRATION_DATE"
+        length="50"
+    />
+    <property
+        name="remiseAccountReceivable"
+        type="java.math.BigDecimal"
+        column="REMISE_ACCOUNT_RECEIVABLE"
+        length="20"
+    />
+    <property
+        name="depositSum"
+        type="java.math.BigDecimal"
+        column="DEPOSIT_SUM"
+        length="20"
+    />
+    <property
+        name="depositeBalance"
+        type="java.math.BigDecimal"
+        column="DEPOSITE_BALANCE"
+        length="20"
+    />
+    <property
+        name="depositeDate"
+        type="java.sql.Date"
+        column="DEPOSITE_DATE"
+        length="7"
+    />
+    <property
+        name="remiseBalance"
+        type="java.math.BigDecimal"
+        column="REMISE_BALANCE"
+        length="20"
+    />
+    <property
+        name="remiseExpirationDate"
+        type="java.sql.Date"
+        column="REMISE_EXPIRATION_DATE"
+        length="7"
+    />
+    <property
+        name="allocationCompensation"
+        type="java.math.BigDecimal"
+        column="ALLOCATION_COMPENSATION"
+        length="20"
+    />
+    <property
+        name="demolishCompesationMethod"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DEMOLISH_COMPESATION_METHOD"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

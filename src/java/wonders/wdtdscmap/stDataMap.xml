@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<mapping>
+	<class name="com.wonders.tdsc.out.service.bean.StPart">
+        <map-to xml="LandjsResponse"/>
+        <field name="action" type="java.lang.String">
+	    	<bind-xml name="Action" node="element"/>
+	    </field>
+        <field name="businessType" type="java.lang.String">
+	    	<bind-xml name="BusinessType" node="element"/>
+	    </field>
+        <field name="businessWhere" type="java.lang.String">
+	    	<bind-xml name="BusinessWhere" node="element"/>
+	    </field>
+        <field name="status" type="java.lang.String">
+	    	<bind-xml name="Status" node="element"/>
+	    </field>
+        <field name="date" type="java.lang.String">
+	    	<bind-xml name="Date" node="element"/>
+	    </field>
+	    <field name="totalRecords" type="java.lang.String">
+	    	<bind-xml name="TotalRecords" node="element"/>
+	    </field>
+	    <field name="pageSize" type="java.lang.String">
+	    	<bind-xml name="PageSize" node="element"/>
+	    </field>
+	    <field name="totalPages" type="java.lang.String">
+	    	<bind-xml name="TotalPages" node="element"/>
+	    </field>
+	    <field name="currentPage" type="java.lang.String">
+	    	<bind-xml name="CurrentPage" node="element"/>
+	    </field>
+	    <field name="message" type="java.lang.String">
+	    	<bind-xml name="Message" node="element"/>
+	    </field>
+	    <field name="stData" type="com.wonders.tdsc.out.service.bean.StData">
+	    	<bind-xml name="Data" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.tdsc.out.service.bean.StData"> 
+        <field name="noticeData" type="com.wonders.tdsc.out.service.bean.StNoticeTableData">
+	            <bind-xml name="PRI_TABLE_DATA" node="element"/>
+	    </field>
+        <field name="subDataList" type="com.wonders.tdsc.out.service.bean.StSubTableData" collection="collection">
+	            <bind-xml name="SUB_TABLE_DATA" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.tdsc.out.service.bean.StNoticeTableData"> 
+        <field name="tableName" type="java.lang.String">
+	            <bind-xml name="tableName" node="attribute"/>
+	    </field>
+        <field name="recodeList" type="com.wonders.tdsc.out.service.bean.StNoticeRecode" collection="collection">
+	            <bind-xml name="RECORD" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.tdsc.out.service.bean.StSubTableData"> 
+        <field name="tableName" type="java.lang.String">
+	            <bind-xml name="tableName" node="attribute"/>
+	    </field>
+        <field name="recodeList" type="com.wonders.tdsc.out.service.bean.StBlockRecode" collection="collection">
+	            <bind-xml name="RECORD" node="element"/>
+	    </field>
+    </class>
+    <class name="com.wonders.tdsc.out.service.bean.StNoticeRecode"> 
+        <field name="gyggGuid" type="java.lang.String">
+	       <bind-xml name="GYGG_GUID" node="attribute"/>
+	    </field>
+        <field name="xzqDm" type="java.lang.String">
+	       <bind-xml name="XZQ_DM" node="attribute"/>
+	    </field>
+        <field name="afficheDate" type="java.lang.String">
+	       <bind-xml name="AFFICHE_DATE" node="attribute"/>
+	    </field>
+        <field name="afficheEnd" type="java.lang.String">
+	       <bind-xml name="AFFICHE_END" node="attribute"/>
+	    </field>
+        <field name="afficheName" type="java.lang.String">
+	       <bind-xml name="AFFICHE_NAME" node="attribute"/>
+	    </field>
+        <field name="afficheNo" type="java.lang.String">
+	       <bind-xml name="AFFICHE_NO" node="attribute"/>
+	    </field>
+        <field name="remiseType" type="java.lang.String">
+	       <bind-xml name="REMISE_TYPE" node="attribute"/>
+	    </field>
+        <field name="remiseBulletin" type="java.lang.String">
+	       <bind-xml name="REMISE_BULLETIN" node="attribute"/>
+	    </field>
+        <field name="postDate" type="java.lang.String">
+	       <bind-xml name="POST_DATE" node="attribute"/>
+	    </field>
+        <field name="auditingStatus" type="java.lang.String">
+	       <bind-xml name="AUDITING_STATUS" node="attribute"/>
+	    </field>
+        <field name="afficheType" type="java.lang.String">
+	       <bind-xml name="AFFICHE_TYPE" node="attribute"/>
+	    </field>
+        <field name="remiseUnit" type="java.lang.String">
+	       <bind-xml name="REMISE_UNIT" node="attribute"/>
+	    </field>
+        <field name="confirmTime" type="java.lang.String">
+	       <bind-xml name="CONFIRM_TIME" node="attribute"/>
+	    </field>
+        <field name="getfileStarttime" type="java.lang.String">
+	       <bind-xml name="GETFILE_STARTTIME" node="attribute"/>
+	    </field>	
+        <field name="getfileEndTime" type="java.lang.String">
+	       <bind-xml name="GETFILE_ENDTIME" node="attribute"/>
+	    </field> 
+        <field name="getfileAddress" type="java.lang.String">
+	       <bind-xml name="GETFILE_ADDRESS" node="attribute"/>
+	    </field> 
+        <field name="signStarttime" type="java.lang.String">
+	       <bind-xml name="SIGN_STARTTIME" node="attribute"/>
+	    </field> 
+        <field name="signEndtime" type="java.lang.String">
+	       <bind-xml name="SIGN_ENDTIME" node="attribute"/>
+	    </field> 
+        <field name="signAddress" type="java.lang.String">
+	       <bind-xml name="SIGN_ADDRESS" node="attribute"/>
+	    </field> 
+        <field name="auctionTime" type="java.lang.String">
+	       <bind-xml name="AUCTION_TIME" node="attribute"/>
+	    </field> 
+        <field name="auctionAddress" type="java.lang.String">
+	       <bind-xml name="AUCTION_ADDRESS" node="attribute"/>
+	    </field> 
+        <field name="bidStarttime" type="java.lang.String">
+	       <bind-xml name="BID_STARTTIME" node="attribute"/>
+	    </field> 
+        <field name="bidEndtime" type="java.lang.String">
+	       <bind-xml name="BID_ENDTIME" node="attribute"/>
+	    </field> 
+        <field name="bidAddress" type="java.lang.String">
+	       <bind-xml name="BID_ADDRESS" node="attribute"/>
+	    </field> 
+        <field name="openTime" type="java.lang.String">
+	       <bind-xml name="OPEN_TIME" node="attribute"/>
+	    </field> 
+        <field name="openAddress" type="java.lang.String">
+	       <bind-xml name="OPEN_ADDRESS" node="attribute"/>
+	    </field> 
+        <field name="setTime" type="java.lang.String">
+	       <bind-xml name="SET_TIME" node="attribute"/>
+	    </field> 
+        <field name="setAddress" type="java.lang.String">
+	       <bind-xml name="SET_ADDRESS" node="attribute"/>
+	    </field>
+        <field name="paymentStarttime" type="java.lang.String">
+	       <bind-xml name="PAYMENT_STARTTIME" node="attribute"/>
+	    </field>
+        <field name="paymentEndtime" type="java.lang.String">
+	       <bind-xml name="PAYMENT_ENDTIME" node="attribute"/>
+	    </field>
+        <field name="linkman" type="java.lang.String">
+	       <bind-xml name="LINKMAN" node="attribute"/>
+	    </field>
+        <field name="linkaddress" type="java.lang.String">
+	       <bind-xml name="LINKADDRESS" node="attribute"/>
+	    </field>
+        <field name="linkphone" type="java.lang.String">
+	       <bind-xml name="LINKPHONE" node="attribute"/>
+	    </field>
+        <field name="openaccountUnit" type="java.lang.String">
+	       <bind-xml name="OPENACCOUNT_UNIT" node="attribute"/>
+	    </field>
+        <field name="openaccountBank" type="java.lang.String">
+	       <bind-xml name="OPENACCOUNT_BANK" node="attribute"/>
+	    </field>
+	    <field name="accounts" type="java.lang.String">
+	       <bind-xml name="ACCOUNTS" node="attribute"/>
+	    </field>
+	    <field name="agentStatus" type="java.lang.String">
+	       <bind-xml name="AGENT_STATUS" node="attribute"/>
+	    </field>
+        <field name="agentName" type="java.lang.String">
+	       <bind-xml name="AGENT_NAME" node="attribute"/>
+	    </field>
+        <field name="agentAddress" type="java.lang.String">
+	       <bind-xml name="AGENT_ADDRESS" node="attribute"/>
+	    </field>
+	    <field name="agentPhone" type="java.lang.String">
+	       <bind-xml name="AGENT_PHONE" node="attribute"/>
+	    </field>
+	    <field name="parcelMsg" type="java.lang.String">
+	       <bind-xml name="PARCEL_MSG" node="attribute"/>
+	    </field>
+        <field name="ggLx" type="java.lang.String">
+	       <bind-xml name="GG_LX" node="attribute"/>
+	    </field>
+        <field name="qtGgLx" type="java.lang.String">
+	       <bind-xml name="QT_GG_LX" node="attribute"/>
+	    </field>
+	    <field name="bidTerm" type="java.lang.String">
+	       <bind-xml name="BID_TERM" node="attribute"/>
+	    </field>
+	    <field name="memo" type="java.lang.String">
+	       <bind-xml name="MEMO" node="attribute"/>
+	    </field>
+	    <field name="otherTerm" type="java.lang.String">
+	       <bind-xml name="OTHER_TERM" node="attribute"/>
+	    </field>
+        <field name="otherMsg" type="java.lang.String">
+	       <bind-xml name="OTHER_MSG" node="attribute"/>
+	    </field>
+	    <field name="pzJg" type="java.lang.String">
+	       <bind-xml name="PZ_JG" node="attribute"/>
+	    </field>
+	    <field name="sqFs" type="java.lang.String">
+	       <bind-xml name="SQ_FS" node="attribute"/>
+	    </field>
+        <field name="zbSjS" type="java.lang.String">
+	       <bind-xml name="ZB_SJ_S" node="attribute"/>
+	    </field>
+        <field name="zbSjE" type="java.lang.String">
+	       <bind-xml name="ZB_SJ_E" node="attribute"/>
+	    </field>
+	    <field name="crSj" type="java.lang.String">
+	       <bind-xml name="CR_SJ" node="attribute"/>
+	    </field>
+	    <field name="crDd" type="java.lang.String">
+	       <bind-xml name="CR_DD" node="attribute"/>
+	    </field>
+        <field name="sffb" type="java.lang.String">
+	       <bind-xml name="SFFB" node="attribute"/>
+	    </field>
+        <field name="oldGyggGuid" type="java.lang.String">
+	       <bind-xml name="OLD_GYGG_GUID" node="attribute"/>
+	    </field>
+	    <field name="ggdkGuid" type="java.lang.String">
+	       <bind-xml name="GGDK_GUID" node="attribute"/>
+	    </field>
+	    <field name="createDate" type="java.lang.String">
+	       <bind-xml name="CREATE_DATE" node="attribute"/>
+	    </field>
+	    <field name="sfwsjy" type="java.lang.String">
+	       <bind-xml name="SFWSJY" node="attribute"/>
+	    </field>
+        <field name="editDate" type="java.lang.String">
+	       <bind-xml name="EDIT_DATE" node="attribute"/>
+	    </field>
+	    <field name="resourcelb" type="java.lang.String">
+	       <bind-xml name="RESOURCELB" node="attribute"/>
+	    </field>
+	    <field name="postUser" type="java.lang.String">
+	       <bind-xml name="POST_USER" node="attribute"/>
+	    </field>
+	    <field name="isnew" type="java.lang.String">
+	       <bind-xml name="ISNEW" node="attribute"/>
+	    </field>
+	    <field name="zdSl" type="java.lang.String">
+	       <bind-xml name="ZD_SL" node="attribute"/>
+	    </field>
+	    <field name="tjSj" type="java.lang.String">
+	       <bind-xml name="TJ_SJ" node="attribute"/>
+	    </field>
+    </class>
+     <class name="com.wonders.tdsc.out.service.bean.StBlockRecode"> 
+        <field name="ggdk" type="java.lang.String">
+	       <bind-xml name="GGDK_GUID" node="attribute"/>
+	    </field>
+        <field name="xzqDm" type="java.lang.String">
+	       <bind-xml name="XZQ_DM" node="attribute"/>
+	    </field>	
+        <field name="afficheNo" type="java.lang.String">
+	       <bind-xml name="AFFICHE_NO" node="attribute"/>
+	    </field>
+        <field name="parcelNo" type="java.lang.String">
+	       <bind-xml name="PARCEL_NO" node="attribute"/>
+	    </field>
+        <field name="parcelName" type="java.lang.String">
+	       <bind-xml name="PARCEL_NAME" node="attribute"/>
+	    </field>
+        <field name="afficheDate" type="java.lang.String">
+	       <bind-xml name="AFFICHE_DATE" node="attribute"/>
+	    </field>	
+        <field name="afficheEnd" type="java.lang.String">
+	       <bind-xml name="AFFICHE_END" node="attribute"/>
+	    </field>
+        <field name="signStartTime" type="java.lang.String">
+	       <bind-xml name="SIGN_STARTTIME" node="attribute"/>
+	    </field>
+        <field name="signEndtime" type="java.lang.String">
+	       <bind-xml name="SIGN_ENDTIME" node="attribute"/>
+	    </field>
+        <field name="paymentStarttime" type="java.lang.String">
+	       <bind-xml name="PAYMENT_STARTTIME" node="attribute"/>
+	    </field>
+        <field name="paymentEndtime" type="java.lang.String">
+	       <bind-xml name="PAYMENT_ENDTIME" node="attribute"/>
+	    </field>
+        <field name="auctionTime" type="java.lang.String">
+	       <bind-xml name="AUCTION_TIME" node="attribute"/>
+	    </field>	
+        <field name="postDate" type="java.lang.String">
+	       <bind-xml name="POST_DATE" node="attribute"/>
+	    </field>
+        <field name="remiseUnit" type="java.lang.String">
+	       <bind-xml name="REMISE_UNIT" node="attribute"/>
+	    </field>
+        <field name="sqFs" type="java.lang.String">
+	       <bind-xml name="SQ_FS" node="attribute"/>
+	    </field>
+        <field name="dealType" type="java.lang.String">
+	       <bind-xml name="DEAL_TYPE" node="attribute"/>
+	    </field>
+        <field name="remiseType" type="java.lang.String">
+	       <bind-xml name="REMISE_TYPE" node="attribute"/>
+	    </field>
+        <field name="bail" type="java.lang.String">
+	       <bind-xml name="BAIL" node="attribute"/>
+	    </field>	
+        <field name="bidScope" type="java.lang.String">
+	       <bind-xml name="BID_SCOPE" node="attribute"/>
+	    </field>
+        <field name="startPrice" type="java.lang.String">
+	       <bind-xml name="START_PRICE" node="attribute"/>
+	    </field>
+	    <field name="landPosition" type="java.lang.String">
+	       <bind-xml name="LAND_POSITION" node="attribute"/>
+	    </field>
+        <field name="remiseArea" type="java.lang.String">
+	       <bind-xml name="REMISE_AREA" node="attribute"/>
+	    </field>
+        <field name="landUse" type="java.lang.String">
+	       <bind-xml name="LAND_USE" node="attribute"/>
+	    </field>
+        <field name="totalArea" type="java.lang.String">
+	       <bind-xml name="TOTAL_AREA" node="attribute"/>
+	    </field>	
+        <field name="daizhArea" type="java.lang.String">
+	       <bind-xml name="DAIZH_AREA" node="attribute"/>
+	    </field>
+        <field name="constructArea" type="java.lang.String">
+	       <bind-xml name="CONSTRUCT_AREA" node="attribute"/>
+	    </field>
+	    <field name="shconArea" type="java.lang.String">
+	       <bind-xml name="SHCON_AREA" node="attribute"/>
+	    </field>
+        <field name="zzconArea" type="java.lang.String">
+	       <bind-xml name="ZZCON_AREA" node="attribute"/>
+	    </field>
+        <field name="bgconArea" type="java.lang.String">
+	       <bind-xml name="BGCON_AREA" node="attribute"/>
+	    </field>
+        <field name="deliverTerm" type="java.lang.String">
+	       <bind-xml name="DELIVER_TERM" node="attribute"/>
+	    </field>	
+        <field name="useYear" type="java.lang.String">
+	       <bind-xml name="USE_YEAR" node="attribute"/>
+	    </field>
+        <field name="memo" type="java.lang.String">
+	       <bind-xml name="MEMO" node="attribute"/>
+	    </field>
+	    <field name="afficheId" type="java.lang.String">
+	       <bind-xml name="AFFICHE_ID" node="attribute"/>
+	    </field>
+        <field name="surroundings" type="java.lang.String">
+	       <bind-xml name="SURROUNDINGS" node="attribute"/>
+	    </field>
+        <field name="layoutOutline" type="java.lang.String">
+	       <bind-xml name="LAYOUT_OUTLINE" node="attribute"/>
+	    </field>
+        <field name="description" type="java.lang.String">
+	       <bind-xml name="DESCRIPTION" node="attribute"/>
+	    </field>	
+        <field name="postTime" type="java.lang.String">
+	       <bind-xml name="POST_TIME" node="attribute"/>
+	    </field>
+        <field name="bidRules" type="java.lang.String">
+	       <bind-xml name="BID_RULES" node="attribute"/>
+	    </field>
+	    <field name="buildmatter" type="java.lang.String">
+	       <bind-xml name="BUILDMATTER" node="attribute"/>
+	    </field>
+        <field name="lowestinvest" type="java.lang.String">
+	       <bind-xml name="LOWESTINVEST" node="attribute"/>
+	    </field>
+        <field name="sharepercent" type="java.lang.String">
+	       <bind-xml name="SHAREPERCENT" node="attribute"/>
+	    </field>
+        <field name="bidStrattime" type="java.lang.String">
+	       <bind-xml name="BID_STARTTIME" node="attribute"/>
+	    </field>	
+        <field name="bidEndtime" type="java.lang.String">
+	       <bind-xml name="BID_ENDTIME" node="attribute"/>
+	    </field>
+        <field name="bidAddress" type="java.lang.String">
+	       <bind-xml name="BID_ADDRESS" node="attribute"/>
+	    </field>
+	    <field name="afficheType" type="java.lang.String">
+	       <bind-xml name="AFFICHE_TYPE" node="attribute"/>
+	    </field>
+        <field name="minRjl" type="java.lang.String">
+	       <bind-xml name="MIN_RJL" node="attribute"/>
+	    </field>
+        <field name="maxRjl" type="java.lang.String">
+	       <bind-xml name="MAX_RJL" node="attribute"/>
+	    </field>
+        <field name="minJzMd" type="java.lang.String">
+	       <bind-xml name="MIN_JZ_MD" node="attribute"/>
+	    </field>	
+        <field name="maxJzMd" type="java.lang.String">
+	       <bind-xml name="MAX_JZ_MD" node="attribute"/>
+	    </field>
+        <field name="minLhl" type="java.lang.String">
+	       <bind-xml name="MIN_LHL" node="attribute"/>
+	    </field>	    	    
+        <field name="maxLhl" type="java.lang.String">
+	       <bind-xml name="MAX_LHL" node="attribute"/>
+	    </field>
+        <field name="minJzxg" type="java.lang.String">
+	       <bind-xml name="MIN_JZXG" node="attribute"/>
+	    </field>	    	    
+        <field name="maxJzxg" type="java.lang.String">
+	       <bind-xml name="MAX_JZXG" node="attribute"/>
+	    </field>
+        <field name="tdYt" type="java.lang.String">
+	       <bind-xml name="TD_YT" node="attribute"/>
+	    </field>	    	    
+        <field name="lpZt" type="java.lang.String">
+	       <bind-xml name="LP_ZT" node="attribute"/>
+	    </field>	
+        <field name="tdTjXx" type="java.lang.String">
+	       <bind-xml name="TD_TJ_XX" node="attribute"/>
+	    </field>	    	    
+        <field name="cdPz" type="java.lang.String">
+	       <bind-xml name="CD_PZ" node="attribute"/>
+	    </field>
+        <field name="jcSs" type="java.lang.String">
+	       <bind-xml name="JC_SS" node="attribute"/>
+	    </field>	    	    
+        <field name="selrjl1" type="java.lang.String">
+	       <bind-xml name="SELRJL1" node="attribute"/>
+	    </field>
+        <field name="selrjl2" type="java.lang.String">
+	       <bind-xml name="SELRJL2" node="attribute"/>
+	    </field>	    	    
+        <field name="minJzMdTag" type="java.lang.String">
+	       <bind-xml name="MIN_JZ_MD_TAG" node="attribute"/>
+	    </field>
+        <field name="maxJzMdTag" type="java.lang.String">
+	       <bind-xml name="MAX_JZ_MD_TAG" node="attribute"/>
+	    </field>	    	    
+        <field name="minLhlTag" type="java.lang.String">
+	       <bind-xml name="MIN_LHL_TAG" node="attribute"/>
+	    </field>
+        <field name="maxLhlTag" type="java.lang.String">
+	       <bind-xml name="MAX_LHL_TAG" node="attribute"/>
+	    </field>	    	    
+        <field name="minJzXgTag" type="java.lang.String">
+	       <bind-xml name="MIN_JZ_XG_TAG" node="attribute"/>
+	    </field>
+        <field name="maxJzXgTag" type="java.lang.String">
+	       <bind-xml name="MAX_JZ_XG_TAG" node="attribute"/>
+	    </field>	    	    
+        <field name="cjfs" type="java.lang.String">
+	       <bind-xml name="CJFS" node="attribute"/>
+	    </field>   
+        <field name="cjdw" type="java.lang.String">
+	       <bind-xml name="CJDW" node="attribute"/>
+	    </field>	    	    
+        <field name="crxzfs" type="java.lang.String">
+	       <bind-xml name="CRXZFS" node="attribute"/>
+	    </field>
+        <field name="zgxj" type="java.lang.String">
+	       <bind-xml name="ZGXJ" node="attribute"/>
+	    </field>	    	    
+        <field name="bzxzfcsbl" type="java.lang.String">
+	       <bind-xml name="BZXZFCSBL" node="attribute"/>
+	    </field>
+        <field name="bzxzfjjzjfd" type="java.lang.String">
+	       <bind-xml name="BZXZFJJZJFD" node="attribute"/>
+	    </field>	    	    
+        <field name="bzxzfcsmj" type="java.lang.String">
+	       <bind-xml name="BZXZFCSMJ" node="attribute"/>
+	    </field>	
+        <field name="bzxzfjjmjfd" type="java.lang.String">
+	       <bind-xml name="BZXZFJJMJFD" node="attribute"/>
+	    </field>	    	    
+        <field name="bzxzftx" type="java.lang.String">
+	       <bind-xml name="BZXZFTX" node="attribute"/>
+	    </field>
+        <field name="bzxzfcsts" type="java.lang.String">
+	       <bind-xml name="BZXZFCSTS" node="attribute"/>
+	    </field>	    	    
+        <field name="bzxzfjjtsfd" type="java.lang.String">
+	       <bind-xml name="BZXZFJJTSFD" node="attribute"/>
+	    </field>
+        <field name="editDate" type="java.lang.String">
+	       <bind-xml name="EDIT_DATE" node="attribute"/>
+	    </field>	    	    
+        <field name="createDate" type="java.lang.String">
+	       <bind-xml name="CREATE_DATE" node="attribute"/>
+	    </field>
+        <field name="sffb" type="java.lang.String">
+	       <bind-xml name="SFFB" node="attribute"/>
+	    </field>	    	    
+        <field name="jyzt" type="java.lang.String">
+	       <bind-xml name="JYZT" node="attribute"/>
+	    </field>
+        <field name="resourcelb" type="java.lang.String">
+	       <bind-xml name="RESOURCELB" node="attribute"/>
+	    </field>	    	    
+        <field name="sfydj" type="java.lang.String">
+	       <bind-xml name="SFYDJ" node="attribute"/>
+	    </field>
+        <field name="sfwsjy" type="java.lang.String">
+	       <bind-xml name="SFWSJY" node="attribute"/>
+	    </field>
+        <field name="cubagePercent" type="java.lang.String">
+	       <bind-xml name="CUBAGE_PERCENT" node="attribute"/>
+	    </field>	    
+	    <field name="greenbeltPercent" type="java.lang.String">
+	       <bind-xml name="GREENBELT_PERCENT" node="attribute"/>
+	    </field>
+        <field name="siteCoverage" type="java.lang.String">
+	       <bind-xml name="SITE_COVERAGE" node="attribute"/>
+	    </field>		
+	 </class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

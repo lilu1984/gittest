@@ -1,0 +1,146 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscApp" 
+    table="TDSC_APP"
+>
+
+    <id
+        name="tdscAppId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TDSC_APP_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="appType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_TYPE"
+        length="2"
+    />
+    <property
+        name="transferMode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRANSFER_MODE"
+        length="10"
+    />
+    <property
+        name="appDate"
+        type="java.sql.Timestamp"
+        column="APP_DATE"
+        length="20"
+    />
+    <property
+        name="appOrgan"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ORGAN"
+        length="10"
+    />
+    <property
+        name="appPersonId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_PERSON_ID"
+        length="10"
+    />
+    <property
+        name="appPerson"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_PERSON"
+        length="50"
+    />
+    <property
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+        length="8"
+    />
+    <property
+        name="statusId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STATUS_ID"
+        length="8"
+    />
+    <property
+        name="nodeDate"
+        type="java.sql.Timestamp"
+        column="NODE_DATE"
+        length="20"
+    />
+    <property
+        name="statusDate"
+        type="java.sql.Timestamp"
+        column="STATUS_DATE"
+        length="20"
+    />
+    <property
+        name="appResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_RESULT"
+        length="2"
+    />
+    <property
+        name="lastActnOrgan"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAST_ACTN_ORGAN"
+        length="10"
+    />
+    <property
+        name="lastActnUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAST_ACTN_USER_ID"
+        length="10"
+    />
+    <property
+        name="lastActnUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAST_ACTN_USER"
+        length="50"
+    />
+    <property
+        name="currActnOrgan"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CURR_ACTN_ORGAN"
+        length="10"
+    />
+    <property
+        name="currActnUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CURR_ACTN_USER_ID"
+        length="10"
+    />
+    <property
+        name="currActnUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CURR_ACTN_USER"
+        length="50"
+    />
+    <property
+        name="assignUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ASSIGN_USER_ID"
+        length="10"
+    />
+    <property
+        name="assignUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ASSIGN_USER"
+        length="50"
+    />
+	<property
+        name="pushMonitorEnd"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUSH_MONITOR_END"
+        length="1"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

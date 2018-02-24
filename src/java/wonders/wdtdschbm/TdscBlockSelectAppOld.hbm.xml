@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockSelectAppOld" 
+    table="TDSC_BLOCK_SELECT_APP_OLD"
+>
+
+    <id
+        name="selectId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="blockId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_ID"
+        length="64"
+    />
+    <property
+        name="selectType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_TYPE"
+        length="10"
+    />
+    <property
+        name="selectStage"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_STAGE"
+        length="10"
+    />
+    <property
+        name="selectUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_USER"
+        length="300"
+    />
+    <property
+        name="selectDate"
+        type="java.sql.Date"
+        column="SELECT_DATE"
+        length="7"
+    />
+    <property
+        name="selectedId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECTED_ID"
+        length="100"
+    />
+    <property
+        name="selectedName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECTED_NAME"
+        length="400"
+    />
+    <property
+        name="selectedLink"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECTED_LINK"
+        length="400"
+    />
+    <property
+        name="isPresent"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_PRESENT"
+        length="2"
+    />
+    <property
+        name="candidate"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CANDIDATE"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

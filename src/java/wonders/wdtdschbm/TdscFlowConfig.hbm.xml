@@ -1,0 +1,123 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscFlowConfig" 
+    table="TDSC_FLOW_CONFIG"
+>
+
+    <id
+        name="id"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="flowId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FLOW_ID"
+        length="8"
+    />
+    <property
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+        length="8"
+    />
+    <property
+        name="transferMode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRANSFER_MODE"
+        length="2"
+    />
+    <property
+        name="nodeName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_NAME"
+        length="50"
+    />
+    <property
+        name="plusCondition"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PLUS_CONDITION"
+        length="500"
+    />
+    <property
+        name="isStartNode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_START_NODE"
+        length="1"
+    />
+    <property
+        name="postNode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="POST_NODE"
+        length="50"
+    />
+    <property
+        name="nodeInitType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_INIT_TYPE"
+        length="2"
+    />
+    <property
+        name="closeType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CLOSE_TYPE"
+        length="2"
+    />
+    <property
+        name="closeCondition"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CLOSE_CONDITION"
+        length="500"
+    />
+    <property
+        name="hasSubFlow"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HAS_SUB_FLOW"
+        length="1"
+    />
+    <property
+        name="subFlowStandId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SUB_FLOW_STAND_ID"
+        length="50"
+    />
+    <property
+        name="startScheduleCol"
+        type="com.wonders.esframework.common.type.AppString"
+        column="START_SCHEDULE_COL"
+        length="100"
+    />
+    <property
+        name="startScheduleInfoType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="START_SCHEDULE_INFO_TYPE"
+        length="2"
+    />
+    <property
+        name="endScheduleCol"
+        type="com.wonders.esframework.common.type.AppString"
+        column="END_SCHEDULE_COL"
+        length="100"
+    />
+    <property
+        name="endScheduleInfoType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="END_SCHEDULE_INFO_TYPE"
+        length="2"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

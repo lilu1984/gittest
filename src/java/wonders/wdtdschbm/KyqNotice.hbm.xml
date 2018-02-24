@@ -1,0 +1,145 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.kyq.bo.KyqNotice" 
+    table="JY_NOTICE"
+>
+
+    <id
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="noticeNumber"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_NUMBER"
+        length="100"
+    />
+   <property
+        name="transferMode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRANSFER_MODE"
+        length="10"
+    />
+    <property
+        name="linkManName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LINK_MAN_NAME"
+        length="50"
+    />
+    <property
+        name="accAppStatDate"
+        type="java.sql.Timestamp"
+        column="ACC_APP_STAT_DATE"
+        length="20"
+    />
+    <property
+        name="accAppEndDate"
+        type="java.sql.Timestamp"
+        column="ACC_APP_END_DATE"
+        length="20"
+    />
+     <property
+        name="listStartDate"
+        type="java.sql.Timestamp"
+        column="LIST_START_DATE"
+        length="20"
+    />
+     <property
+        name="listEndDate"
+        type="java.sql.Timestamp"
+        column="LIST_END_DATE"
+        length="20"
+    />
+    <property
+        name="sceBidDate"
+        type="java.sql.Timestamp"
+        column="SCE_BID_DATE"
+        length="20"
+    />
+    <property
+        name="resultShowDate"
+        type="java.sql.Timestamp"
+        column="RESULT_SHOW_DATE"
+        length="20"
+    />
+     
+     <property
+        name="marginEndDate"
+        type="java.sql.Timestamp"
+        column="MARGIN_END_TIME"
+        length="20"
+    />
+    <property
+        name="status"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STATUS"
+        length="4"
+    />
+    <property
+        name="noticePublishDate"
+        type="java.sql.Timestamp"
+        column="NOTICE_PUBLISH_DATE"
+        length="20"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORD_ID"
+        length="64"
+    />
+    <property
+        name="onLineStatDate"
+        type="java.sql.Timestamp"
+        column="ON_LINE_STAT_DATE"
+        length="20"
+    />
+    <property
+        name="onLineEndDate"
+        type="java.sql.Timestamp"
+        column="ON_LINE_END_DATE"
+        length="20"
+    />
+    <property
+        name="ifOnLine"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_ON_LINE"
+        length="4"
+    />
+    <property
+        name="ifReleased"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_RELEASED"
+        length="1"
+    />
+    <property
+        name="statusDate"
+        type="java.sql.Timestamp"
+        column="STATUS_DATE"
+        length="20"
+    />
+    <property
+        name="ifResultPublish"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_RESULT_PUBLISH"
+        length="1"
+    />
+    <property
+        name="resultRecordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_RECORD_ID"
+        length="64"
+    />
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

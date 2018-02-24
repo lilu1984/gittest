@@ -1,0 +1,80 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscAuctionApp" 
+    table="TDSC_AUCTION_APP"
+>
+
+    <id
+        name="auctionAppId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="AUCTION_APP_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="auctionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="AUCTION_ID"
+        length="64"
+    />
+    <property
+        name="auctionSer"
+        type="java.math.BigDecimal"
+        column="AUCTION_SER"
+        length="20"
+    />
+    <property
+        name="conNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CON_NUM"
+        length="100"
+    />
+    <property
+        name="addRange"
+        type="java.math.BigDecimal"
+        column="ADD_RANGE"
+        length="20"
+    />
+    <property
+        name="addPrice"
+        type="java.math.BigDecimal"
+        column="ADD_PRICE"
+        length="20"
+    />
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="auctionDate"
+        type="java.sql.Timestamp"
+        column="AUCTION_DATE"
+        length="20"
+    />
+    <property
+        name="totalPrice"
+        type="java.math.BigDecimal"
+        column="TOTAL_PRICE"
+        length="20"
+    />
+    <property
+        name="haoPai"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HAOPAI"
+        length="5"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

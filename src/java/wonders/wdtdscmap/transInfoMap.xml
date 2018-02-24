@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tdsc.bo.BlockTransInfo">
+        <map-to xml="root"/>
+        <field name="noticeNo" type="java.lang.String">
+	    	<bind-xml name="noticeNo" node="element"/>
+	    </field>
+	    <field name="totalICountPerson" type="java.lang.String">
+	            <bind-xml name="totalICountPerson" node="element"/>
+	    </field>
+		<field name="totalCountPerson" type="java.lang.String">
+	            <bind-xml name="totalCountPerson" node="element"/>
+	    </field>
+	    <field name="list" type="com.wonders.tdsc.bo.TransInfo" collection="collection">
+        	<bind-xml name="transinfo"/>
+        </field> 
+    </class>
+    <class name="com.wonders.tdsc.bo.TransInfo"> 
+        <field name="blockNoticeNo" type="java.lang.String">
+	            <bind-xml name="blockNoticeNo" node="element"/>
+	    </field>
+	    <field name="transferMode" type="java.lang.String">
+	            <bind-xml name="transMode" node="element"/>
+	    </field>
+		<field name="iCountPerson" type="java.lang.String">
+	            <bind-xml name="iCountPerson" node="element"/>
+	    </field>
+		<field name="countPerson" type="java.lang.String">
+	            <bind-xml name="countPerson" node="element"/>
+	    </field>
+        <field name="currPrice" type="java.lang.String">
+            <bind-xml name="currPrice" node="element"/>
+        </field>
+        <field name="listDate" type="java.lang.String">
+            <bind-xml name="listDate" node="element"/>
+        </field>
+    </class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

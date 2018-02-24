@@ -1,0 +1,51 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockFileApp" 
+    table="TDSC_BLOCK_FILE_APP"
+>
+
+    <id
+        name="fileId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="fileDate"
+        type="java.sql.Date"
+        column="FILE_DATE"
+        length="7"
+    />
+    <property
+        name="filePerson"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_PERSON"
+        length="300"
+    />
+    <property
+        name="fileUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_URL"
+        length="100"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

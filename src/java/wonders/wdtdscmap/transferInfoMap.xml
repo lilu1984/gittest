@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tdsc.bo.TdscBlockInfo">
+	<map-to xml="tranInfo"/>
+		<field name="auditedNum" type="java.lang.String">
+	            <bind-xml name="auditedNum" node="element"/>
+	    </field>
+		<field name="resultPrice" type="java.lang.String">
+	            <bind-xml name="resultPrice" node="element"/>
+	    </field>
+		<field name="resultDate" type="java.sql.Date">
+	            <bind-xml name="resultDate" node="element"/>
+	    </field>
+		<field name="marginAmount" type="java.lang.Double">
+	            <bind-xml name="marginAmount" node="element"/>
+	    </field>
+		<field name="supplyName" type="java.lang.String">
+	            <bind-xml name="supplyName" node="element"/>
+	    </field>
+		<field name="linkMan" type="java.lang.String">
+	            <bind-xml name="linkMan" node="element"/>
+	    </field>
+		<field name="linkManTel" type="java.lang.String">
+	            <bind-xml name="linkManTel" node="element"/>
+	    </field>
+		<field name="landName" type="java.lang.String">
+	            <bind-xml name="landName" node="element"/>
+	    </field>
+		<field name="blockNoticeNo" type="java.lang.String">
+	            <bind-xml name="blockNoticeNo" node="element"/>
+	    </field>
+		<field name="district" type="java.lang.String">
+	            <bind-xml name="district" node="element"/>
+	    </field>
+		<field name="transferMode" type="java.lang.String">
+	            <bind-xml name="transferMode" node="element"/>
+	    </field>
+		<field name="volumeRate" type="java.lang.String">
+	            <bind-xml name="volumeRate" node="element"/>
+	    </field>
+		<field name="greeningRate" type="java.lang.String">
+	            <bind-xml name="greeningRate" node="element"/>
+	    </field>
+		<field name="fourSide" type="java.lang.String">
+	            <bind-xml name="fourSide" node="element"/>
+	    </field>
+		<field name="bidderType" type="java.lang.String">
+	            <bind-xml name="bidderType" node="element"/>
+	    </field>
+	    <!-- 
+		<field name="bidderType" type="java.lang.String">
+	            <bind-xml name="bidderType" node="element"/>
+	    </field>
+	     -->
+	     <field name="bidderList" type="com.wonder.tdsc.bo.TdscBidderPersonApp" collection="arraylist">
+	            <bind-xml name="bidder" node="attribute"/>
+	     </field>
+	     
+	</class>
+	<class name="bidder">
+		<field name="bidderName" type="java.lang.String">
+		       <bind-xml name="bidderName" node="element"/>
+		</field>	 
+		<field name="bidderProperty" type="java.lang.String">
+		       <bind-xml name="bidderProperty" node="element"/>
+		</field>	 
+		<field name="corpFr" type="java.lang.String">
+		       <bind-xml name="bidderCorpFr" node="element"/>
+		</field>	 
+		<field name="bidderLxdh" type="java.lang.String">
+		       <bind-xml name="bidderTel" node="element"/>
+		</field>	 
+		<field name="bidderLxdz" type="java.lang.String">
+		       <bind-xml name="bidderAddr" node="element"/>
+		</field>	 
+	</class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

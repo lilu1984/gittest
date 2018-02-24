@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockPresell" 
+    table="TDSC_BLOCK_PRESELL"
+>
+    <id
+        name="presellId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PRESELL_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="blockName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_NAME"
+        length="100"
+    />
+    <property
+        name="blockNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_NO"
+        length="200"
+    />
+    <property
+        name="landLocation"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAND_LOCATION"
+        length="200"
+    />
+    <property
+        name="landArea"
+        type="java.math.BigDecimal"
+        column="LAND_AREA"
+        length="20"
+    />
+    <property
+        name="landUse"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAND_USE"
+        length="200"
+    />
+    <property
+        name="volumeRate1"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VOLUME_RATE1"
+        length="10"
+    />
+    <property
+        name="volumeRate2"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VOLUME_RATE2"
+        length="10"
+    />
+    <property
+        name="volumeRateSign"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VOLUME_RATE_SIGN"
+        length="10"
+    />
+    <property
+        name="greeningRate"
+        type="com.wonders.esframework.common.type.AppString"
+        column="GREENING_RATE"
+        length="50"
+    />
+    <property
+        name="density"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DENSITY"
+        length="50"
+    />
+    <property
+        name="district"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DISTRICT"
+        length="100"
+    />
+    <property
+        name="available"
+        type="com.wonders.esframework.common.type.AppString"
+        column="AVAILABLE"
+        length="10"
+    />
+    <property
+        name="nominate"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOMINATE"
+        length="10"
+    />
+    <property
+        name="remarks"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REMARKS"
+        length="4000"
+    />
+    <property
+        name="nominateImageId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOMINATE_IMAGE_ID"
+        length="64"
+    />
+        <property name="createTime" type="java.util.Date">
+            <column name="CREATE_TIME" length="7" />
+        </property>
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

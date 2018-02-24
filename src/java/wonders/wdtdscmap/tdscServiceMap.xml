@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+    <class name="com.wonders.tdsc.bo.TdscBlockInfo">
+        <map-to xml="landInfo"/>
+        <field name="auditedNum" type="java.lang.String">
+            <bind-xml name="auditedNum" node="element"/>
+        </field>
+        <field name="blockName" type="java.lang.String">
+            <bind-xml name="landName" node="element"/>
+        </field>
+        <field name="districtId" type="java.lang.Long">
+            <bind-xml name="district" node="element"/>
+        </field>        
+        <field name="auditedDate" type="java.lang.String" handler="com.wonders.tdsc.thirdpart.castor.handler.MyDateHandler" >
+            <bind-xml name="auditedDate" node="element"/>
+        </field>
+        <field name="programAuditedOrg" type="java.lang.String">
+            <bind-xml name="layoutOrg" node="element"/>
+        </field>
+        <field name="programNum" type="java.lang.String">
+            <bind-xml name="layoutDocNum" node="element"/>
+        </field>
+        <field name="planAuditedOrg" type="java.lang.String">
+            <bind-xml name="planOrg" node="element"/>
+        </field>
+        <field name="planNum" type="java.lang.String">
+            <bind-xml name="planDocNum" node="element"/>
+        </field>
+        <field name="reserveFileNum" type="java.lang.String">
+            <bind-xml name="storePlanDocNum" node="element"/>
+        </field>        
+        <field name="landAuditedDoc" type="java.lang.String">
+            <bind-xml name="landAuditedDoc" node="element"/>
+        </field>
+        <field name="supplyCaseDoc" type="java.lang.String">
+            <bind-xml name="supplyCaseDoc" node="element"/>
+        </field>               
+        <field name="usedInfoList" type="com.wonders.tdsc.bo.TdscBlockUsedInfo" collection="collection">
+          <bind-xml name="survey"/>
+        </field>        
+    </class>    
+    <class name="com.wonders.tdsc.bo.TdscBlockUsedInfo">
+        <field name="surveyId" type="java.lang.String">
+            <bind-xml name="surveyId" node="element"/>
+        </field>
+        <field name="reportId" type="java.lang.String">
+            <bind-xml name="reportId" node="element"/>
+        </field>
+        <field name="landUseType" type="java.lang.String">
+            <bind-xml name="landUse" node="element"/>
+        </field>
+        <field name="buildingArea" type="java.math.BigDecimal">
+            <bind-xml name="constructArea" node="element"/>
+        </field>                
+    </class>
+    <class name="com.wonders.tdsc.bo.TdscBlockConInfo">
+        <map-to xml="contractInfo"/>
+        <field name="auditedNum" type="java.lang.String">
+            <bind-xml name="auditedNum" node="element"/>
+        </field>        
+        <field name="contractNum" type="java.lang.String">
+            <bind-xml name="contactNum" node="element"/>
+        </field>
+        <field name="contractSignedDate" type="java.lang.String" handler="com.wonders.tdsc.thirdpart.castor.handler.MyDateHandler" >
+            <bind-xml name="contactDate" node="element"/>
+        </field>
+    </class>
+    <class name="com.wonders.tdsc.bo.TdscBlockTransferInfo">
+        <map-to xml="tranInfo"/>
+        <field name="auditedNum" type="java.lang.String">
+            <bind-xml name="auditedNum" node="element"/>
+        </field>
+        <field name="landName" type="java.lang.String">
+            <bind-xml name="landName" node="element"/>
+        </field>
+        <field name="transferMode" type="java.lang.String">
+            <bind-xml name="transferMode" node="element"/>
+        </field>
+        <field name="blockNoticeNo" type="java.lang.String">
+            <bind-xml name="blockNoticeNo" node="element"/>
+        </field>        
+		<field name="specialPromise" type="java.lang.String">
+            <bind-xml name="specialPromise" node="element"/>
+        </field>
+        <field name="greeningRate" type="java.lang.String">
+            <bind-xml name="greeningRate" node="element"/>
+        </field>
+        <field name="fourSide" type="java.lang.String">
+            <bind-xml name="fourSide" node="element"/>
+        </field>
+        <field name="volumeRate" type="java.lang.String">
+            <bind-xml name="volumeRate" node="element"/>
+        </field>
+        <field name="transferLife" type="java.lang.String">
+            <bind-xml name="transferLife" node="element"/>
+        </field>
+        <field name="landUseType" type="java.lang.String">
+            <bind-xml name="landUseType" node="element"/>
+        </field>
+        <field name="totalLandArea" type="java.math.BigDecimal">
+            <bind-xml name="landArea" node="element"/>
+        </field>     
+        <field name="resultPrice" type="java.lang.Double">
+            <bind-xml name="resultPrice" node="element"/>
+        </field>
+        <field name="resultDate" type="java.lang.String" handler="com.wonders.tdsc.thirdpart.castor.handler.MyDateHandler" >
+            <bind-xml name="resultDate" node="element"/>
+        </field>
+        <field name="resultDoc" type="java.lang.String">
+            <bind-xml name="resultDoc" node="element"/>
+        </field>          
+        <field name="blockPartList" type="com.wonders.tdsc.bo.TdscBlockPart" collection="collection">
+          <bind-xml name="blockPart"/>
+        </field>
+        <field name="bidderList" type="com.wonders.tdsc.bo.TdscBidderPersonApp" collection="collection">
+          <bind-xml name="bidder"/>
+        </field>                
+    </class>
+    <class name="com.wonders.tdsc.bo.TdscBlockPart">
+        <field name="blockName" type="java.lang.String">
+            <bind-xml name="blockName" node="element"/>
+        </field>                 
+        <field name="volumeRate" type="java.lang.String">
+            <bind-xml name="volumeRate" node="element"/>
+        </field>
+        <field name="transferLife" type="java.lang.String">
+            <bind-xml name="transferLife" node="element"/>
+        </field>
+        <field name="landUseType" type="java.lang.String">
+            <bind-xml name="landUseType" node="element"/>
+        </field>
+        <field name="totalLandArea" type="java.math.BigDecimal">
+            <bind-xml name="landArea" node="element"/>
+        </field> 
+    </class>  
+    <class name="com.wonders.tdsc.bo.TdscBidderPersonApp">
+        <field name="bidderName" type="java.lang.String">
+            <bind-xml name="bidderName" node="element"/>
+        </field> 
+        <field name="bidderPropertyName" type="java.lang.String">
+            <bind-xml name="bidderProperty" node="element"/>
+        </field>
+        <field name="corpFr" type="java.lang.String">
+            <bind-xml name="bidderCorpFr" node="element"/>
+        </field>
+        <field name="bidderLxdz" type="java.lang.String">
+            <bind-xml name="bidderAddr" node="element"/>
+        </field>
+        <field name="bidderLxdh" type="java.lang.String">
+            <bind-xml name="bidderTel" node="element"/>
+        </field>
+        <field name="bidderYzbm" type="java.lang.String">
+            <bind-xml name="bidderYzbm" node="element"/>
+        </field>
+    </class>  
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

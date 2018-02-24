@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscFileSaleInfo" 
+    table="TDSC_FILE_SALE_INFO"
+>
+    <id
+        name="fileSaleId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_SALE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+    <property
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+        length="64"
+    />
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="bidderName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_NAME"
+        length="200"
+    />
+    <property
+        name="bidderLxdz"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_LXDZ"
+        length="200"
+    />
+    <property
+        name="resultName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_NAME"
+        length="200"
+    />
+    <property
+        name="actionDate"
+        type="java.sql.Timestamp"
+        column="ACTION_DATE"
+        length="20"
+    />
+    <property
+        name="bidderLxdh"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_LXDH"
+        length="100"
+    />
+    <property
+        name="bidderYzbm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_YZBM"
+        length="20"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORD_ID"
+        length="16"
+    />
+    <property
+        name="actionUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_USER"
+        length="50"
+    />
+    <property
+        name="ifValidity"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_VALIDITY"
+        length="1"
+    />
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

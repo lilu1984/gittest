@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscFaqInfo" 
+    table="TDSC_FAQ_INFO"
+>
+
+    <id
+        name="faqId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FAQ_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="questionSer"
+        type="java.math.BigDecimal"
+        column="QUESTION_SER"
+        length="20"
+    />
+    <property
+        name="keyWord"
+        type="com.wonders.esframework.common.type.AppString"
+        column="KEY_WORD"
+        length="300"
+    />
+    <property
+        name="answerUnit"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ANSWER_UNIT"
+        length="300"
+    />
+    <property
+        name="content"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CONTENT"
+        length="1000"
+    />
+    <property
+        name="askPerson"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ASK_PERSON"
+        length="400"
+    />
+    <property
+        name="askDate"
+        type="java.sql.Date"
+        column="ASK_DATE"
+        length="7"
+    />
+    <property
+        name="askTel"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ASK_TEL"
+        length="200"
+    />
+    <property
+        name="soluType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SOLU_TYPE"
+        length="10"
+    />
+    <property
+        name="answer"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ANSWER"
+        length="1000"
+    />
+    <property
+        name="answerPerson"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ANSWER_PERSON"
+        length="400"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

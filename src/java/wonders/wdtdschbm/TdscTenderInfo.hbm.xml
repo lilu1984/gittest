@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscTenderInfo" 
+    table="TDSC_TENDER_INFO"
+>
+
+    <id
+        name="tenderId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="tenderType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_TYPE"
+        length="10"
+    />
+	
+	<property
+        name="tenderResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_RESULT"
+        length="10"
+    />
+    
+    <property
+        name="tenderCertNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_CERT_NO"
+        length="20"
+    />
+    
+    <property
+        name="tenderScore"
+        type="java.math.BigDecimal"
+        column="TENDER_SCORE"
+        length="7"
+    />
+    
+    <property
+        name="tenderResultTime"
+        type="java.sql.Timestamp"
+        column="TENDER_RESULT_TIME"
+        length="7"
+    />
+    
+    <property
+        name="tenderFailedReason"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_FAILED_REASON"
+        length="10"
+    />
+    
+    <property
+        name="tenderFailedMemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_FAILED_MEMO"
+        length="500"
+    />
+    
+    <property
+        name="tenderNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_NO"
+        length="10"
+    />
+    <property
+        name="resultPrice"
+        type="java.math.BigDecimal"
+        column="RESULT_PRICE"
+        length="20"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

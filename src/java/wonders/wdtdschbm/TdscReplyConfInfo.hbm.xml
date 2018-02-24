@@ -1,0 +1,69 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscReplyConfInfo" 
+    table="TDSC_REPLY_CONF_INFO"
+>
+
+    <id
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="confStat"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CONF_STAT"
+        length="500"
+    />
+    <property
+        name="questionNum"
+        type="java.math.BigDecimal"
+        column="QUESTION_NUM"
+        length="20"
+    />
+    <property
+        name="answerUnit"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ANSWER_UNIT"
+        length="500"
+    />
+    <property
+        name="faqUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FAQ_URL"
+        length="100"
+    />
+
+    <property
+        name="ifPublish"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_PUBLISH"
+        length="1"
+    />
+    <property 
+        name="publishDate" 
+        column="PUBLISH_DATE" 
+        type="java.sql.Date"
+        length="7"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

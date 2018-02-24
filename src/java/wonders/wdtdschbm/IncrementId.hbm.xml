@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="com.wonders.esframework.id.bo.IncrementId" 
+    table="TDSC_ES_INCREMENT_ID"
+>
+
+    <id
+        name="idName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID_NAME"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="currentValue"
+        type="long"
+        column="CURRENT_VALUE"
+        not-null="true"
+        length="18"
+    />
+    <property
+        name="idDesc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID_DESC"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

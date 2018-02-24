@@ -1,0 +1,111 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscOpnn" 
+    table="TDSC_OPNN"
+>
+
+    <id
+        name="tdscOpnnId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TDSC_OPNN_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="actionNum"
+        type="java.math.BigDecimal"
+        column="ACTION_NUM"
+        length="20"
+    />
+    <property
+        name="actionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_ID"
+        length="8"
+    />
+    <property
+        name="actionOrgan"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_ORGAN"
+        length="10"
+    />
+    <property
+        name="actionUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_USER_ID"
+        length="10"
+    />
+    <property
+        name="actionUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_USER"
+        length="50"
+    />
+    <property
+        name="actionDate"
+        type="java.sql.Timestamp"
+        column="ACTION_DATE"
+        length="20"
+    />
+    <property
+        name="resultId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_ID"
+        length="8"
+    />
+    <property
+        name="resultName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_NAME"
+        length="300"
+    />
+    <property
+        name="textOpen"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TEXT_OPEN"
+        length="500"
+    />
+    <property
+        name="firstDate"
+        type="java.sql.Timestamp"
+        column="FIRST_DATE"
+        length="20"
+    />
+    <property
+        name="accDate"
+        type="java.sql.Timestamp"
+        column="ACC_DATE"
+        length="20"
+    />
+    <property
+        name="isOpt"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_OPT"
+        length="2"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

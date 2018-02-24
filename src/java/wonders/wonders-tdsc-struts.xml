@@ -1,0 +1,768 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Data Source Configuration =============================== -->
+    <data-sources />
+
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans>
+        <form-bean name="nullForm" type="com.wonders.esframework.common.web.NullForm" />
+        <form-bean name="taskPlanForm" type="com.wonders.tdsc.scheduler.web.form.TaskPlanForm" />
+        <form-bean name="tdscBidderForm" type="com.wonders.tdsc.bidder.web.form.TdscBidderForm" />
+        <form-bean name="blockInfoForm" type="com.wonders.tdsc.blockwork.web.form.TdscBlockForm" />
+        <form-bean name="previewInfoForm" type="com.wonders.tdsc.blockwork.web.form.PreviewInfoForm" />
+        <form-bean name="tdscFileForm" type="com.wonders.tdsc.blockwork.web.form.TdscFileForm" />
+        <form-bean name="tdscNoticeForm" type="com.wonders.tdsc.blockwork.web.form.TdscNoticeForm" />
+        <form-bean name="answerInfoForm" type="com.wonders.tdsc.blockwork.web.form.AnswerInfoForm" />
+        <form-bean name="tdscFileSaleInfoForm" type="com.wonders.tdsc.blockwork.web.form.TdscFileSaleInfoForm" />
+        <form-bean name="scheduletableInfoForm" type="com.wonders.tdsc.blockwork.web.form.ScheduletableInfoForm" /> 
+        <form-bean name="addInviteForm" type="com.wonders.tdsc.localtrade.web.form.AddInviteForm" />
+        <form-bean name="noticePublishForm" type="com.wonders.tdsc.publishinfo.web.form.NoticePublishForm" />
+        <form-bean name="recordAndResultForm" type="com.wonders.tdsc.publishinfo.web.form.RecordAndResultForm" />        
+        <form-bean name="selectSpecialistForm" type="com.wonders.tdsc.randomselect.web.form.SelectSpecialistForm" />
+        <form-bean name="contractInfoForm" type="com.wonders.tdsc.publishinfo.web.form.TdscBlockContractInfoForm" />
+        <form-bean name="localTradeForm" type="com.wonders.tdsc.localtrade.web.form.LocalTradeForm" />
+        <form-bean name="tdscCreditForm" type="com.wonders.tdsc.credit.web.form.TdscCreditForm" />
+        <form-bean name="tdscXbOrgForm" type="com.wonders.tdsc.xborg.web.form.TdscXbOrgForm" />
+        <form-bean name="tdscBlockSolveForm" type="com.wonders.tdsc.solve.web.form.TdscBlockSolveForm" />
+        <form-bean name="tdscTradeStatisticsForm" type="com.wonders.tdsc.stat.web.form.TdscTradeStatisticsForm" />
+        <form-bean name="tdscReturnBailForm" type="com.wonders.tdsc.retbail.web.form.TdscReturnBailForm" />
+        <form-bean name="miningTranAppForm" type="com.wonders.tdsc.kyq.form.MiningTranAppForm" />
+		<form-bean name="tdscBankAppForm" type="com.wonders.tdsc.bank.web.form.TdscBankAppForm" />
+		<form-bean name="tdscBlockPresellForm" type="com.wonders.tdsc.presell.web.form.TdscBlockPresellForm" />
+		<form-bean name="personForm" type="com.wonders.wsjy.web.form.PersonForm" />
+	</form-beans>
+
+
+    <!-- ========== Global Exception Definitions ============================== -->
+    <global-exceptions />
+
+
+    <!-- ========== Global Forward Definitions =============================== -->
+    <global-forwards>
+    	<forward name="tdscCaLogin" path="/wsjy/calogin.jsp" />
+        <forward name="tdscLogin" path="/wsjy/calogin.jsp" />
+        <forward name="tdscError" path="/tdsc/error.jsp" />
+        <forward name="ajaxXml" path="/common/ajax_xml.jsp" />
+        <forward name="caNotLogin" path="/tdsc/caNotLogin.jsp" />
+        <forward name="androidCaLogin" path="/android/commonjsp/android_calogin.jsp"></forward>
+    </global-forwards>
+
+
+    <!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings>
+		<action path="/tdsc/caLogging" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+        </action>
+        <action path="/tdsc/bank/bankLogin" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+        	<forward name="bankLoginSuccess" path="/tdsc/bank/list_bankapp.jsp"/>
+        </action>
+        
+         <action path="/tdsc/bankpay" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="block_list" path="/tdsc/bank/block_list.jsp"/>
+        	<forward name="bidder_list" path="/tdsc/bank/bidder_list.jsp"/>
+        </action>
+        
+        <action path="/tdsc/logging" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="success" path="/tdsc/frame/frame.jsp"/>
+            <forward name="successOut" path="/tdsc/frame/frameOut.jsp"/>
+        </action>
+
+        <action path="/tdsc/menu" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="topMenu" path="/tdsc/frame/topMenu.jsp"/>
+            <forward name="leftMenu" path="/tdsc/frame/leftMenu.jsp"/>
+        </action>
+
+        <action path="/tdsc/taskPlan" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="taskPlanForm" scope="request" parameter="method">
+            <forward name="taskPlanList" path="/tdsc/scheduler/scheduler_list.jsp"/>
+            <forward name="taskPlan" path="/tdsc/scheduler/scheduler.jsp"/>
+            <forward name="seccess" path="/tdsc/taskPlan.do?method=toMonitor"/>
+        </action>
+
+        <action path="/tdsc/bidderMaterial" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBidderForm" scope="request" parameter="method">
+            <forward name="materialBlockList" path="/tdsc/bidder/ffgl/list_sqclffgl.jsp"/>
+            <forward name="alonePrintDetail" path="/tdsc/bidder/ffgl/print_alone_preview.jsp"/>
+            <forward name="combinePrintDetail" path="/tdsc/bidder/ffgl/print_combine_preview.jsp"/>
+            <forward name="print_ddjm" path="/tdsc/bidder/ffgl/print_ddjm.jsp"/>
+            <forward name="print_lhjm" path="/tdsc/bidder/ffgl/print_lhjm.jsp"/>
+            <forward name="print_iweboffice" path="/tdsc/bidder/ffgl/print_iweboffice.jsp"/>
+        </action>
+
+        <action path="/tdsc/bidderFund" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBidderForm" scope="request" parameter="method">
+            <forward name="fundBlockList" path="/tdsc/bidder/dzgl/list.jsp"/>
+            <forward name="bidderPersonAppList" path="/tdsc/bidder/dzgl/list_dzzjgl.jsp"/>
+            <forward name="tdscbidderDzqkList" path="/tdsc/bidder/dzgl/print_dzqk.jsp"/>
+            <forward name="bidderDzqkAppList" path="/tdsc/bidder/dzgl/list_dzqkck.jsp"/>
+            <forward name="nullList" path="/tdsc/bidder/dzgl/nullList.jsp"/>
+            <forward name="queryJsjg" path="/tdsc/bidder/dzgl/list_jsjg.jsp"/>
+            <forward name="bidderChange" path="/tdsc/bidder/dzgl/list_bidchange.jsp"/>
+            <forward name="modifyRwqkByPerson" path="/tdsc/bidderFund.do?method=query"/>
+        </action>
+
+        <action path="/tdsc/bidderApp" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBidderForm" scope="request" parameter="method">
+            <forward name="bidderAppList" path="/tdsc/bidder/sqsl/list_sqsl.jsp"/>
+            <forward name="bidderPersonAppList" path="/tdsc/bidder/sqsl/list_lhjm.jsp"/>
+            <forward name="addBidderLhjm" path="/tdsc/bidder/sqsl/info.jsp"/>
+            <forward name="bidderGlList" path="/tdsc/bidder/sqsl/list_jmrgl.jsp"/>
+            <forward name="bidderList" path="/tdsc/bidder/sqsl/info_jmrgl.jsp"/>        
+            <forward name="bginfosqrjsp" path="/tdsc/bidder/sqsl/bg_info_sqr.jsp"/>
+            <forward name="toAddBidPerPage" path="/tdsc/bidder/sqsl/bidder_info.jsp"/>
+            <forward name="saveJmrInfoOK" path="/tdsc/bidder/sqsl/bidder_info.jsp"/>
+            <forward name="toListBiddersPage" path="/tdsc/bidder/sqsl/bidder_list.jsp"/>
+            <forward name="toModBidder" path="/tdsc/bidder/sqsl/bidder_info.jsp"/>
+            <forward name="bidderSelectNumPage" path="/tdsc/bidder/sqsl/all_number.jsp"/>
+            
+            <forward name="toPrintBidderZGZS" path="/tdsc/bidder/print/list_bidders_zgzs.jsp"/>
+            <forward name="printBidderedPersonList" path="/tdsc/bidder/print/bidders_linkman_info.jsp"/>
+            <forward name="toPrintSalesConfirmationPage" path="/tdsc/bidder/print/sales_confirmation_list.jsp"/>
+            
+            <forward name="addUnionBidderPage" path="/tdsc/bidder/sqsl/info_sqr.jsp"/>
+            <forward name="queryOneOfUnionBidPer" path="/tdsc/bidder/sqsl/update_onofunion.jsp"/>
+            <forward name="lianHejingMai" path="/tdsc/bidder/sqsl/info_modlhjm.jsp"/>
+            <forward name="danDuJingMai" path="/tdsc/bidder/sqsl/info_modddjm.jsp"/>     
+            <forward name="changeCard" path="/tdsc/bidder/sqsl/info_changecard.jsp"/>  
+            <forward name="changeCard1" path="/tdsc/bidder/sqsl/info_changecard1.jsp"/>     
+            <forward name="yktMmError" path="/tdsc/bidder/sqsl/yktmm_error.jsp"/>
+            <forward name="printGyReceipt" path="/tdsc/bidder/sqsl/print_gyyd.jsp"/>     
+            <forward name="printGyLhjmReceipt" path="/tdsc/bidder/sqsl/print_jyxyd.jsp"/>                       
+            <forward name="nullListjsp" path="/tdsc/bidder/sqsl/nullList.jsp"/> 
+            <forward name="bidderQueryScOrgList" path="/tdsc/bidder/sqsl/scOrgList.jsp"/>
+            <forward name="daochudwInfo" path="/tdsc/bidder/sqsl/jmdwInfo_excal.jsp"/>
+            <forward name="printbzj" path="/tdsc/bidder/sqsl/print_bzj.jsp"/>
+            <forward name="reviewResultList" path="/tdsc/bidder/scjg/reviewResultlist.jsp"/>
+            <forward name="reviewResultInfo" path="/tdsc/bidder/scjg/reviewResultInfo.jsp"/>
+            <forward name="existBidderPersonList" path="/tdsc/bidder/sqsl/list_existJmrgl.jsp"/>
+            <forward name="existddjmr" path="/tdsc/bidder/sqsl/info_existddjm.jsp"/>
+            <forward name="existlhjmr" path="/tdsc/bidder/sqsl/info_existlhjm.jsp"/>
+            <forward name="jmrNoticeList" path="/tdsc/bidder/sqsl/list_jmr_notice.jsp"/>
+            <forward name="printJmzgqrs" path="/tdsc/bidder/sqsl/print_jmzgqrs.jsp"/>
+            <forward name="flapperResultInfo" path="/tdsc/bidder/print/list_flapper.jsp"/>
+            <forward name="printFlapperTbl" path="/tdsc/bidder/print/flapper_info.jsp"/>
+            <forward name="applyResultInfo" path="/tdsc/bidder/print/list_apply.jsp"/>
+            <forward name="printApplyTbl" path="/tdsc/bidder/print/apply_info.jsp"/>
+            <forward name="printApplyDetailTbl" path="/tdsc/bidder/print/apply_detail_info.jsp"/>
+            <forward name="printLianXiRenTbl" path="/tdsc/bidder/print/bidders_lianxi_info.jsp"/>
+            <forward name="printJingDeRenTbl" path="/tdsc/bidder/print/bidders_jingde_info.jsp"/>
+            <forward name="printZhuChiCiTbl" path="/tdsc/bidder/print/print_zhuchici_info.jsp"/>
+            <forward name="printKaiCCiTbl" path="/tdsc/bidder/print/print_kaicchi_info.jsp"/>
+            <forward name="bzjdzqkList" path="/tdsc/bidder/print/list_bzjdzqk.jsp"/>
+            <forward name="bzjdzqk" path="/tdsc/bidder/print/bzjdzqk.jsp"/>
+            <forward name="jyfwfList" path="/tdsc/bidder/print/list_jyfwf.jsp"/>
+            <forward name="jyfwftj" path="/tdsc/bidder/print/jyfwftj.jsp"/>
+            <forward name="tranceResultNoticeList" path="/tdsc/bidder/sqsl/list_jyfwfjn.jsp"/>
+            <forward name="toRegisterCost" path="/tdsc/bidder/sqsl/jyfwfjn.jsp"/>
+            <forward name="dzzhpgftj" path="/tdsc/bidder/print/dzzhpgftj.jsp"/>            
+        </action>
+
+ 		<action path="/tdsc/vendue" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="localTradeForm" scope="request" parameter="method">
+            <forward name="queryBlockList" path="/tdsc/localtrade/list_block.jsp"/>
+            <forward name="queryNoticeList" path="/tdsc/localtrade/list_notice.jsp"/>
+            <forward name="takeVendueCardsBidderList" path="/tdsc/localtrade/vendue_cards_list.jsp"/>
+            <forward name="toAddVendueCard" path="/tdsc/localtrade/qd_addcards.jsp"/>
+            <forward name="updateVendueCard" path="/tdsc/localtrade/qd_updatecards.jsp"/>
+            <forward name="toAddVendueResult" path="/tdsc/localtrade/to_add_vendue_result.jsp"/>
+            <forward name="addVendueResult" path="/tdsc/localtrade/detail_vendue_result.jsp"/>
+            <forward name="toListingInfo" path="/tdsc/localtrade/list_manager.jsp"/>
+            <forward name="toAddVendueProcess" path="/tdsc/localtrade/info_vendue_process.jsp"/>            
+            <forward name="toAddMiFengProcess" path="/tdsc/localtrade/info_MiFeng_process.jsp"/>
+            <forward name="toAddInviteProcess" path="/tdsc/localtrade/info_invite_process.jsp"/> 
+            <forward name="displayPrintButtonVendue" path="/tdsc/localtrade/detail_vendue_result.jsp"/>
+            <forward name="saveVendueResult" path="/tdsc/localtrade/save_vendue_result.jsp"/> 
+            <forward name="displayPrintResult" path="/tdsc/localtrade/save_vendue_result.jsp"/>
+            <forward name="toPrintInfoSuccess" path="/tdsc/localtrade/print_trade_success_indus.jsp"/>
+            <forward name="toPrintInfoFailed" path="/tdsc/localtrade/print_trade_failed.jsp"/> 
+            <forward name="addInviteWindow" path="/tdsc/localtrade/info_add_invite.jsp"/>   
+            <forward name="toModifyInvite" path="/tdsc/localtrade/info_add_invite.jsp"/> 
+            <forward name="saveInviteSuccess" path="/tdsc/localtrade/detail_invite_result.jsp"/>   
+            <forward name="saveInviteFailed" path="/tdsc/localtrade/save_invite_result.jsp"/> 
+            <forward name="displayPrintResultInvite" path="/tdsc/localtrade/save_invite_result.jsp"/>
+            <forward name="detailListingResult" path="/tdsc/localtrade/detail_listing_result.jsp"/> 
+            <forward name="toPrintInfoSuccessPMs" path="/tdsc/localtrade/print_trade_success_PMs.jsp"/>
+            <forward name="toPrintInfoSuccessGP" path="/tdsc/localtrade/print_trade_success_GP.jsp"/>            
+            <forward name="toPrintInfoSuccessGPSy" path="/tdsc/localtrade/print_trade_success_GP_sy.jsp"/>
+            <forward name="toPrintInfoSuccessGPSys" path="/tdsc/localtrade/print_trade_success_GP_sys.jsp"/>
+            <forward name="toPrintInfoSuccessZB" path="/tdsc/localtrade/print_trade_success_ZB.jsp"/>
+            <forward name="toPrintInfoFailedZB" path="/tdsc/localtrade/print_trade_failed_ZB.jsp"/>
+            <forward name="toPrintInfoFailedGPPM" path="/tdsc/localtrade/print_trade_failed_GPPM.jsp"/> 
+            <forward name="tradeFailedGP" path="/tdsc/localtrade/save_trade_failed_GP.jsp"/>
+            <forward name="toPrintInfoBack" path="/tdsc/localtrade/print_trade_back.jsp"/>
+            <forward name="toshowLogin" path="/tdsc/localtrade/listing_showLogin.jsp"/>
+            <forward name="checkLogin" path="/tdsc/localtrade/listing_checkLogin.jsp"/>  
+            <forward name="qd_huanpaiList" path="/tdsc/localtrade/qd_huanpai_list.jsp"/> 
+            <forward name="qd_huanpaiList" path="/tdsc/localtrade/qd_huanpai_list.jsp"/>  
+            <forward name="qd_sfyzList" path="/tdsc/localtrade/qd_sfyzList.jsp"/>
+            <forward name="toPrintIwebofficeSuccessFirst" path="/tdsc/localtrade/iweb_trade_success_first.jsp"/>
+            <forward name="printJmrList" path="/tdsc/localtrade/print_jmr_list.jsp"/>
+            <forward name="printLastJmrInfo" path="/tdsc/localtrade/print_last_jmr_info.jsp"/>
+            <forward name="list_jjgcjl_iframe" path="/tdsc/localtrade/list_jjgcjl_iframe.jsp"/>
+            <forward name="viewVendueProcess" path="/tdsc/localtrade/view_vendue_process.jsp"/> 
+            <forward name="view_jjgcjl_iframe" path="/tdsc/localtrade/view_jjgcjl_iframe.jsp"></forward>
+            <forward name="toRefreshVendueResult" path="/tdsc/localtrade/toRefreshVendueResult.jsp"/>
+            <forward name="toPrintGeologicalNotice" path="/tdsc/localtrade/print_geological_notice.jsp"/> 
+        </action>
+        <!--ly-->
+        <action path="/tdsc/printCompetence" type="org.springframework.web.struts.DelegatingActionProxy"
+                scope="request" parameter="method">
+             <forward name="toPrintCompetenceSuccess" path="/tdsc/cardlogin/print_competence_success.jsp"/>
+             <forward name="toPrintCompetenceFailed" path="/tdsc/cardlogin/print_competence_failed.jsp"/>  
+		</action>
+        <action path="/tdsc/listing" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="listingInfoForm" scope="request" parameter="method">
+            <forward name="queryBlockList" path="/tdsc/localtrade/list_block.jsp"/>
+             <forward name="vZjbjList" path="/tdsc/localtrade/view_zjbj_list.jsp"/>
+            <forward name="toListingInfo" path="/tdsc/localtrade/list_manager.jsp"/>
+            <forward name="detailListingResult" path="/tdsc/localtrade/detail_listing_result.jsp"/>
+            <forward name="toAddListingResult" path="/tdsc/localtrade/to_add_listing_result.jsp"/>
+            <forward name="displayPrintButton" path="/tdsc/localtrade/detail_listing_result.jsp"/>
+            <forward name="saveVendueFailedResult" path="/tdsc/localtrade/save_listing_result.jsp"/>
+            <forward name="displayPrintResult" path="/tdsc/localtrade/save_listing_result.jsp"/>
+            <forward name="printScenePrice" path="/tdsc/localtrade/print_scene_quotedPrice.jsp"/>
+            <forward name="addVendueResult" path="/tdsc/localtrade/detail_listing_result.jsp"/>            
+            <forward name="tradeFailedGP" path="/tdsc/localtrade/save_trade_failed_GP.jsp"/>            
+            <forward name="printListingRecord" path="/tdsc/localtrade/print_listingRecord.jsp"/>
+        </action>
+
+        <action path="/tdsc/selectSpecailist" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="selectSpecialistForm" scope="request" parameter="method">
+           <forward name="list" path="/tdsc/randomselect/list_select_specialist.jsp"/>
+           <forward name="queryBlockList" path="/tdsc/randomselect/list_select_index.jsp"/>
+           <forward name="notaryList" path="/tdsc/randomselect/list_select_notarization.jsp"/>
+           <forward name="selectCompere" path="/tdsc/randomselect/list_select_emcee.jsp"/>
+		   <forward name="compereList" path="/tdsc/randomselect/list_select_emcee.jsp"/>
+		   <forward name="queryList" path="/tdsc/randomselect/list_select_firstindex.jsp"/>
+		   <forward name="selectNotary" path="/tdsc/randomselect/list_select_notary.jsp"/>
+		   <forward name="checkCompereInfo" path="/tdsc/randomselect/list_select_checkemcee.jsp"/>
+		   <forward name="success" path="/tdsc/selectSpecailist.do?method=queryBlockList"/>
+		   <forward name="checkNotaryInfo" path="/tdsc/randomselect/list_select_checknotary.jsp"></forward>
+		   <forward name="specialistManage" path="/tdsc/randomselect/list_select_specialistManage.jsp"></forward>
+		   <forward name="changeReplyStatus" path="/tdsc/randomselect/info_changeReplyStatus.jsp"></forward>
+		   <forward name="addSpecailist" path="/tdsc/randomselect/list_select_specialistAdd.jsp"></forward>
+		   <forward name="addSpecailistResult" path="/tdsc/randomselect/list_select_specialistAddResult.jsp"></forward>
+        </action>
+
+        <action path="/tdsc/selfhelp" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+           <forward name="toAddListingPrice" path="/tdsc/selfhelp/info_add_listing_price.jsp"/>
+           <forward name="toSelfhelp" path="/tdsc/selfhelp/info_add_listing_price.jsp"/>
+           <forward name="showHistory" path="/tdsc/selfhelp/list_listing_history.jsp"/>
+           <forward name="toPrintCompetenceSuccess" path="/tdsc/selfhelp/print_competence_success.jsp"/>
+           <forward name="toGPPrintCompetenceSuccess" path="/tdsc/selfhelp/gp_print_competence_success.jsp"/>
+           <forward name="toPMPrintCompetenceSuccess" path="/tdsc/selfhelp/pm_print_competence_success.jsp"/>
+           <forward name="toIwebGPPrintCompetenceSuccess" path="/tdsc/selfhelp/iwebPrint_gp_competence_success.jsp"/>
+           <forward name="toIwebPMPrintCompetenceSuccess" path="/tdsc/selfhelp/iwebPrint_pm_competence_success.jsp"/>
+           <forward name="toPrintCompetenceFailed" path="/tdsc/selfhelp/print_competence_failed.jsp"/>  
+           <forward name="listingindex" path="/tdsc/selfhelp/listing_password.jsp"/> 
+           <forward name="listingindexjs" path="/tdsc/selfhelp/listing_password_js.jsp"/>
+           <forward name="listingIndexJsp" path="/tdsc/cardlogin/listing_index_ht.jsp"/>
+           <forward name="overpass" path="/tdsc/selfhelp/overpass_password.jsp"></forward>       
+           <forward name="infolisting" path="/tdsc/selfhelp/info_listingbidder.jsp"></forward>
+           <forward name="overpassSuccess" path="/tdsc/selfhelp/overpass_success.jsp"></forward>
+           <forward name="overpassFailed" path="/tdsc/selfhelp/overpass_faile.jsp"></forward>
+           <forward name="gpjmhz" path="/tdsc/selfhelp/print_gpjmhz.jsp"></forward>
+           <forward name="checkPriceTwice" path="/tdsc/selfhelp/checkPriceTwice.jsp"></forward>
+           <forward name="showBlockList" path="/tdsc/selfhelp/showBlockList.jsp"></forward>
+           
+           <forward name="selectNum" path="/tdsc/selfhelp/selectNum.jsp"></forward>
+           <forward name="printInitPriceNew" path="/tdsc/selfhelp/printInitPrice.jsp"></forward>           
+        </action>
+        <!-- fanxiaodan -->
+ 		<action path="/tdsc/commonQuery" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="blockInfoForm" scope="request" parameter="method">
+           <forward name="commonQueryGy" path="/tdsc/blockwork/audit/info_common_gy.jsp"/>
+           <forward name="commonQuerySy" path="/tdsc/blockwork/audit/info_common_sy.jsp"/>
+       
+           <forward name="queryDqAppList" path="/tdsc/statistics/latest/list_dq.jsp"/>
+           <forward name="queryZxAppList" path="/tdsc/statistics/Price/list_zx.jsp"/>
+           <forward name="queryLsAppList" path="/tdsc/statistics/history/list_ls.jsp"/> 
+           <forward name="queryListingList" path="/tdsc/statistics/Price/list_lsjg.jsp"/> 
+        </action>
+        <!-- wangzhen -->
+        <action path="/tdsc/blockAudit" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="blockInfoForm" scope="request" parameter="method">
+           <forward name="list" path="/tdsc/blockwork/audit/list.jsp"/>
+           <forward name="listAll" path="/tdsc/blockwork/audit/listAll.jsp"/>
+           <forward name="newList" path="/tdsc/blockwork/audit/list_new.jsp"/>
+           <forward name="fileLink" path="/tdsc/blockwork/audit/fileLink.jsp"/>
+           <forward name="Info" path="/tdsc/blockwork/audit/info.jsp"/>
+           <forward name="IndInfo" path="/tdsc/blockwork/audit/new_info.jsp"/>
+           <forward name="ComInfo" path="/tdsc/blockwork/audit/new_info.jsp"/>           
+           <forward name="SlGy" path="/tdsc/blockwork/audit/info_sl_gy.jsp"/>
+           <forward name="SlSy" path="/tdsc/blockwork/audit/info_sl_sy.jsp"/> 
+           <forward name="ShGy" path="/tdsc/blockwork/audit/info_check_gy.jsp"/> 
+           <forward name="ShSy" path="/tdsc/blockwork/audit/info_check_sy.jsp"/>                   
+           <forward name="IndBackUpdate" path="/tdsc/blockwork/audit/info_bu_gy.jsp"/>
+           <forward name="ComBackUpdate" path="/tdsc/blockwork/audit/info_bu_sy.jsp"/>  
+           <forward name="printGy" path="/tdsc/blockwork/audit/gyhz.jsp"/>
+           <forward name="printSy" path="/tdsc/blockwork/audit/syhz.jsp"/>              
+           <forward name="tdscError" path="/tdsc/error.jsp" />
+           <forward name="operateChildblock" path="/tdsc/blockwork/audit/operate_childblock.jsp"/>  
+           <forward name="showBlockPart" path="/tdsc/blockwork/audit/showBlockPart.jsp"/> 
+           <forward name="childBlock" path="/tdsc/blockwork/audit/childblock.jsp"/>   
+           <forward name="updatechildBlock" path="/tdsc/blockwork/audit/update_childblock.jsp"/>
+           <forward name="createNew" path="/tdsc/blockwork/audit/new_info.jsp"/> 
+           <forward name="createApply" path="/tdsc/blockwork/audit/block_info.jsp"/>   
+           <forward name="toApply" path="/tdsc/blockwork/audit/new_apply_info.jsp"/> 
+           <forward name="blockInfoList" path="/tdsc/blockwork/audit/block_info_list.jsp"/>   
+           <forward name="blockInfo" path="/tdsc/blockwork/audit/new_block_info.jsp"/> 
+           <forward name="updateBlockInfo" path="/tdsc/blockwork/audit/update_block_info.jsp"/> 
+                                                                                         
+        </action>
+
+        <!-- wzc 20071113 -->
+        <action path="/tdsc/preview" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="previewInfoForm" scope="request" parameter="method">
+           <forward name="toPrint" path="/tdsc/blockwork/preview/print_sign.jsp"></forward>
+           <forward name="previewInfo" path="/tdsc/blockwork/preview/info_preview.jsp"></forward>
+           <forward name="toTemp" path="/tdsc/blockwork/preview/info_preview.jsp"></forward>
+           <forward name="list" path="/tdsc/blockwork/preview/list.jsp"></forward>
+           <forward name="editReply" path="/tdsc/blockwork/preview/edit_reply.jsp"></forward>
+        </action>
+
+        <!-- wzc 20071119 -->
+        <action path="/tdsc/answer" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="answerInfoForm" scope="request" parameter="method">
+                <forward name="list" path="/tdsc/blockwork/answer/list.jsp"></forward>
+                <forward name="saveInfo" path="/tdsc/blockwork/answer/info_save.jsp"></forward>
+                <forward name="toTempSave" path="/tdsc/blockwork/answer/info_save.jsp"></forward>
+                <forward name="transmitInfo" path="/tdsc/blockwork/answer/info_transmit.jsp"></forward>
+                <forward name="classifyInfo" path="/tdsc/blockwork/answer/info_classify.jsp"></forward>
+                <forward name="toTempClassify" path="/tdsc/blockwork/answer/info_classify.jsp"></forward>
+                <forward name="printClassify" path="/tdsc/blockwork/answer/print_classify.jsp"></forward>
+                <forward name="replyList" path="/tdsc/blockwork/answer/listReply.jsp"></forward>
+                <forward name="replyInfo" path="/tdsc/blockwork/answer/edit_reply.jsp"></forward>
+                <forward name="toTempReply" path="/tdsc/blockwork/answer/edit_reply.jsp"></forward>
+                <forward name="downLoadReply" path="/tdsc/blockwork/answer/downLoadReply.jsp"></forward>
+                <forward name="replyMode" path="/tdsc/blockwork/answer/reply_dyjy.jsp"></forward>
+        </action>
+        
+        <!-- wzc 20071129 -->
+        <action path="/tdsc/scheduletable" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="scheduletableInfoForm" scope="request" parameter="method">
+                <forward name="list" path="/tdsc/blockwork/scheduletable/list.jsp"></forward>
+                <forward name="scheduletablePm" path="/tdsc/blockwork/scheduletable/info_scheduletable_pm.jsp"></forward>
+                <forward name="scheduletableGp" path="/tdsc/blockwork/scheduletable/info_scheduletable_gp.jsp"></forward>
+                <forward name="scheduletableZb" path="/tdsc/blockwork/scheduletable/info_scheduletable_zb.jsp"></forward>
+                <forward name="toSave" path="/tdsc/blockwork/scheduletable/list.htm"></forward>
+                <forward name="tempSavePm" path="/tdsc/blockwork/scheduletable/info_scheduletable_pm.jsp"></forward>
+                <forward name="tempSaveGp" path="/tdsc/blockwork/scheduletable/info_scheduletable_gp.jsp"></forward>
+                <forward name="tempSaveZb" path="/tdsc/blockwork/scheduletable/info_scheduletable_zb.jsp"></forward>
+                <forward name="printPm" path="/tdsc/blockwork/scheduletable/print_pm.jsp"></forward>
+                <forward name="printGp" path="/tdsc/blockwork/scheduletable/print_gp.jsp"></forward>
+                <forward name="printZb" path="/tdsc/blockwork/scheduletable/print_zb.jsp"></forward>
+                <forward name="dateModifyPm" path="/tdsc/blockwork/scheduletable/date_modify_pm.jsp"></forward>
+                <forward name="dateModifyGp" path="/tdsc/blockwork/scheduletable/date_modify_gp.jsp"></forward>
+                <forward name="dateModifyZb" path="/tdsc/blockwork/scheduletable/date_modify_zb.jsp"></forward>
+                <forward name="fieldModifyPm" path="/tdsc/blockwork/scheduletable/field_modify_pm.jsp"></forward>
+                <forward name="fieldModifyGp" path="/tdsc/blockwork/scheduletable/field_modify_gp.jsp"></forward>
+                <forward name="fieldModifyZb" path="/tdsc/blockwork/scheduletable/field_modify_zb.jsp"></forward>
+                <forward name="endTradeAppList" path="/tdsc/blockwork/finality/list_dq.jsp"></forward>
+                <forward name="checkBlockNoticeNo" path="/tdsc/blockwork/finality/check_blockNoticeNo.jsp"></forward>
+                <forward name="todaochuGp" path="/tdsc/blockwork/scheduletable/daochu_gp.jsp"></forward>
+                <forward name="todaochuPm" path="/tdsc/blockwork/scheduletable/daochu_pm.jsp"></forward>
+                <forward name="todaochuZb" path="/tdsc/blockwork/scheduletable/daochu_zb.jsp"></forward>
+                <forward name="businessDayMap" path="/tdsc/blockwork/scheduletable/business_Day.jsp"></forward>
+                <forward name="plantablelist" path="/tdsc/blockwork/scheduletable/plantablelist.jsp"></forward>
+                <forward name="plantable_chayue" path="/tdsc/blockwork/scheduletable/plantable_chayue.jsp"></forward>
+                <forward name="blocklist" path="/tdsc/blockwork/scheduletable/blocklist.jsp"></forward>
+                <forward name="saveIwebPlan" path="/tdsc/blockwork/file/print_plan_word.jsp"></forward>
+        </action>
+
+        <action path="/tdsc/file" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscFileForm" scope="request" parameter="method">
+                
+           <forward name="makeGpIndustryFile" path="/tdsc/blockwork/file/gp_industry_file.jsp"></forward>
+           <forward name="makeGpOperatingFile" path="/tdsc/blockwork/file/edit_file.jsp"></forward>
+           <forward name="list" path="/tdsc/blockwork/file/list.jsp"></forward>
+           <forward name="listnew" path="/tdsc/blockwork/file/list_new.jsp"></forward>
+           <forward name="listnew_chayue" path="/tdsc/blockwork/file/list_new_chayue.jsp"></forward>
+           <forward name="listNewCrwj" path="/tdsc/blockwork/file/list_newCrwj.jsp"></forward>
+           <forward name="shenhe" path="/tdsc/blockwork/file/edit_file_shenhe.jsp"></forward>
+           <forward name="xiugai" path="/tdsc/blockwork/file/edit_file_xiugai.jsp"></forward>
+           <forward name="gyPM" path="/tdsc/blockwork/file/model_gyPM.jsp"></forward>
+           <forward name="jyxGP" path="/tdsc/blockwork/file/model_jyxGP.jsp"></forward>
+           <forward name="gyGP" path="/tdsc/blockwork/file/model_gyGP.jsp"></forward>
+           <forward name="jyxPM" path="/tdsc/blockwork/file/model_jyxPM.jsp"></forward>
+           <forward name="gyZB" path="/tdsc/blockwork/file/model_gyZB.jsp"></forward>
+           <forward name="jyxZB" path="/tdsc/blockwork/file/model_jyxZB.jsp"></forward>
+           <forward name="gobackList" path="/tdsc/file.do?method=queryAppListWithNodeId"></forward>  
+           <forward name="tuihuixiugai" path="/tdsc/blockwork/file/edit_file_tuihui.jsp"></forward>
+           <forward name="upLoadfilePage" path="/tdsc/blockwork/file/edit_uploadNotice.jsp"></forward>
+           <forward name="upLoadfileshenhe" path="/tdsc/blockwork/file/edit_uploadNotice_shenhe.jsp"></forward>
+           <forward name="successSave" path="/tdsc/file.do?method=queryAppListWithNodeId"></forward>
+           <forward name="bianji" path="/tdsc/blockwork/file/info_bjgg.jsp"></forward>
+           <forward name="editNotice" path="/tdsc/blockwork/file/info_editNotice.jsp"></forward>
+           <forward name="noticeshenhe" path="/tdsc/blockwork/file/edit_uploadNotice_shenhe.jsp"></forward>
+           <forward name="listnew_notice_chayue" path="/tdsc/blockwork/file/listnew_notice_chayue.jsp"></forward>
+           <forward name="printNotice_pm" path="/tdsc/blockwork/file/print_pm_notice.jsp"></forward>
+           <forward name="printNotice_gp" path="/tdsc/blockwork/file/print_gp_notice.jsp"></forward>
+           <forward name="printPlan_pm" path="/tdsc/blockwork/file/print_pm_plan.jsp"></forward>
+           <forward name="printPlan_gp" path="/tdsc/blockwork/file/print_gp_plan.jsp"></forward>
+           <forward name="printNotice_word" path="/tdsc/blockwork/file/print_notice_word.jsp"></forward>
+           <forward name="printPlan_word" path="/tdsc/blockwork/file/print_plan_word.jsp"></forward>
+           <forward name="printSaveNotice" path="/tdsc/blockwork/file/print_savenotice.jsp"></forward>
+             <forward name="printSaveNoticeGpIndustry" path="/tdsc/blockwork/file/print_savenoticeindustry.jsp"></forward>
+              <forward name="printNotice_industry" path="/tdsc/blockwork/file/print_notice_industry.jsp"></forward>
+           <forward name="toBlockPaiXu" path="/tdsc/blockwork/file/block_paixu.jsp"></forward>
+           <forward name="noticeShenHe_100604" path="/tdsc/blockwork/file/noticeShenHe100604.jsp"></forward>
+           <forward name="showWordFile" path="/tdsc/blockwork/file/showWordFile.jsp"></forward>
+           <forward name="fileList" path="/tdsc/blockwork/file/fileList.jsp"></forward>
+           <forward name="viewFileInfo" path="/tdsc/blockwork/file/view_file.jsp"></forward>
+        </action>
+        
+        <action path="/tdsc/notice" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscNoticeForm" scope="request" parameter="method">
+           <forward name="tdscNoticeAppList" path="/tdsc/blockwork/notice/list.jsp"></forward>
+           <forward name="tdscNoticeAppList_new" path="/tdsc/blockwork/notice/list_new.jsp"></forward>
+           <forward name="zzgg" path="/tdsc/blockwork/notice/info_zzgg.jsp"></forward>
+           <forward name="successSave" path="/tdsc/notice.do?method=query"></forward>
+           <forward name="transferAppIds" path="/tdsc/blockwork/notice/transferAppIds.jsp"></forward>
+           <forward name="zancun" path="/tdsc/notice.do?method=queryTdxx"></forward>
+           <forward name="bianji" path="/tdsc/blockwork/notice/info_bjgg.jsp"></forward>
+           <forward name="listNewGg" path="/tdsc/blockwork/notice/list_newGg.jsp"></forward>
+           <forward name="noticeModel" path="/tdsc/blockwork/notice/noticeModel.jsp"></forward>
+           <forward name="editNotice" path="/tdsc/blockwork/notice/info_editNotice.jsp"></forward>
+           <forward name="downLoadNoticeModel" path="/tdsc/blockwork/notice/downLoadNoticeModel.jsp"></forward>
+           <forward name="upLoadNoticePage" path="/tdsc/blockwork/notice/edit_uploadNotice.jsp"></forward>
+           <forward name="editUpLoadNotice" path="/tdsc/blockwork/notice/info_editUploadNotice.jsp"></forward>
+           <forward name="toUploadWord" path="/tdsc/common/updateTemplate.jsp"></forward>
+           <forward name="toWordList" path="/tdsc/common/list_updateTemplate.jsp"></forward>
+        </action>
+
+		<action path="/tdsc/cardLogin" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBidderForm" scope="request" parameter="method">
+           <forward name="cardLogin" path="/tdsc/cardlogin/cardLogin.jsp"></forward>
+           <forward name="overpass" path="/tdsc/selfhelp/overpass_password.jsp"></forward>
+           <forward name="overpassSuccess" path="/tdsc/selfhelp/overpass_success.jsp"></forward>
+           <forward name="overpassFailed" path="/tdsc/selfhelp/overpass_faile.jsp"></forward>
+           <forward name="infoindex" path="/tdsc/selfhelp/info_indexbidder.jsp"></forward>
+           <forward name="indexoverpass" path="/tdsc/selfhelp/overpass_password.jsp"></forward>
+           <forward name="indexht" path="/tdsc/cardlogin/index_ht.jsp"></forward>
+           <forward name="bidderYktList" path="/tdsc/cardlogin/ykt_list.jsp"></forward>
+           <forward name="bidderAppDetails" path="/tdsc/cardlogin/bidder_app_details.jsp"></forward>
+           <forward name="toIndex" path="/tdsc/cardlogin/index_ykt.jsp"></forward>
+           <forward name="toOldPassword" path="/tdsc/cardlogin/card_password_change.jsp"></forward>
+           <forward name="toNewPassword" path="/tdsc/cardlogin/new_password.jsp"></forward>
+           <forward name="toNewPassword2" path="/tdsc/cardlogin/new_password2.jsp"></forward>
+           <forward name="toNewYkt" path="/tdsc/cardlogin/new_ykt.jsp"></forward>
+           <forward name="showBlockList" path="/tdsc/cardlogin/showBlockList.jsp"></forward>
+        </action>
+        
+        <action path="/tdsc/pubinfo" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="noticePublishForm" scope="request" parameter="method">
+            <forward name="noticeList" path="/tdsc/publishinfo/list_notice.jsp"/>
+            <forward name="success" path="/tdsc/pubinfo.do?method=queryNoticeList"></forward>
+            <forward name="successSave" path="/tdsc/blockwork/file/print_notice_word.jsp"></forward>
+            <forward name="toFabu" path="/tdsc/publishinfo/edit_issueNotice.jsp"></forward>
+            <forward name="toDownLoad" path="/tdsc/publishinfo/edit_loadNotice.jsp"></forward>
+            <forward name="modNotice" path="/tdsc/publishinfo/edit_file_xiugai.jsp"></forward>
+            <forward name="FirstSave" path="/tdsc/blockwork/file/print_savenotice.jsp"></forward>
+            <forward name="publishNoticeSave" path="/tdsc/publishinfo/notice_publish.jsp"></forward>
+            <forward name="noticeEdit" path="/tdsc/publishinfo/notice_edit.jsp"></forward>
+        </action>
+        
+        <action path="/tdsc/sale" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscFileSaleInfoForm" scope="request" parameter="method">
+            <forward name="noticeList" path="/tdsc/blockwork/sale/list_sale_notice.jsp"/>
+            <forward name="toPeasonList" path="/tdsc/blockwork/sale/sale_peason_info.jsp"/>
+            <forward name="toNewPeasonList" path="/tdsc/blockwork/sale/list_sale_peason.jsp"/>
+            <forward name="toIwebPrint" path="/tdsc/blockwork/sale/print_sale_peason.jsp"/>
+			<forward name="normalPrint" path="/tdsc/blockwork/sale/print_normal.jsp"/>
+            <forward name="superPrint" path="/tdsc/blockwork/sale/print_super.jsp"/>
+            <forward name="allBuyFilePersons" path="/tdsc/blockwork/sale/list_all_buy_file_persons.jsp"/>
+            <forward name="toModifyOneBuyFilePerson" path="/tdsc/blockwork/sale/modify_list_sale_peason.jsp"/>
+            
+            
+        </action>
+        
+        <action path="/tdsc/replyrecord" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="recordAndResultForm" scope="request" parameter="method">
+            <forward name="replyrecordList" path="/tdsc/publishinfo/list_replyrecord.jsp"/>
+            <forward name="toFabu" path="/tdsc/publishinfo/edit_issueReply.jsp"></forward>
+            <forward name="toDownLoad" path="/tdsc/publishinfo/edit_loadReply.jsp"></forward>
+        </action>
+
+        <action path="/tdsc/contractInfo" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="contractInfoForm" scope="request" parameter="method">
+            <forward name="queryList" path="/tdsc/publishinfo/contractInfo/contract_list.jsp"/>
+            <forward name="toEditContractInfo" path="/tdsc/publishinfo/contractInfo/contract_info.jsp"/>
+            <forward name="toViewContractInfo" path="/tdsc/publishinfo/contractInfo/contract_info_view.jsp"/>
+            <forward name="successBack" path="/tdsc/contractInfo.do?method=queryContractInfoList"/>
+
+        </action>
+        
+        <action path="/tdsc/transresult" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="recordAndResultForm" scope="request" parameter="method">
+            <forward name="transResultList" path="/tdsc/publishinfo/list_transresult.jsp"/>
+            <forward name="showTdscBlockAppViewByAppId" path="/tdsc/publishinfo/notice_info.jsp"/>
+            <forward name="tranceResultNoticeList" path="/tdsc/publishinfo/transresult_noticeList.jsp"></forward>
+            <forward name="transeResltTdscView" path="/tdsc/publishinfo/notice_showViewList.jsp"></forward>
+            <forward name="iwebResultNotice" path="/tdsc/publishinfo/iweb_resultNotice.jsp"></forward>
+            <forward name="tradeResultList" path="/tdsc/publishinfo/trade_result_list.jsp"></forward>
+           
+            <forward name="toEndBlockList" path="/tdsc/bidder/print/list_all_end_block.jsp"></forward>
+            <forward name="printResultNotice" path="/tdsc/publishinfo/printResultNotice.jsp"></forward>
+            
+        </action>        
+        
+        <action path="/tdsc/viewAppFlow" type="org.springframework.web.struts.DelegatingActionProxy"
+                scope="request" parameter="method">
+            <forward name="flowInfo" path="/tdsc/flowadapter/flow_diagram.jsp"/>
+        </action>
+        
+        <action path="/tdsc/credit" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscCreditForm" scope="request" parameter="method">
+            <forward name="toFindCreditList" path="/tdsc/credit/list_honesty.jsp"/>
+            <forward name="toAddOrEditCreditInfo" path="/tdsc/credit/addOrEdit_honesty.jsp"/>
+            <forward name="toDelCreditInfo" path="/tdsc/credit/list_honesty.jsp"/>
+            <forward name="toBaoCunCreditInfo" path="/tdsc/credit/list_honesty.jsp"/>
+            <forward name="toImportCredit" path="/tdsc/credit/view_import.jsp"/>
+            <forward name="showImportList" path="/tdsc/credit/list_import.jsp"/>
+            <forward name="showImportInfo" path="/tdsc/credit/info_import.jsp"/>
+            <forward name="toAddCreditInfo" path="/tdsc/credit/add_credit_info.jsp"/>
+        </action>
+        <action path="/tdsc/orgApp" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscXbOrgForm" scope="request" parameter="method">
+            <forward name="orgAppList" path="/tdsc/xborg/list_orgApp.jsp"/>
+            <forward name="orgAppInfo" path="/tdsc/xborg/info_orgApp.jsp"/>
+            <forward name="orgInfoList" path="/tdsc/xborg/list_orgInfo.jsp"/>
+            <forward name="orgInfo" path="/tdsc/xborg/info_orgInfo.jsp"/>
+            <forward name="orgHistoryList" path="/tdsc/xborg/list_orgHistory.jsp"/>
+            <forward name="orgHistoryInfo" path="/tdsc/xborg/info_orgHistory.jsp"/>
+            <forward name="printOrgHistoryInfo" path="/tdsc/xborg/print_orgHistory.jsp"/>
+        </action>
+        
+        <action path="/tdsc/returnBzj" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="blockInfoForm" scope="request" parameter="method">
+            <forward name="fundBlockList" path="/tdsc/bidder/bzj/transferOverList.jsp"/>
+            <forward name="resultList" path="/tdsc/bidder/bzj/resultList.jsp"/>
+        </action>
+        
+        <action path="/tdsc/resetPlan" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="nullForm" scope="request" parameter="method">
+            <forward name="showPlanReset" path="/tdsc/blockwork/resetPlan/showPlanReset.jsp"/>
+        </action>
+        
+        <action path="/tdsc/solve" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscBlockSolveForm" scope="request" parameter="method">
+            <forward name="solveListNotices" path="/tdsc/solve/listNotices.jsp"/>
+            <forward name="gotoAddSolve" path="/tdsc/solve/newSolve.jsp"/>
+            <forward name="saveSloveOK" path="/tdsc/solve.do?method=queryTradeBlock"/>
+            <forward name="showSolveHistory" path="/tdsc/solve/showSolveHistory.jsp"/>
+        </action>
+        <action path="/tdsc/tradeStat" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscTradeStatisticsForm" scope="request" parameter="method">
+            <forward name="toShowHistoryTradePage" path="/tdsc/statistics/historyTradePage.jsp"/>
+            <forward name="toShowCurrentTradePage" path="/tdsc/statistics/currentTradePage.jsp"/>
+            <forward name="detailHistoryPlanPage" path="/tdsc/statistics/historyPlanDetail.jsp"/>
+            <forward name="detailHistoryStaticsPage" path="/tdsc/statistics/historyStatisticsDetail.jsp"/>
+            <forward name="detailHistoryTradePage" path="/tdsc/statistics/historyTradeDetail.jsp"/>
+            <forward name="detailCurrentTradePage" path="/tdsc/statistics/currentTradeDetail.jsp"/>
+            <forward name="detailCurrentPlanPage" path="/tdsc/statistics/currentPlanDetail.jsp"/>
+            <forward name="toShowStaatisticsPage" path="/tdsc/statistics/statisticsPage.jsp"/>
+        </action>
+        
+        <action path="/tdsc/retBail" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscReturnBailForm" scope="request" parameter="method">
+            <forward name="toReturnBailListPage" path="/tdsc/retBail/retBail_list.jsp"/>
+        </action>
+        
+         <action path="/wsjy/wxlogin" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+                <forward name="readerRule" path="/wsjy/trade/reader_rule.jsp"/>
+        </action>
+        <action path="/wsjy/trade" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="index" path="/wsjy/trade/main.jsp"/>
+            <forward name="main" path="/wsjy/trade/trade_main.jsp"/>
+            <forward name="gupai_list" path="/wsjy/trade/guapai_list.jsp"/>
+            <forward name="gupai_hall" path="/wsjy/trade/guapai_hall.jsp"/>
+            <forward name="trade_hall" path="/wsjy/trade/trade_hall.jsp"/>
+            <forward name="tradeResult" path="/wsjy/trade/trade_result.jsp"/>
+            <forward name="trade_hall_fail" path="/wsjy/trade/trade_hall_fail.jsp"/>
+            <forward name="toWait" path="/wsjy/trade/wait.jsp"/>
+            <forward name="trade_notice_list" path="/wsjy/trade/trade_notice_list.jsp"/>
+            <forward name="selectGp" path="/wsjy/trade/gp-notice-list.jsp"/>
+            <forward name="selectTrade" path="/wsjy/trade/trade-notice-list.jsp"/>
+            <forward name="confirm_hall" path="/wsjy/trade/confirm_hall.jsp"/>            
+        </action>
+         <action path="/wsjy/manage" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="pauselist" path="/wsjy/tradem/pause_list.jsp"/>
+            <forward name="pauseblock" path="/wsjy/tradem/pause_block.jsp"/>
+            <forward name="monitorlist" path="/wsjy/tradem/monitor_list.jsp"/>
+            <forward name="monitorlock" path="/wsjy/tradem/monitor_block.jsp"/>
+        </action>
+        <action path="/wsjy/trans" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="myTransList" path="/wsjy/trade/list_mytrans.jsp"/>
+            <forward name="gpRecordList" path="/wsjy/trade/list_guapai_record.jsp"/>
+            <forward name="auction" path="/wsjy/trade/trade_result_print.jsp"/>
+            <forward name="bidderRoll" path="/wsjy/trade/bidder_roll_print.jsp"/>
+            <forward name="money" path="/wsjy/trade/money.jsp"></forward>
+            <forward name="dijia-alert" path="/wsjy/trade/dijia_alert.jsp"></forward>
+        </action>        
+        <action path="/tdsc/miningTranApp" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="miningTranAppForm" scope="request" parameter="method">
+            <forward name="miningList" path="/kyqwsjy/list_mining.jsp"/>
+            <forward name="toMining" path="/kyqwsjy/edit_mining.jsp"/>
+        </action>
+        <action path="/tdsc/miningBidderApp" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="miningTranAppForm" scope="request" parameter="method">
+            <forward name="miningBidderAppList" path="/kyqwsjy/list_bidder.jsp"/>
+            <forward name="tobidderlist" path="/kyqwsjy/to_bidder.jsp"/>
+            <forward name="tobidder" path="/kyqwsjy/edit_bidder.jsp"/>
+        </action>
+        
+        <action path="/tdsc/kyqNotices" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="miningTranAppForm" scope="request" parameter="method">
+            <forward name="noticeList" path="/kyqwsjy/list_embodiment.jsp"/>
+            <forward name="planList" path="/kyqwsjy/list_plan.jsp"/>
+            <forward name="toplan" path="/kyqwsjy/edit_plan.jsp"/>
+            <forward name="tonotice" path="/kyqwsjy/edit_plan.jsp"/>
+            <forward name="kyqSelectNotice" path="/kyqwsjy/list_newkgg.jsp"/>
+            <forward name="kyqMakeNoticeList" path="/kyqwsjy/list_all_notice.jsp"/>
+            <forward name="printKqNotice" path="/kyqwsjy/print_kq_notice.jsp"></forward>
+            <forward name="kqResultNoticeList" path="/kyqwsjy/list_result_notice.jsp"></forward>
+            <forward name="printKqResultNotice" path="/kyqwsjy/print_kq_result_notice.jsp"></forward>
+            <forward name="toKqFileList" path="/kyqwsjy/list_kq_file.jsp"></forward>
+            <forward name="printKqFile" path="/kyqwsjy/print_kq_file.jsp"></forward>
+        </action>
+        <action path="/tdsc/bank/bankApp" type="org.springframework.web.struts.DelegatingActionProxy"
+               name="tdscBankAppForm" scope="request" parameter="method">
+            <forward name="toTdscBankApp" path="/tdsc/bank/edit_bankapp.jsp"/>
+            <forward name="tdscBankAppList" path="/tdsc/bank/list_bankapp.jsp"/>
+            <forward name="selectTdscBankAppList" path="/tdsc/bank/list_selectbankapp.jsp"/>
+        </action>
+        
+        <action path="/wsjy/monitor" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="index" path="/wsjy/monitor/index.jsp"/>
+            <forward name="trade" path="/wsjy/monitor/trade.jsp"/>
+            <forward name="tradePlanList" path="/wsjy/monitor/list_trade_plan.jsp"/>
+            <forward name="guaPaiBlockList" path="/wsjy/monitor/list_guapai_block.jsp"/>
+            <forward name="guaPaiRecordList" path="/wsjy/monitor/list_guapai_record.jsp"/>
+            <forward name="tradeResult" path="/wsjy/monitor/trade_result.jsp"/>
+        </action>
+        
+        <action path="/tdsc/presell" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBlockPresellForm" scope="request" parameter="method">
+            <forward name="blockPresell" path="/tdsc/presell/edit_block_presell.jsp"/>
+            <forward name="blockPresellList" path="/tdsc/presell/list_block_presell.jsp"/>
+        </action>
+        
+        <action path="/wsjy/file" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="toFileDownList" path="/wsjy/trade/block_file_down_list.jsp"/>
+            <forward name="toBlockFileDownList" path="/wsjy/trade/down_list.jsp"/>
+        </action>
+        
+        <action path="/wsjy/subscribe" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="personForm" scope="request" parameter="method">
+            <forward name="t_person_info" path="/wsjy/subscribe/t_subscribe_bidder_info.jsp"/>
+            <forward name="person_info" path="/wsjy/subscribe/subscribe_bidder_info.jsp"/>
+            <forward name="subscribe-notice-list" path="/wsjy/subscribe/subscribe-notice-list.jsp"/>
+            <forward name="subscribe-block-list" path="/wsjy/subscribe/subscribe-block-list.jsp"/>
+            <forward name="subscribe-block-info" path="/wsjy/subscribe/subscribe-block-info.jsp"/>
+            <forward name="subscribe-bank-list" path="/wsjy/subscribe/subscribe-bank-list.jsp"/>
+            <forward name="subscribe-go-buy" path="/wsjy/subscribe/subscribe-go-buy.jsp"/>
+            <forward name="redirect-to-bank" path="/wsjy/subscribe/redirect-to-bank.jsp"/>
+            <forward name="subscribe-of-me" path="/wsjy/subscribe/subscribe-of-me.jsp"/>
+            <forward name="bidderSelectNumPage" path="/wsjy/subscribe/all_number.jsp"/>
+            <forward name="subscribe-info" path="/wsjy/subscribe/subscribe-info.jsp"/>
+            <forward name="detailCurrentTradePage" path="/wsjy/subscribe/currentTradeDetail.jsp"/>
+            <forward name="subscribe-buy-frame" path="/wsjy/subscribe/subscribe-buy-frame.jsp"></forward>
+            <forward name="subscribe-buy" path="/wsjy/subscribe/subscribe-buy.jsp"></forward>
+            <forward name="subscribe-yx-block-list" path="/wsjy/subscribe/subscribe-yx-block-list.jsp"/>
+            <forward name="subscribe-jj-notice" path="/wsjy/subscribe/subscribe-jj-notice.jsp"></forward>
+            <forward name="subscribe-margin-amount" path="/wsjy/subscribe/subscribe-margin-amount.jsp"></forward>
+            <forward name="newcompany" path="/wsjy/subscribe/newcompany.jsp"></forward>
+            <forward name="subscribe-jingmaishu" path="/wsjy/subscribe/subscribe-jingmaishu.jsp"></forward>
+            <forward name="subscribe-bidder-type" path="/wsjy/subscribe/subscribe-bidder-type.jsp"/>
+              
+        </action>
+        <action path="/tdsc/makeup" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="tdscBlockPresellForm" scope="request" parameter="method">
+            <forward name="block-list" path="/tdsc/blockwork/makeup/block_list.jsp"/>
+            <forward name="block-edit" path="/tdsc/blockwork/makeup/block_edit.jsp"/>
+            <forward name="block-dijia-edit" path="/tdsc/blockwork/makeup/block_dijia_edit.jsp"/>
+            <forward name="block-dijia-list" path="/tdsc/blockwork/makeup/block_dijia_list.jsp"/>
+        </action>
+        <action path="/tdsc/jzdj" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="jzdj-list" path="/tdsc/jzdj/jzdj-list.jsp"/>
+            <forward name="jzdj-info" path="/tdsc/jzdj/jzdj-info.jsp"/>
+        </action>
+        <action path="/tdsc/tradeFinish" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="finishList" path="/tdsc/blockwork/tradefinish/trade_finish_list.jsp"/>
+            <forward name="bidderList" path="/tdsc/blockwork/tradefinish/bidder_list.jsp"/>
+        </action>
+        
+        <action path="/tdsc/bidderRoll" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="blockInfoForm" scope="request" parameter="method">
+            <forward name="bidderRollList" path="/tdsc/bidder/roll/list.jsp"/>
+            <forward name="bidderRollInfo" path="/tdsc/bidder/roll/info.jsp"/>
+        </action>
+        
+        <action path="/android/monitor" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="personForm" scope="request" parameter="method">
+            <forward name="notice-list" path="/android/trade/monitor-notice-list.jsp"></forward>
+            <forward name="block-list" path="/android/trade/monitor-block-list.jsp"></forward>
+            <forward name="block-info" path="/android/trade/monitor-block-info.jsp"></forward>
+        </action>
+        
+        <action path="/android/myTrade" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="personForm" scope="request" parameter="method">
+            <forward name="bidder-jmsqs" path="/android/trade/bidder-jmsqs.jsp"></forward>
+            <forward name="bidder-bank-list" path="/android/trade/bidder-bank-list.jsp"></forward>
+            <forward name="bidder-receipt" path="/android/trade/bidder-receipt.jsp"></forward>
+            <forward name="bidder-info" path="/android/trade/bidder-info.jsp"></forward>
+            <forward name="bidder-orders" path="/android/trade/bidder-orders.jsp"></forward>
+            <forward name="bidder-trades" path="/android/trade/bidder-trades.jsp"></forward>
+            <forward name="bidder-order-info" path="/android/trade/bidder-order-info.jsp"></forward>
+            <forward name="bidder-trade-info" path="/android/trade/bidder-trade-info.jsp"></forward>
+            <forward name="bidder-type-info" path="/android/trade/bidder-type-info.jsp"></forward>
+            <forward name="bidder-select-con" path="/android/trade/bidder-select-con.jsp"></forward>
+        </action>
+        <action path="/android/trade" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="personForm" scope="request" parameter="method">
+            <forward name="block-info" path="/android/trade/trade-block-info.jsp"></forward>
+        </action>
+        <action path="/android/notice" type="org.springframework.web.struts.DelegatingActionProxy"
+                name="nullForm" scope="request" parameter="method">
+            <forward name="assignNotice" path="/android/notice/assignNotice.jsp"></forward>
+            <forward name="tranceNotice" path="/android/notice/tranceNotice.jsp"></forward>
+        </action>
+    </action-mappings>
+    <!-- ========== Controller Configuration ================================ -->
+    <controller />
+
+
+    <!-- ========== Message Resources Definitions ============================ -->
+    <message-resources parameter="com.vcs.china.poweracl.struts.ApplicationResources" />
+
+
+    <!-- ========== Plug Ins Configuration ================================= -->
+    <plug-in className="org.springframework.web.struts.ContextLoaderPlugIn">
+        <set-property property="contextConfigLocation"
+            value="/WEB-INF/classes/wonders/wonders-tdsc-dao.xml,
+                   /WEB-INF/classes/wonders/wonders-tdsc-service.xml,
+                   /WEB-INF/classes/wonders/wonders-tdsc-action.xml,
+                   /WEB-INF/classes/wonders/wonders-wsjy-beans.xml,
+                   /WEB-INF/classes/wonders/wonders-authority-context.xml" />
+    </plug-in>
+
+</struts-config>

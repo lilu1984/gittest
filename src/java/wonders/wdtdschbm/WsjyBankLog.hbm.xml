@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.wonders.wsjy.bo.WsjyBankLog"
+    table="WSJY_BANK_LOG"
+>
+
+    <id
+        name="logId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="logBankIp"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_BANKIP"
+        length="100"
+    />
+    <property
+        name="logBankXml"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_BANKXML"
+        length="1000"
+    />
+    <property
+        name="logDate"
+        type="java.util.Date"
+        column="BANKLOG_DATE"
+        length="32"
+    />
+    <property
+        name="logType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_TYPE"
+        length="32"
+    />
+    <property
+        name="logUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_USERID"
+        length="64"
+    />
+        <property
+        name="logRecallXmll"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_RECALLXML"
+        length="1000"
+    />
+        <property
+        name="logResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANKLOG_RESULT"
+        length="64"
+    />
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

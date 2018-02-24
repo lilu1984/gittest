@@ -1,0 +1,1 @@
+jar cvf wonders-qdtdsc-0.6.jar C com/*

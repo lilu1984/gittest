@@ -1,0 +1,39 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscAppWorkflowInstanceRel" 
+    table="TDSC_APP_WORKFLOW_INSTANCE_REL"
+>
+
+    <id
+        name="processInstanceId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PROCESS_INSTANCE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="businessCodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BUSINESS_CODE_ID"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

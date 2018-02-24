@@ -1,0 +1,74 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscSendEmailInfo" 
+    table="TDSC_SAND_EMAIL_INFO"
+>
+
+    <id
+        name="emailId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="EMAIL_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+        length="64"
+    />
+    <property
+        name="noticeNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_NO"
+        length="100"
+    />
+    <property
+        name="noticeType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_TYPE"
+        length="1"
+    />
+    <property
+        name="acceptOrg"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACCEPT_OGR"
+        length="200"
+    />
+    <property
+        name="acceptAddress"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACCEPT_ADDRESS"
+        length="200"
+    />
+    <property
+        name="ifSend"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_SEND"
+        length="1"
+    />
+    <property
+        name="sendTime"
+        type="java.sql.Timestamp"
+        column="SEND_TIME"
+        length="20"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.wonders.tdsc.bo">
+	<class name="TdscBlockRemisemoneyDefray" table="TDSC_BLOCK_REMISEMONEY_DEFRAY">
+		<id name="defrayId" column="DEFRAY_ID" type="com.wonders.esframework.common.type.AppString">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="blockId" type="com.wonders.esframework.common.type.AppString" column="BLOCK_ID"
+			/>
+			<property name="payBatch" type="com.wonders.esframework.common.type.AppString" column="PAY_BATCH"
+			length="10"/>
+			<property name="payProportion" type="com.wonders.esframework.common.type.AppString" column="PAY_PROPORTION"
+			length="500"/>
+			<property name="payTime" type="com.wonders.esframework.common.type.AppString" column="PAY_TIME"
+			length="500"/>
+	</class>
+</hibernate-mapping>

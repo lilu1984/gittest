@@ -1,0 +1,145 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" name="viewport">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta content="telephone=no" name="format-detection">
+<title>挂牌详情</title>
+<link href="../skin/commons.css" rel="stylesheet" type="text/css">
+<link href="../skin/style.css" rel="stylesheet" type="text/css">
+<link href="../skin/perfect-scrollbar.min.css" rel="stylesheet" type="text/css"><!--内部滚动条-->
+<script src="../javascript/jquery-1.12.2.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="../javascript/perfect-scrollbar.min.js" type="text/javascript" charset="utf-8"></script><!--内部滚动条-->
+<script type="text/javascript">
+$(function (){
+//内部滚动条调用
+    $('#record-scroll').perfectScrollbar();
+//切换
+    $("#do-list-btn").click(function(){
+		$(".do-quote").slideDown(200);
+	});
+    $("#do-quote-btn").click(function(){
+		$(".do-quote").slideUp(200);
+	});
+});
+</script>
+</head>
+
+<body class="bg-grey">
+
+<section>
+	<div class="details">
+    	<h5>锡国土经2015[11]号XDG-2011-35号地块</h5>
+        <h6>新区净慧东道以东、具区路以北、思贤路以西</h6>
+        <div class="price state03">
+        	当前价
+            <span class="state-font">￥ 4560 万元</span>
+            <b class="state-bg"><img src="../skin/images/listed-tit.png" alt="">竞价中</b>
+        </div>
+        <dl class="time-limit">
+        	<dt><img src="../skin/images/time-limit01.png" alt="">9人报名</dt>
+        	<dt><img src="../skin/images/time-limit02.png" alt="">8人关注</dt>
+            <dd><span>02:26:12</span>后结束</dd>
+        </dl>
+    </div>
+    <ul class="rule">
+    	<li>起始价<span>￥2000万元</span></li>
+    	<li>加价幅度<span>￥20万元</span></li>
+    	<li>保证金<span>￥500万元</span></li>
+    	<li>底价<span>无底价</span></li>
+    </ul>
+    <div class="record">
+    	<h5>出价记录<span>(14)</span><b>下滑查看更多</b></h5>
+        <div class="record-scroll" id="record-scroll">
+        	<ul>
+            	<li class="first">
+                	<dl>
+                    	<dt><span>66号领先</span>第8轮</dt>
+                        <dd><span>￥3700</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>56号出局</span>第8轮</dt>
+                        <dd><span>￥3600</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>63号出局</span>第8轮</dt>
+                        <dd><span>￥3500</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>37号出局</span>第8轮</dt>
+                        <dd><span>￥3400</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>98号出局</span>第8轮</dt>
+                        <dd><span>￥3300</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>20号出局</span>第8轮</dt>
+                        <dd><span>￥3200</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>90号出局</span>第8轮</dt>
+                        <dd><span>￥3100</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>03号出局</span>第8轮</dt>
+                        <dd><span>￥3000</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>15号出局</span>第8轮</dt>
+                        <dd><span>￥2900</span>万元</dd>
+                    </dl>
+                </li>
+            	<li>
+                	<dl>
+                    	<dt><span>48号出局</span>第8轮</dt>
+                        <dd><span>￥2800</span>万元</dd>
+                    </dl>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="my-operate">
+    	<div class="do-list">
+        	<ul>
+            	<li><a href="04html"><img src="images/listed01.png" alt="">出让文件</a></li>
+            	<li><a href="#"><img src="../skin/images/listed02.png" alt="">规划图纸</a></li>
+            	<li><a href="#"><img src="../skin/images/listed03.png" alt="">加入收藏</a></li>
+            </ul>
+            <button class="full-btn" id="do-list-btn" type="button">我要挂牌</button>
+        </div>
+    	<div class="do-quote" style="display:none;">
+        	<dl>
+            	<dt><button class="quote-min" type="button"></button></dt>
+            	<dd>
+                	<span>￥</span>
+                    <input type="text" value="">
+                	<span>万元</span>
+                </dd>
+            	<dt><button class="quote-plus" type="button"></button></dt>
+            </dl>
+            <button class="full-btn" id="do-quote-btn" type="button">确认出价</button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

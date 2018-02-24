@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration>
+
+    <appender name="A1" class="org.apache.log4j.RollingFileAppender">
+        <param name="File" value="D:/myproject/runa/wx-wsjy/web/log4j/all.log" />
+
+        <param name="MaxFileSize" value="6024KB" />
+        
+        <param name="Encoding" value="GBK" />
+
+        <param name="MaxBackupIndex" value="10" />
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p]-[%l] -- %m%n" />
+        </layout>
+    </appender>
+
+    <appender name="A2" class="org.apache.log4j.RollingFileAppender">
+
+
+        <param name="File" value="D:/myproject/runa/wx-wsjy/web/log4j/wxeq.log" />
+
+
+        <param name="MaxFileSize" value="6024KB" />
+        
+        <param name="Encoding" value="GBK" />
+
+        <param name="MaxBackupIndex" value="10" />
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p]-[%l] -- %m%n" />
+        </layout>
+    </appender>     
+    <appender name="A3" class="org.apache.log4j.RollingFileAppender">
+
+
+        <param name="File" value="D:/myproject/runa/wx-wsjy/web/log4j/bank.log" />
+
+
+        <param name="MaxFileSize" value="6024KB" />
+        
+        <param name="Encoding" value="GBK" />
+
+        <param name="MaxBackupIndex" value="10" />
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p]-[%l] -- %m%n" />
+        </layout>
+    </appender> 
+    <appender name="A4" class="org.apache.log4j.RollingFileAppender">
+
+
+        <param name="File" value="D:/myproject/runa/wx-wsjy/web/log4j/engine.log" />
+
+
+        <param name="MaxFileSize" value="6024KB" />
+        
+        <param name="Encoding" value="GBK" />
+
+        <param name="MaxBackupIndex" value="10" />
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss.SSS}] [%p]-[%l] -- %m%n" />
+        </layout>
+    </appender> 
+    <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+         
+        <param name="Encoding" value="GBK" />
+ 
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="%p %d{HH:mm:ss} %C{1}.%M(%L)-->%m%n"/>
+        </layout>
+    </appender>
+
+    <logger name="jsp" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="A2" />
+    </logger>
+
+    <logger name="com.wonders" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="A2" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    
+    <logger name="com.wonders.wsjy.bank" additivity="false">
+        <level value="DEBUG" />
+        <appender-ref ref="A3" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="net.sf.hibernate" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="A1" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <logger name="com.wonders.engine" additivity="false">
+        <level value="ERROR" />
+        <appender-ref ref="A4" />
+        <appender-ref ref="CONSOLE" />
+    </logger>
+    <root>
+        <level value="ERROR" />
+        <appender-ref ref="A1" />
+    </root>
+
+</log4j:configuration>

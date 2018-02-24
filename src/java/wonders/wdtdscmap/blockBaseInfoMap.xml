@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tdsc.bo.BlockBaseInfo">
+        <map-to xml="root"/>
+        <field name="noticeNo" type="java.lang.String">
+	    	<bind-xml name="noticeNo" node="element"/>
+	    </field>
+	    <field name="list" type="com.wonders.tdsc.bo.BaseInfo" collection="collection">
+        	<bind-xml name="baseinfo"/>
+        </field> 
+    </class>
+    <class name="com.wonders.tdsc.bo.BaseInfo"> 
+        <field name="blockNoticeNo" type="java.lang.String">
+	            <bind-xml name="blockNoticeNo" node="element"/>
+	    </field>
+		<field name="landName" type="java.lang.String">
+	            <bind-xml name="landName" node="element"/>
+	    </field>
+		<field name="landLocation" type="java.lang.String">
+	            <bind-xml name="landLocation" node="element"/>
+	    </field>
+        <field name="totalLandArea" type="java.lang.String">
+            <bind-xml name="landArea" node="element"/>
+        </field>
+        <field name="landUseType" type="java.lang.String">
+            <bind-xml name="landUseType" node="element"/>
+        </field>
+		<field name="sellYear" type="java.lang.String">
+	            <bind-xml name="sellYear" node="element"/>
+	    </field>
+		<field name="initPrice" type="java.lang.String">
+	            <bind-xml name="initPrice" node="element"/>
+	    </field>
+		<field name="marginAmount" type="java.lang.String">
+	            <bind-xml name="marginAmount" node="element"/>
+	    </field>
+		<field name="transferMode" type="java.lang.String">
+	            <bind-xml name="transferMode" node="element"/>
+	    </field>
+    </class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

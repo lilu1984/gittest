@@ -1,0 +1,87 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBidderProvide" 
+    table="TDSC_BIDDER_PROVIDE"
+>
+
+    <id
+        name="provideId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PROVIDE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="userId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USER_ID"
+        length="64"
+    />
+    <property
+        name="regionId"
+        type="java.lang.Integer"
+        column="REGION_ID"
+        length="2"
+    />
+    <property
+        name="bidType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BID_TYPE"
+        length="10"
+    />
+    <property
+        name="provideBm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PROVIDE_BM"
+        length="10"
+    />
+    <property
+        name="provideDate"
+        type="java.sql.Date"
+        column="PROVIDE_DATE"
+        length="7"
+    />
+    <property
+        name="ifApp"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_APP"
+        length="1"
+    />
+    <property
+        name="appDate"
+        type="java.sql.Date"
+        column="APP_DATE"
+        length="7"
+    />
+    <property
+        name="sourceType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SOURCE_TYPE"
+        length="10"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

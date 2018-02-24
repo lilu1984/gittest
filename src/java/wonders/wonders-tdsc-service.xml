@@ -1,0 +1,518 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="tdscTransactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="tdscSessionFactory" />
+	</bean>
+
+	<bean id="tdscManagerProxyTemplate" abstract="true"
+		class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+		<property name="transactionManager" ref="tdscTransactionManager" />
+
+		<!-- force to use cglib -->
+		<property name="proxyTargetClass" value="true" />
+
+		<property name="transactionAttributes">
+			<props>
+				<prop key="save*">PROPAGATION_REQUIRED</prop>
+				<prop key="modify*">PROPAGATION_REQUIRED</prop>
+				<prop key="remove*">PROPAGATION_REQUIRED</prop>
+				<prop key="get*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="query*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="load*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="find*">PROPAGATION_REQUIRED,readOnly</prop>
+				<prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="tdscDicConfigManager" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.esframework.dic.service.impl.DicConfigManagerImpl">
+				<property name="dicConfigDao" ref="tdscDicConfigDao" />
+				<property name="dicDataQueryDao" ref="tdscDicDataQueryDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscDicPropertyManager" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.wonders.esframework.dic.service.impl.DicPropertyManagerImpl">
+				<property name="dicPropertyDao" ref="tdscDicPropertyDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscIdSpringManagerImpl" class="com.wonders.esframework.id.service.IdSpringManager">
+		<property name="incrementIdHibernateDao" ref="tdscIncrementIdHibernateDao" />
+	</bean>
+
+	<bean id="tdscResourceManager" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.wonders.tdsc.user.service.impl.AuthorityResourceManagerImpl">
+				<property name="resourceDao" ref="tdscResourceDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscTaskPlanManager" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.wonders.esframework.scheduler.service.impl.TaskPlanManagerImpl">
+				<property name="taskPlanDao" ref="tdscTaskPlanDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- bidder view query service -->
+	<bean id="tdscBidderViewService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.tdscbase.service.TdscBidderViewService">
+				<property name="tdscBidderViewDao" ref="tdscBidderViewDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- common query service -->
+	<bean id="commonQueryService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.tdscbase.service.CommonQueryService">
+				<property name="commonQueryDao" ref="tdscCommonQueryDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao" />
+				<property name="commonFlowService" ref="commonFlowService" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscBidderAppService" ref="tdscBidderAppService" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- common flow service -->
+	<bean id="commonFlowService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.flowadapter.service.CommonFlowService">
+				<property name="flowConfigDao" ref="tdscFlowConfigDao" />
+				<property name="appNodeStatDao" ref="tdscAppNodeStatDao" />
+				<property name="blockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="blockScheduleTableDao" ref="tdscBlockScheduleTableDao" />
+				<property name="appWorkflowInstanceRelDao" ref="tdscAppWorkflowInstanceRelDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="appFlowService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.flowadapter.service.AppFlowService">
+				<property name="tdscAppDao" ref="tdscAppDao" />
+				<property name="tdscOpnnDao" ref="tdscOpnnDao" />
+				<property name="tdscFlowPostStatusDao" ref="tdscFlowPostStatusDao" />
+				<property name="commonFlowService" ref="commonFlowService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="testFlowService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.flowadapter.service.TestFlowService">
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="commonQueryService" ref="commonQueryService" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- bidder material service -->
+	<bean id="tdscBidderMaterialService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.bidder.service.TdscBidderMaterialService">
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+				<property name="tdscBusinessRecordDao" ref="tdscBusinessRecordDao" />
+				<property name="commonQueryService" ref="commonQueryService" />
+				<property name="tdscBidderProvideDao" ref="tdscBidderProvideDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- bidder fund service -->
+	<bean id="tdscBidderFundService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.bidder.service.TdscBidderFundService">
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+				<property name="tdscBusinessRecordDao" ref="tdscBusinessRecordDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />
+			</bean>
+		</property>
+	</bean>
+	<!-- bidder app service -->
+	<bean id="tdscBidderAppService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.bidder.service.TdscBidderAppService">
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+				<property name="tdscBusinessRecordDao" ref="tdscBusinessRecordDao" />
+				<property name="tdscBidderMaterialDao" ref="tdscBidderMaterialDao" />
+				<property name="tdscBidderProvideDao" ref="tdscBidderProvideDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao" />
+				<property name="tdscNoticeAppDao" ref="tdscNoticeAppDao" />
+				<property name="tdscReturnBailDao" ref="tdscReturnBailDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- localtrade service -->
+	<bean id="tdscLocalTradeService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.localtrade.service.TdscLocalTradeService">
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBidderAppService" ref="tdscBidderAppService" />
+				<property name="tdscListingInfoDao" ref="tdscListingInfoDao" />
+				<property name="tdscListingAppDao" ref="tdscListingAppDao" />
+				<property name="tdscAuctionInfoDao" ref="tdscAuctionInfoDao" />
+				<property name="tdscBlockInfoService" ref="tdscBlockInfoService" />
+				<property name="commonQueryService" ref="commonQueryService" />
+				<property name="tdscAuctionAppDao" ref="tdscAuctionAppDao" />
+				<property name="tdscTenderInfoDao" ref="tdscTenderInfoDao" />
+				<property name="tdscTenderAppDao" ref="tdscTenderAppDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscNoticeAppDao" ref="tdscNoticeAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- specialistinfo service -->
+	<bean id="tdscSelectService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.randomselect.service.TdscSelectService">
+				<property name="specialistInfoDao" ref="tdscSpecialistInfoDao" />
+				<property name="tdscBlockSelectAppDao" ref="tdscBlockSelectAppDao" />
+				<property name="tdscNotaryInfoDao" ref="tdscNotaryInfoDao" />
+				<property name="tdscCompereInfoDao" ref="tdscCompereInfoDao" />
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="tdscSpecialistInfoDao" ref="tdscSpecialistInfoDao" />
+				<property name="smsService" ref="shortMessageService" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- selfhelp service -->
+	<bean id="selfhelpService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.selfhelp.service.SelfhelpService">
+				<property name="tdscListingAppDao" ref="TdscListingAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- blockinfo service -->
+	<bean id="tdscBlockInfoService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscBlockInfoService">
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBlockMaterialDao" ref="tdscBlockMaterialDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscBlockUsedInfoDao" ref="tdscBlockUsedInfoDao" />
+				<property name="tdscListingInfoDao" ref="tdscListingInfoDao" />
+				<property name="tdscBlockConInfoDao" ref="tdscBlockConInfoDao" />
+				<property name="tdscEsClobDao" ref="tdscEsClobDao" />
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao" />
+				<property name="tdscBlockRemisemoneyDefrayDao" ref="tdscBlockRemisemoneyDefrayDao" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscBlockQqjcInfoDao" ref="tdscBlockQqjcInfoDao" />
+				<property name="tdscBlockPjxxInfoDao" ref="tdscBlockPjxxInfoDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+				<property name="tdscAppDao" ref="tdscAppDao" />
+				<property name="fileRefDao" ref="fileRefDao" />
+				<property name="wxPersonInfoDao" ref="wxPersonInfoDao" />
+<!--				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />-->
+				<property name="incrementIdDao" ref="incrementIdDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- wzc 20071114 -->
+	<bean id="tdscPreviewService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscPreviewService">
+				<property name="tdscExplorInfoDao" ref="tdscExplorInfoDao" />
+				<property name="tdscBlockScheduleTableDao" ref="tdscBlockScheduleTableDao" />
+				<property name="tdscBlockUsedInfoDao" ref="tdscBlockUsedInfoDao" />
+				<property name="appFlowService" ref="appFlowService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- wzc 20071119 -->
+	<bean id="tdscAnswerService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscAnswerService">
+				<property name="tdscFaqInfoDao" ref="tdscFaqInfoDao" />
+				<property name="tdscReplyConfInfoDao" ref="tdscReplyConfInfoDao" />
+				<property name="tdscBlockScheduleTableDao" ref="tdscBlockScheduleTableDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- wzc 20071129 -->
+	<bean id="tdscScheduletableService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscScheduletableService">
+				<property name="tdscBlockUsedInfoDao" ref="tdscBlockUsedInfoDao" />
+				<property name="tdscBlockScheduleTableDao" ref="tdscBlockScheduleTableDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscAppDao" ref="tdscAppDao" />
+				<property name="tdscAppNodeStatDao" ref="tdscAppNodeStatDao" />
+				<property name="tdscOpnnDao" ref="tdscOpnnDao" />
+				<property name="commonFlowService" ref="commonFlowService" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao" />
+				<property name="tdscXbOrgService" ref="tdscXbOrgService" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="tdscFileService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscFileService">
+				<property name="tdscBlockFileAppDao" ref="tdscBlockFileAppDao" />
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao" />
+				<property name="tdscSendEmailInfoDao" ref="tdscSendEmailInfoDao" />
+				<property name="webDocumentFileDao" ref="webDocumentFileDao"/>
+			</bean>
+		</property>
+	</bean>
+	<bean id="tdscNoticeService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscNoticeService">
+				<property name="tdscNoticeAppDao" ref="tdscNoticeAppDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />
+				<property name="commonQueryService" ref="commonQueryService" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscFileService" ref="tdscFileService" />
+				<property name="tdscBlockFileAppDao" ref="tdscBlockFileAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscFileSaleInfoService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.TdscFileSaleInfoService">
+				<property name="tdscFileSaleInfoDao" ref="tdscFileSaleInfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="smartCardLoginService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.smartcardlogin.service.SmartCardLoginService">
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscNoticePublishService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.publishinfo.service.TdscNoticePublishService">
+				<property name="tdscNoticeAppDao" ref="tdscPublishInfoNoticeAppDao" />
+				<property name="commonQueryService" ref="commonQueryService" />
+				<property name="appFlowService" ref="appFlowService" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscFileService" ref="tdscFileService" />
+				<property name="tdscSendEmailInfoDao" ref="tdscSendEmailInfoDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- tdscReplyRecordService -->
+	<bean id="tdscReplyRecordService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.publishinfo.service.TdscReplyRecordService">
+				<property name="commonQueryDao" ref="tdscCommonQueryDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscReplyRecordDao" ref="tdscReplyRecordDao" />
+			</bean>
+		</property>
+	</bean>
+	<!-- tdscReplyRecordService END -->
+
+	<!-- tdscTransResultService -->
+	<bean id="tdscTransResultService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.publishinfo.service.TdscTransResultService">
+				<property name="commonQueryService" ref="commonQueryService" />
+			</bean>
+		</property>
+	</bean>
+	<!-- tdscTransResultService END -->
+
+	<!-- tdscTransResultService -->
+	<bean id="shortMessageService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.tdscbase.service.ShortMessageService" />
+		</property>
+	</bean>
+	<!-- tdscTransResultService END -->
+
+	<!-- tdscBlockContractInfoService -->
+	<bean id="tdscBlockContractInfoService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean
+				class="com.wonders.tdsc.publishinfo.service.TdscBlockContractInfoService">
+				<property name="tdscBlockContractInfoDao" ref="tdscBlockContractInfoDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<!-- tdscBlockContractInfoService END -->
+
+	<bean id="tdscCreditService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.credit.service.TdscCreditService">
+				<property name="tdscCorpInfoDao" ref="tdscCorpInfoDao" />
+				<property name="tdscBidderCxAppDao" ref="tdscBidderCxAppDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="tdscXbOrgService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.xborg.service.TdscXbOrgService">
+				<property name="tdscXbOrgInfoDao" ref="tdscXbOrgInfoDao" />
+				<property name="tdscXbOrgHistoryDao" ref="tdscXbOrgHistoryDao" />
+				<property name="tdscXbOrgAppDao" ref="tdscXbOrgAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="resetBlockPlanService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.blockwork.service.ResetBlockPlanService">
+				<property name="tdscAppDao" ref="tdscAppDao" />
+				<property name="tdscAppNodeStatDao" ref="tdscAppNodeStatDao" />
+				<property name="tdscOpnnDao" ref="tdscOpnnDao" />
+				<property name="tdscBlockTranAppDao" ref="BlockTranAppDao" />
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscReturnBzjService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.bidder.service.TdscReturnBzjService">
+				<property name="commonQueryDao" ref="tdscCommonQueryDao" />
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao" />
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscBlockSolveService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.solve.service.TdscBlockSolveService">
+				<property name="tdscBlockSolveDao" ref="tdscBlockSolveDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="tdscTradeStatService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.stat.service.TdscTradeStatisticsService">
+				<property name="commonQueryDao" ref="tdscCommonQueryDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="tdscReturnBailService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.retbail.service.TdscReturnBailService">
+				<property name="tdscReturnBailDao" ref="tdscReturnBailDao" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="miningTranAppService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.kyq.service.MiningTranAppService">
+				<property name="miningtranAppDao" ref="miningtranAppDao" />
+				<property name="miningBidderAppDao" ref="miningBidderAppDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="miningBidderAppService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.kyq.service.MiningBidderAppService">
+				<property name="miningBidderAppDao" ref="miningBidderAppDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />				
+				<property name="kyqNoticeDao" ref="kyqNoticeDao" />
+				<property name="miningtranAppDao" ref="miningtranAppDao" />
+				<property name="tdscListingInfoDao" ref="tdscListingInfoDao" />
+				<property name="tdscListingAppDao" ref="tdscListingAppDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="kyqNoticeService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.kyq.service.KyqNoticeService">
+				<property name="kyqNoticeDao" ref="kyqNoticeDao" />
+				<property name="miningtranAppDao" ref="miningtranAppDao" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="tdscBankAppService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.bank.service.TdscBankAppService">
+				<property name="tdscBankAppDao" ref="tdscBankAppDao" />
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl" />
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="tdscBlockPresellService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.presell.service.TdscBlockPresellService">
+				<property name="tdscBlockPresellDao" ref="tdscBlockPresellDao" />
+				<property name="fileRefDao" ref="fileRefDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="jzdjService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.jzdj.service.JzdjService">
+				<property name="fileRefDao" ref="fileRefDao" />
+			</bean>
+		</property>
+	</bean>
+	<bean id="export4PubPlatService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.tdsc.out.service.Export4PubPlatService">
+				<property name="tdscNoticeService" ref="tdscNoticeService"/>
+		    	<property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+		    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+		    	<property name="tdscFileService" ref="tdscFileService"/>
+			</bean>
+		</property>
+	</bean>
+	
+</beans>

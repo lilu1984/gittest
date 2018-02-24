@@ -1,0 +1,42 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+
+	<class name="com.wonders.tdsc.bo.TdscBlockSolve" table="TDSC_BLOCK_SOLVE">
+
+		<id name="solveId" type="com.wonders.esframework.common.type.AppString"
+			column="SOLVE_ID">
+			<generator class="uuid.hex" />
+		</id>
+
+		<property name="blockId"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_ID"
+			length="64" />
+			
+		<property name="planId"
+			type="com.wonders.esframework.common.type.AppString" column="PLAN_ID"
+			length="64" />
+
+		<property name="seqNo" type="java.lang.Integer" column="SEQ_NO"
+			length="3" />
+		<property name="question"
+			type="com.wonders.esframework.common.type.AppString" column="QUESTION"
+			length="3000" />
+		<property name="answerContext"
+			type="com.wonders.esframework.common.type.AppString" column="ANSWER_CONTEXT"
+			length="3000" />
+		<property name="answerUserId"
+			type="com.wonders.esframework.common.type.AppString" column="ANSWER_USER_ID"
+			length="64" />
+		<property name="answerDate" type="java.sql.Timestamp" column="ANSWER_DATE"
+			length="20" />
+
+		<!-- Associations -->
+
+
+	</class>
+</hibernate-mapping>

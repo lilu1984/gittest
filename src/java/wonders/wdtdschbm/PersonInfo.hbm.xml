@@ -1,0 +1,131 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.wsjy.bo.PersonInfo" 
+    table="WX_PERSON_INFO"
+>
+
+    <id
+        name="bidderId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_ID"
+    >
+        <generator class="assigned" />
+    </id>
+    <property
+        name="bidderName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_NAME"
+        length="100"
+    />
+    <property
+        name="bidderProperty"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_PROPERTY"
+        length="100"
+    />
+    <property
+        name="bidderZjlx"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_ZJLX"
+        length="100"
+    />
+    <property
+        name="bidderZjhm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_ZJHM"
+        length="100"
+    />
+    <property
+        name="linkManName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LINK_MAN_NAME"
+        length="100"
+    />
+    <property
+        name="bidderLxdh"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_LXDH"
+        length="100"
+    />
+    <property
+        name="bidderLxdz"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_LXDZ"
+        length="100"
+    />
+    <property
+        name="bidderYzbm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_YZBM"
+        length="100"
+    />
+    <property
+        name="corpFr"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FR"
+        length="100"
+    />
+    <property
+        name="corpFddbrZjlx"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FDDBR_ZJLX"
+        length="100"
+    />
+    <property
+        name="corpFddbrZjhm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FDDBR_ZJHM"
+        length="100"
+    />
+    <property
+        name="createDate"
+        type="java.util.Date"
+        column="CREATE_DATE"
+        length="7"
+    />
+    <property
+        name="lastUpdateDate"
+        type="java.util.Date"
+        column="LAST_UPDATE_DATE"
+        length="7"
+    />
+    <property
+        name="isAccptSms"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_ACCPT_SMS"
+        length="100"
+    />
+    <property
+        name="pushSmsPhone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUSH_SMS_PHONE"
+        length="100"
+    />
+    <property
+        name="corpFrZjlx"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FR_ZJLX"
+        length="100"
+    />
+    <property
+        name="corpFrZjhm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FR_ZJHM"
+        length="100"
+    />
+    <property
+        name="orgNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ORG_NO"
+        length="100"
+    />
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

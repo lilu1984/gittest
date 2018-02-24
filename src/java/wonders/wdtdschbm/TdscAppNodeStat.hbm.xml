@@ -1,0 +1,81 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscAppNodeStat" 
+    table="TDSC_APP_NODE_STAT"
+>
+
+    <id
+        name="id"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="flowId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FLOW_ID"
+        length="8"
+    />
+    <property
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+        length="8"
+    />
+    <property
+        name="nodeName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_NAME"
+        length="50"
+    />
+    <property
+        name="nodeStat"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_STAT"
+        length="2"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Date"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Date"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="hasSubFlow"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HAS_SUB_FLOW"
+        length="1"
+    />
+    <property
+        name="subFlowId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SUB_FLOW_ID"
+        length="64"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

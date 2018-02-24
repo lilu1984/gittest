@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<bean name="/tdsc/caLogging" class="com.wonders.common.ca.web.CommonLoginAction" singleton="false">
+    </bean>
+    <bean name="/tdsc/bank/bankLogin" class="com.wonders.tdsc.bank.web.BankLoggingAction" singleton="false">
+    </bean>
+    
+    <bean name="/tdsc/logging" class="com.wonders.tdsc.user.web.LoggingAction" singleton="false">
+        <property name="resourceManager" ref="tdscResourceManager"/>
+        <property name="userManager" ref="userManager"/>
+    </bean>
+
+    <bean name="/tdsc/menu" class="com.wonders.tdsc.user.web.MenuAction" singleton="false">
+        <property name="resourceManager" ref="tdscResourceManager"/>
+    </bean>
+
+    <bean name="/tdsc/taskPlan" class="com.wonders.tdsc.scheduler.web.action.TaskPlanAction" singleton="false">
+        <property name="taskPlanManager" ref="tdscTaskPlanManager"/>
+    </bean>
+
+    <bean name="/tdsc/bidderMaterial" class="com.wonders.tdsc.bidder.web.TdscBidderMaterialAction" singleton="false">
+        <property name="tdscBidderMaterialService" ref="tdscBidderMaterialService"/>
+    </bean>
+
+    <bean name="/tdsc/bidderFund" class="com.wonders.tdsc.bidder.web.TdscBidderFundAction" singleton="false">
+        <property name="tdscBidderFundService" ref="tdscBidderFundService"/>
+        <property name="commonQueryService" ref="commonQueryService"/>
+    </bean>
+
+    <bean name="/tdsc/bidderApp" class="com.wonders.tdsc.bidder.web.TdscBidderAppAction" singleton="false">
+    	<property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+        <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+        <property name="tdscBidderViewService" ref="tdscBidderViewService"/>
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="commonFlowService" ref="commonFlowService"/>
+        <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+        <property name="tdscReturnBailService" ref="tdscReturnBailService"/>
+        <property name="tdscBankAppService" ref="tdscBankAppService"/>
+        <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+    
+    <bean name="/tdsc/selectSpecailist" class="com.wonders.tdsc.randomselect.web.SelectSpecailistAction" singleton="false">
+        <property name="tdscSelectService" ref="tdscSelectService"/>
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscBidderAppService" ref="tdscBidderAppService"/>        
+        <property name="smsService" ref="shortMessageService"/>
+    </bean>
+
+    <bean name="/tdsc/vendue" class="com.wonders.tdsc.localtrade.web.VendueAction" singleton="false">
+    	<property name="tdscSelectService" ref="tdscSelectService"/>
+    	<property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+        <property name="commonFlowService" ref="commonFlowService"/>
+        <property name="appFlowService" ref="appFlowService"/>
+        <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+        <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+   
+
+	<bean name="/tdsc/commonQuery" class="com.wonders.tdsc.tdscbase.web.TdscQueryAction" singleton="false">
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    	<property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+    	<property name="appFlowService" ref="appFlowService"/>
+    	<property name="commonFlowService" ref="commonFlowService"/>
+    </bean>
+
+    <bean name="/tdsc/blockAudit" class="com.wonders.tdsc.blockwork.web.TdscBlockAuditAction" singleton="false">
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    	<property name="appFlowService" ref="appFlowService"/>
+    	<property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+    </bean>
+
+     <bean name="/tdsc/listing" class="com.wonders.tdsc.localtrade.web.ListingAction" singleton="false">
+    	<property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    	<property name="appFlowService" ref="appFlowService"/>
+    	<property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+     </bean>
+
+     <bean name="/tdsc/selfhelp" class="com.wonders.tdsc.selfhelp.web.SelfhelpAction" singleton="false">
+    	  <property name="selfhelpService" ref="selfhelpService"/>
+    	  <property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+    	  <property name="tdscBidderFundService" ref="tdscBidderFundService"/>
+    	  <property name="commonQueryService" ref="commonQueryService"/>
+    	  <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+    	  <property name="smartCardLoginService" ref="smartCardLoginService"/>
+    	  <property name="commonFlowService" ref="commonFlowService"/>
+    	  <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+    	  <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+     </bean>
+    <!-- wzc 20071113 -->
+    <bean name="/tdsc/preview" class="com.wonders.tdsc.blockwork.web.TdscPreviewAction" singleton="false">
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscPreviewService" ref="tdscPreviewService"/>
+        <property name="appFlowService" ref="appFlowService"/>
+    </bean>
+    <!-- wzc 20071119 -->
+    <bean name="/tdsc/answer" class="com.wonders.tdsc.blockwork.web.TdscAnswerAction" singleton="false">
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscAnswerService" ref="tdscAnswerService"/>
+        <property name="appFlowService" ref="appFlowService"/>
+    </bean>
+    <!-- wzc 20071129 -->
+    <bean name="/tdsc/scheduletable" class="com.wonders.tdsc.blockwork.web.TdscScheduletableAction" singleton="false">
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+        <property name="appFlowService" ref="appFlowService"/>
+        <property name="tdscSelectService" ref="tdscSelectService"/>
+        <property name="smsService" ref="shortMessageService"/>
+        <property name="commonFlowService" ref="commonFlowService"/>
+        <property name="tdscXbOrgService" ref="tdscXbOrgService"/>
+        <property name="tdscNoticeService" ref="tdscNoticeService"/>
+    </bean>
+    <bean name="/tdsc/file" class="com.wonders.tdsc.blockwork.web.TdscFileAction" singleton="false">
+        <property name="commonQueryService" ref="commonQueryService"/>
+        <property name="tdscFileService" ref="tdscFileService"/>
+        <property name="appFlowService" ref="appFlowService"/>
+        <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+        <property name="tdscNoticeService" ref="tdscNoticeService"/>
+        <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+        <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+        <property name="idSpringManager" ref="tdscIdSpringManagerImpl"/>
+    </bean>
+    <bean name="/tdsc/notice" class="com.wonders.tdsc.blockwork.web.TdscNoticeAction" singleton="false">
+         <property name="tdscNoticeService" ref="tdscNoticeService"/>
+         <property name="commonQueryService" ref="commonQueryService"/>
+         <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+         <property name="appFlowService" ref="appFlowService"/>
+    </bean>
+    
+    <bean name="/tdsc/replyrecord" class="com.wonders.tdsc.publishinfo.web.TdscReplyRecordAction" singleton="false">
+	     <property name="tdscReplyRecordService" ref="tdscReplyRecordService"/>    
+	     <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+	     <property name="commonFlowService" ref="commonFlowService"/>
+	     <property name="tdscAnswerService" ref="tdscAnswerService"/>
+    </bean>
+    
+    <bean name="/tdsc/transresult" class="com.wonders.tdsc.publishinfo.web.TdscTransResultAction" singleton="false">
+	     <property name="commonQueryService" ref="commonQueryService"/>  
+	     <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>  
+	     <property name="appFlowService" ref="appFlowService"/>
+	     <property name="tdscNoticePublishService" ref="tdscNoticePublishService"/>
+	     <property name="tdscSendEmailInfoDao" ref="tdscSendEmailInfoDao"/>
+	     <property name="export4PubPlatService" ref="export4PubPlatService"/>
+    </bean>
+        
+    <bean name="/tdsc/pubinfo" class="com.wonders.tdsc.publishinfo.web.TdscNoticePublishAction" singleton="false">
+         <property name="tdscNoticePublishService" ref="tdscNoticePublishService"/>
+         <property name="appFlowService" ref="appFlowService"/>
+         <property name="tdscNoticeService" ref="tdscNoticeService"/>
+         <property name="tdscFileService" ref="tdscFileService"/>
+         <property name="commonQueryService" ref="commonQueryService"/>
+    </bean>
+    
+    <bean name="/tdsc/sale" class="com.wonders.tdsc.blockwork.web.TdscFileSaleInfoAction" singleton="false">
+         <property name="tdscNoticePublishService" ref="tdscNoticePublishService"/>
+         <property name="tdscNoticeService" ref="tdscNoticeService"/>
+         <property name="tdscFileService" ref="tdscFileService"/>
+         <property name="tdscFileSaleInfoService" ref="tdscFileSaleInfoService"/>
+         <property name="commonQueryService" ref="commonQueryService"/>
+         <property name="userManager" ref="userManager"/>
+    </bean>
+    
+    <bean name="/tdsc/cardLogin" class="com.wonders.tdsc.smartcardlogin.web.SmartCardLoginAction" singleton="false">
+         <property name="smartCardLoginService" ref="smartCardLoginService"/>
+         <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+         <property name="commonQueryService" ref="commonQueryService"/> 
+    </bean>
+    <bean name="/tdsc/viewAppFlow" class="com.wonders.tdsc.flowadapter.web.ViewAppFlowAction" singleton="false">
+         <property name="appFlowService" ref="appFlowService"/>
+         <property name="commonFlowService" ref="commonFlowService"/>
+         <property name="commonQueryService" ref="commonQueryService"/>  
+    </bean>
+    <bean name="/tdsc/contractInfo" class="com.wonders.tdsc.publishinfo.web.TdscBlockContractInfoAction" singleton="false">
+         <property name="tdscBlockContractInfoService" ref="tdscBlockContractInfoService"/>
+         <property name="commonQueryService" ref="commonQueryService"/>
+         <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+    <bean name="/tdsc/credit" class="com.wonders.tdsc.credit.web.action.TdscCreditAction" singleton="false">
+         <property name="tdscCreditService" ref="tdscCreditService"/>
+    </bean>
+    <bean name="/tdsc/orgApp" class="com.wonders.tdsc.xborg.web.action.TdscXbOrgAction" singleton="false">
+         <property name="tdscXbOrgService" ref="tdscXbOrgService"/>
+         <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+    </bean>
+    <bean name="/tdsc/returnBzj" class="com.wonders.tdsc.bidder.web.TdscReturnBzjAction" singleton="false">
+    	<property name="tdscReturnBzjService" ref="tdscReturnBzjService"/>
+    </bean>
+    <bean name="/tdsc/resetPlan" class="com.wonders.tdsc.blockwork.web.ResetBlockPlanAction" singleton="false">
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="resetBlockPlanService" ref="resetBlockPlanService"/>
+    </bean>
+    
+    <bean name="/tdsc/solve" class="com.wonders.tdsc.solve.web.action.TdscBlockSolveAction" singleton="false">
+    	<property name="tdscBlockSolveService" ref="tdscBlockSolveService"/>
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="appFlowService" ref="appFlowService"/>
+    	<property name="commonFlowService" ref="commonFlowService"/>
+    </bean>
+    <bean name="/tdsc/tradeStat" class="com.wonders.tdsc.stat.web.action.TdscTradeStatisticsAction" singleton="false">
+    	<property name="tdscTradeStatService" ref="tdscTradeStatService"/>
+    	<property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="tdscBidderViewService" ref="tdscBidderViewService"/>
+    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    	<property name="tdscNoticeService" ref="tdscNoticeService"/>
+        <property name="tdscFileSaleInfoService" ref="tdscFileSaleInfoService"/>
+        <property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+        <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+    </bean>
+    <bean name="/tdsc/retBail" class="com.wonders.tdsc.retbail.web.action.TdscReturnBailAction" singleton="false">
+    	<property name="tdscReturnBailService" ref="tdscReturnBailService"/>
+    	<property name="commonQueryService" ref="commonQueryService"/>
+    	<property name="tdscBidderViewService" ref="tdscBidderViewService"/>
+    	<property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+    </bean>
+    
+    <bean name="/tdsc/miningTranApp" class="com.wonders.tdsc.kyq.action.MiningTranAppAction" singleton="false">
+    	<property name="miningTranAppService" ref="miningTranAppService"/>
+    </bean>
+    <bean name="/tdsc/miningBidderApp" class="com.wonders.tdsc.kyq.action.MiningBidderAppAction" singleton="false">
+    	<property name="miningBidderAppService" ref="miningBidderAppService"/>
+    	<property name="miningTranAppService" ref="miningTranAppService"/>
+    	<property name="kyqNoticeService" ref="kyqNoticeService"/>
+    </bean>
+    <bean name="/tdsc/kyqNotices" class="com.wonders.tdsc.kyq.action.KyqNoticeAction" singleton="false">
+    	<property name="kyqNoticeService" ref="kyqNoticeService"/>
+    	<property name="miningTranAppService" ref="miningTranAppService"/>
+    	<property name="tdscFileService" ref="tdscFileService"/>
+    </bean>
+
+    <bean name="/tdsc/bank/bankApp" class="com.wonders.tdsc.bank.web.TdscBankAppAction" singleton="false">
+    	<property name="tdscBankAppService" ref="tdscBankAppService"/>
+    </bean>
+    
+    <bean name="/tdsc/presell" class="com.wonders.tdsc.presell.web.TdscBlockPresellAction" singleton="false">
+    	<property name="tdscBlockPresellService" ref="tdscBlockPresellService"/>
+    </bean>
+    <bean name="/tdsc/makeup" class="com.wonders.tdsc.blockwork.web.BlockMarkupAction" singleton="false">
+    	<property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+    <bean name="/tdsc/jzdj" class="com.wonders.tdsc.jzdj.web.JzdjAction" singleton="false">
+    	<property name="jzdjService" ref="jzdjService"/>
+    </bean>
+    <bean name="/tdsc/bankpay" class="com.wonders.tdsc.bankPay.web.AnalogPayAction" singleton="false">
+    	<property name="subscribeService" ref="subscribeService"/>
+    	<property name="tradeServer" ref="tradeServer"/>
+    </bean>
+    
+    
+    <bean name="/tdsc/tradeFinish" class="com.wonders.tdsc.blockwork.web.TradeFinishAction" singleton="false">
+	    <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+	    <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+    </bean>
+
+        <bean name="/tdsc/bidderRoll" class="com.wonders.tdsc.blockwork.web.TdscBidderRollAction" singleton="false">
+	    <property name="commonQueryService" ref="commonQueryService"/>
+	    <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+</beans>

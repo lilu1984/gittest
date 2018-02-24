@@ -1,0 +1,394 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN" "http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<taglib>
+
+    <tlib-version>1.0</tlib-version>
+    <jsp-version>1.2</jsp-version>
+    <short-name>es-input</short-name>
+    <uri>es-input</uri>
+
+
+    <!-- ********** This is a html select tag ********** -->
+    <tag>
+        <name>select</name>
+        <tag-class>com.wonders.esframework.taglib.FormSelectTag</tag-class>
+        <body-content>jsp</body-content>
+        
+        <!-- the object's name -->
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can be edited. true or false. Default is false -->
+        <attribute>
+            <name>disabled</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style -->
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style class -->
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onblur -->
+        <attribute>
+            <name>onblur</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onchange -->
+        <attribute>
+            <name>onchange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onfocus -->
+        <attribute>
+            <name>onfocus</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onclick -->
+        <attribute>
+            <name>onclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event ondblclick -->
+        <attribute>
+            <name>ondblclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- data object, List or Map -->
+        <attribute>
+            <name>dataObject</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option value -->
+        <attribute>
+            <name>defaultValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather insert an empty option at first. true or false. Default is false  -->
+        <attribute>
+            <name>emptyOption</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when emptyOption is true. the empty option description -->
+        <attribute>
+            <name>emptyOptionDesc</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can multiple selected. true or false. Default is false -->
+        <attribute>
+            <name>multiple</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the list show size -->
+        <attribute>
+            <name>size</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get id -->
+        <attribute>
+            <name>getId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get value -->
+        <attribute>
+            <name>getValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- validator -->
+        <attribute>
+            <name>validator</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    
+    
+    <!-- ********** This is a html radio tag ********** -->
+    <tag>
+        <name>radio</name>
+        <tag-class>com.wonders.esframework.taglib.FormRadioTag</tag-class>
+        <body-content>jsp</body-content>
+        
+        <!-- the object's name -->
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can be edited. true or false. Default is false -->
+        <attribute>
+            <name>disabled</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style -->
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style class -->
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onblur -->
+        <attribute>
+            <name>onblur</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onchange -->
+        <attribute>
+            <name>onchange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onfocus -->
+        <attribute>
+            <name>onfocus</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onclick -->
+        <attribute>
+            <name>onclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event ondblclick -->
+        <attribute>
+            <name>ondblclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- data object, List or Map -->
+        <attribute>
+            <name>dataObject</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option value -->
+        <attribute>
+            <name>defaultValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get id -->
+        <attribute>
+            <name>getId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get value -->
+        <attribute>
+            <name>getValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!--arrange type: row or column-->
+		<attribute>
+			<name>arrange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<!-- validator -->
+        <attribute>
+            <name>validator</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+    
+        
+    <!-- **********  This is a html checkbox tag ********** -->
+    <tag>
+        <name>checkbox</name>
+        <tag-class>com.wonders.esframework.taglib.FormCheckboxTag</tag-class>
+        <body-content>jsp</body-content>
+        
+        <!-- the object's name -->
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can be edited. true or false. Default is false -->
+        <attribute>
+            <name>disabled</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style -->
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style class -->
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onblur -->
+        <attribute>
+            <name>onblur</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onchange -->
+        <attribute>
+            <name>onchange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onfocus -->
+        <attribute>
+            <name>onfocus</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event onclick -->
+        <attribute>
+            <name>onclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- javascript event ondblclick -->
+        <attribute>
+            <name>ondblclick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- data object, List or Map -->
+        <attribute>
+            <name>dataObject</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option value -->
+        <attribute>
+            <name>defaultValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option values -->
+        <attribute>
+            <name>defaultValues</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option values -->
+        <attribute>
+            <name>isNotDefaultDisabled</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- default option values -->
+        <attribute>
+            <name>enabledValues</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get id -->
+        <attribute>
+            <name>getId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- valid when dataObject is List. the method of get value -->
+        <attribute>
+            <name>getValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+		<!--arrange type: row or column-->
+		<attribute>
+			<name>arrange</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		
+		<!-- validator -->
+        <attribute>
+            <name>validator</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+        
+</taglib>

@@ -1,0 +1,140 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.kyq.bo.MiningBidderApp" 
+    table="JY_MINING_BIDDER_APP"
+>
+
+    <id
+        name="bidderId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="bidderName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_NAME"
+        length="64"
+    />
+    <property
+        name="bidderProperty"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_PROPERTY"
+        length="10"
+    />
+    <property
+        name="zjlx"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ZJLX"
+        length="10"
+    />
+    <property
+        name="zjhm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ZJHM"
+        length="64"
+    />
+    <property
+        name="lxdh"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LXDH"
+        length="64"
+    />
+    <property
+        name="lxdz"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LXDZ"
+        length="100"
+    />
+    <property
+        name="yzbm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="YZBM"
+        length="100"
+    />
+    <property
+        name="corpFddbrZjlx"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FDDBR_ZJLX"
+        length="64"
+    />
+    <property
+        name="corpFddbrZjhm"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_FDDBR_ZJHM"
+        length="64"
+    />
+    <property
+        name="miningId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MINING_ID"
+        length="64"
+    />
+    <property
+        name="certNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CERT_NO"
+        length="20"
+    />
+    <property
+        name="bankName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANK_NAME"
+        length="10"
+    />
+    <property
+        name="haoPai"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HAO_PAI"
+        length="10"
+    />
+    <property
+        name="usbKeyId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USB_KEY_ID"
+        length="32"
+    />
+    <property
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+        length="64"
+    />
+    <property
+        name="purposeAppId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PURPOSE_APP_ID"
+        length="2000"
+    />
+     <property
+        name="lxr"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LXR"
+        length="100"
+    />
+    <property
+        name="isAccptSms"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_ACCPT_SMS"
+        length="10"
+    />
+    <property
+        name="pushSmsPhone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PUSH_SMS_PHONE"
+        length="100"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

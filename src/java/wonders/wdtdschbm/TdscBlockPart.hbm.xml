@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+<hibernate-mapping package="com.wonders.tdsc.bo">
+	<class name="TdscBlockPart" table="TDSC_BLOCK_PART">
+		<id name="partId" column="PART_ID"
+			type="com.wonders.esframework.common.type.AppString">
+			<generator class="uuid.hex"></generator>
+		</id>
+		<property name="blockId"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_ID" />
+		<property name="blockName"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_NAME"
+			length="400" />
+		<property name="landUseType"
+			type="com.wonders.esframework.common.type.AppString" column="LAND_USE_TYPE"
+			length="100" />
+		<property name="density"
+			type="com.wonders.esframework.common.type.AppString" column="DENSITY"
+			length="100" />
+		<property name="greeningRate"
+			type="com.wonders.esframework.common.type.AppString" column="GREENING_RATE"
+			length="100" />
+		<property name="greeningRateCon"
+			type="com.wonders.esframework.common.type.AppString" column="GREENING_RATE_CON"
+			length="100" />
+		<property name="memo"
+			type="com.wonders.esframework.common.type.AppString" column="MEMO"
+			length="2000" />
+		<property name="rangeEast"
+			type="com.wonders.esframework.common.type.AppString" column="RANGE_EAST"
+			length="500" />
+		<property name="rangeNorth"
+			type="com.wonders.esframework.common.type.AppString" column="RANGE_NORTH"
+			length="500" />
+		<property name="rangeSouth"
+			type="com.wonders.esframework.common.type.AppString" column="RANGE_SOUTH"
+			length="500" />
+		<property name="rangeWest"
+			type="com.wonders.esframework.common.type.AppString" column="RANGE_WEST"
+			length="500" />
+		<property name="totalLandArea" type="java.math.BigDecimal"
+			column="TOTAL_LAND_AREA" length="20" />
+		<property name="transferLife"
+			type="com.wonders.esframework.common.type.AppString" column="TRANSFER_LIFE"
+			length="200" />
+		<property name="volumeRate"
+			type="com.wonders.esframework.common.type.AppString" column="VOLUME_RATE"
+			length="100" />
+		<property name="blockCode"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_CODE"
+			length="100" />
+		<property name="blockDetailedUsed"
+			type="com.wonders.esframework.common.type.AppString" column="BLOCK_DETAILED_USED"
+			length="1000" />
+		<property name="blockArea" type="java.math.BigDecimal"
+			column="BLOCK_AREA" length="20" />
+		<property name="planBuildingArea" type="java.math.BigDecimal"
+			column="PLAN_BUILDING_AREA" length="20" />
+		<property name="volumeRateSign"
+			type="com.wonders.esframework.common.type.AppString" column="VOLUME_RATE_SIGN"
+			length="20" />
+		<property name="densitySign"
+			type="com.wonders.esframework.common.type.AppString" column="DENSITY_SIGN"
+			length="20" />
+		<property name="greeningRateSign"
+			type="com.wonders.esframework.common.type.AppString" column="GREENING_RATE_SIGN"
+			length="20" />
+		<property name="serviceCharge" type="java.math.BigDecimal"
+			column="SERVICE_CHARGE" length="20" />
+		<property name="volumeRate2"
+			type="com.wonders.esframework.common.type.AppString" column="VOLUME_RATE2"
+			length="100" />
+		<property name="greeningRate2"
+			type="com.wonders.esframework.common.type.AppString" column="GREENING_RATE2"
+			length="100" />
+		<property name="density2"
+			type="com.wonders.esframework.common.type.AppString" column="DENSITY2"
+			length="100" />
+		<property name="volumeRateMemo"
+			type="com.wonders.esframework.common.type.AppString" column="VOLUME_RATE_MEMO"
+			length="100" />
+		<property name="density1"
+			type="com.wonders.esframework.common.type.AppString" column="DENSITY1"
+			length="32" />
+		<property name="greeningRate1"
+			type="com.wonders.esframework.common.type.AppString" column="GREENING_RATE1"
+			length="32" />
+	</class>
+</hibernate-mapping>

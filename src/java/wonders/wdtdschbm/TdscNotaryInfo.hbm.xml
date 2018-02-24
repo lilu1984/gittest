@@ -1,0 +1,69 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscNotaryInfo" 
+    table="TDSC_NOTARY_INFO"
+>
+
+    <id
+        name="notaryId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="notaryName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_NAME"
+        length="100"
+    />
+    <property
+        name="notaryLinkman"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_LINKMAN"
+        length="100"
+    />
+    <property
+        name="notaryContactPlace"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_CONTACT_PLACE"
+        length="200"
+    />
+    <property
+        name="notaryContactWay"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_CONTACT_WAY"
+        length="100"
+    />
+    <property
+        name="notaryContactMobile"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_CONTACT_MOBILE"
+        length="50"
+    />
+    <property
+        name="notaryValid"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_VALID"
+        length="1"
+    />
+    <property
+        name="notaryUserId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTARY_USER_ID"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

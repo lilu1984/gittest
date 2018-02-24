@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.wonders.esframework.dic.model.DicConfig"
+    table="TDSC_ES_DIC_CONFIG"
+>
+
+    <id
+        name="dicId"
+        type="java.lang.Integer"
+        column="DIC_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dicName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DIC_NAME"
+        length="100"
+    />
+    <property
+        name="dicType"
+        type="java.lang.Integer"
+        column="DIC_TYPE"
+        length="1"
+    />
+    <property
+        name="keyDataType"
+        type="java.lang.Integer"
+        column="KEY_DATA_TYPE"
+        length="1"
+    />
+    <property
+        name="tableName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TABLE_NAME"
+        length="30"
+    />
+    <property
+        name="itemKeyColumn"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ITEM_KEY_COLUMN"
+        length="30"
+    />
+    <property
+        name="itemNameColumn"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ITEM_NAME_COLUMN"
+        length="30"
+    />
+    <property
+        name="appendSql"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APPEND_SQL"
+        length="255"
+    />
+    <property
+        name="valueList"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VALUE_LIST"
+        length="255"
+    />
+    <property
+        name="dicDesc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DIC_DESC"
+        length="255"
+    />
+
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

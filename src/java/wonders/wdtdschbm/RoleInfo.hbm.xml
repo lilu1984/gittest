@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+    
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.common.authority.bo.RoleInfo" 
+    table="UA_ROLE_INFO"
+>
+
+    <id
+        name="roleId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ROLE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="roleDesc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ROLE_DESC"
+        length="255"
+    />
+
+    <!-- Associations -->
+    <!-- role-authority-map -->
+    <set name="authority" table="UA_ROLE_AUTHORITY_MAP" lazy="true">
+        <key column="ROLE_ID" />
+        <many-to-many column="NODE_ID" class="com.wonders.common.authority.bo.AuthorityTree" />
+    </set>
+    
+    <!-- user-role-map -->
+    <set name="user" table="UA_USER_ROLE_MAP" lazy="true">
+        <key column="ROLE_ID" />
+        <many-to-many column="USER_ID" class="com.wonders.common.authority.bo.UserInfo"/>
+    </set>
+
+</class>
+</hibernate-mapping>

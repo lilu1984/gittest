@@ -1,0 +1,79 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.WebDocumentFile" 
+    table="WEB_DOCUMENT_FILE"
+>
+
+    <id
+        name="fileId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILEID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="fileDate"
+        type="java.sql.Date"
+        column="FILEDATE"
+        length="7"
+    />
+    <property
+        name="fileName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILENAME"
+        length="254"
+    />
+    <property
+        name="fileType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILETYPE"
+        length="4"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+    <property
+        name="fileSize"
+        type="java.lang.Integer"
+        column="FILESIZE"
+        length="10"
+    />
+	<property
+        name="filePath"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILEPATH"
+        length="128"
+    />
+    <property
+        name="userName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USERNAME"
+        length="64"
+    />
+    <property
+        name="descript"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DESCRIPT"
+        length="255"
+    />
+    <property
+        name="fileBody"
+        type="org.springframework.orm.hibernate3.support.BlobByteArrayType"
+        column="FILEBODY"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

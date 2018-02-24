@@ -1,0 +1,33 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscFlowDicAction" 
+    table="TDSC_FLOW_DIC_ACTION"
+>
+
+    <id
+        name="actionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="actionName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_NAME"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

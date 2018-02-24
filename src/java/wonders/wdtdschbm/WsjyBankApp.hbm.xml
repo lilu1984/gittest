@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.wonders.wsjy.bo.WsjyBankApp"
+    table="WSJY_BANK_APP"
+>
+
+    <id
+        name="id"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="instcode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INSTCODE"
+        length="100"
+    />
+    <property
+        name="indate"
+        type="java.sql.Date"
+        column="INDATE"
+        length="7"
+    />
+    <property
+        name="inamout"
+        type="java.math.BigDecimal"
+        column="INAMOUNT"
+        length="12"
+    />
+    <property
+        name="inname"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INNAME"
+        length="200"
+    />
+    <property
+        name="inacct"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INACCT"
+        length="100"
+    />
+    <property
+        name="inmemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INMEMO"
+        length="100"
+    />
+    <property
+        name="inbankflcode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INBANKFLCODE"
+        length="100"
+    />
+    <property
+        name="result"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT"
+        length="100"
+    />
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

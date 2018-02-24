@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.2</jspversion>
+    <shortname>es-calendar</shortname>
+    <uri>es-calendar</uri>
+    
+    
+    <!-- ********** This is a calendar input tag ********** -->
+    <tag>
+        <name>input</name>
+        <tagclass>com.wonders.esframework.taglib.CalendarInputTag</tagclass>
+        <bodycontent>jsp</bodycontent>
+        
+        <!-- the object's name -->
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can be edited. true or false. Default is false -->
+        <attribute>
+            <name>disabled</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's default value -->
+        <attribute>
+            <name>value</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the show size -->
+        <attribute>
+            <name>size</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style -->
+        <attribute>
+            <name>style</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the object's style class -->
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- weather the object can focus -->
+        <attribute>
+            <name>focus</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the end date input coltrol has a start date input coltrol -->
+        <attribute>
+            <name>startDate</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+        <!-- the start date input coltrol has an end date input coltrol -->
+        <attribute>
+            <name>endDate</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+    </tag>
+    
+    
+    
+    <!-- ********** This is a calendar iframe tag ********** -->
+    <tag>
+        <name>iframe</name>
+        <tagclass>com.wonders.esframework.taglib.CalendarIFrameTag</tagclass>
+        <bodycontent>jsp</bodycontent>
+        
+        <!-- the calendar html file's relative path -->
+        <attribute>
+            <name>path</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        
+    </tag>
+    
+</taglib>
+

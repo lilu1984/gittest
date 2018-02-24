@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="GB2312" ?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.2//EN"
+	"http://java.sun.com/j2ee/dtd/web-jsptaglibrary_1_2.dtd">
+
+<!-- a tag library descriptor -->
+
+<taglib>
+  <tlib-version>1.0</tlib-version>
+  <jsp-version>1.2</jsp-version>
+  <short-name>wonders utility tags</short-name>
+  <uri>wdhytags</uri>
+  <description>
+    This tag library defines no tags.  Instead, its purpose is encapsulated
+    in the TagLibraryValidator implementation that simply outputs the XML
+    version of a JSP page to standard output, whenever this tag library is
+    referenced in a "taglib" directive in a JSP page.
+  </description>
+
+  <!-- This is a dummy tag solely to satisfy DTD requirements -->  
+  <tag>
+    <name>InputTag</name>
+    <tag-class>com.wonders.esframework.common.web.InputTag</tag-class>
+    <body-content>jsp</body-content>
+    <description>set select ,checkbox ,radiobox ,text default value </description>
+    <!--dic data-->
+		<attribute>
+ 			<name>dicObjects</name>
+ 			<required>true</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+    <!--must input element-->
+    <attribute>
+ 			<name>inputType</name>
+ 			<required>true</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+		<attribute>
+			<name>inputName</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+	  </attribute>		
+	  <!--public input element-->
+	  <attribute>
+ 			<name>defaultValue</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <attribute>
+ 			<name>style</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+		<attribute>
+ 			<name>myClass</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <attribute>
+ 			<name>javaScript</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <attribute>
+ 			<name>disabled</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <!--select element-->
+	  <attribute>
+ 			<name>explain</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+		<attribute>
+ 			<name>size</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+		<attribute>
+ 			<name>multiple</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <!--checkbox or radio element-->
+	  <attribute>
+ 			<name>arrange</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <!--type list element-->
+	  <attribute>
+ 			<name>getId</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>
+	  <attribute>
+ 			<name>getValue</name>
+ 			<required>false</required>
+ 			<rtexprvalue>true</rtexprvalue>
+	  </attribute>  	  
+  </tag>    
+</taglib>

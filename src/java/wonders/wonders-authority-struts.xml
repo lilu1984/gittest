@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ========== Form Bean Definitions ================================== -->
+    <form-beans>
+        <form-bean name="userInfoForm" type="com.wonders.common.authority.web.form.UserInfoForm" />
+        <form-bean name="groupInfoForm" type="com.wonders.common.authority.web.form.RoleInfoForm" />
+    </form-beans>
+    
+    <!-- ========== Action Mapping Definitions =============================== -->
+    <action-mappings>    
+        <!-- start authority manager -->
+        <action path="/tdsc/user" type="org.springframework.web.struts.DelegatingActionProxy" 
+                name="userInfoForm" scope="request" parameter="method">
+            <forward name="userList" path="/tdsc/user/user_list.jsp"/>
+            <forward name="userInfo" path="/tdsc/user/user_info.jsp"/>
+            <forward name="userInfoDetail" path="/tdsc/user/user_info_detail.jsp"/>
+            <forward name="success" path="/tdsc/user.do?method=toDefaultList"/>
+            <forward name="tree" path="/tdsc/user/authority_tree.jsp"/>
+            <forward name="changPassword" path="/tdsc/user/user_change_passowrd.jsp"/>
+        </action>
+
+        <action path="/tdsc/group" type="org.springframework.web.struts.DelegatingActionProxy" 
+                name="groupInfoForm" scope="request" parameter="method">
+            <forward name="groupList" path="/tdsc/user/group_list.jsp"/>
+            <forward name="groupInfo" path="/tdsc/user/group_info.jsp"/>
+            <forward name="roleInfoDetail" path="/tdsc/user/group_info_detail.jsp"/>
+            <forward name="success" path="/tdsc/group.do?method=query"/>
+            <forward name="tree" path="/tdsc/user/authority_tree.jsp"/>
+        </action>
+        <!-- end authority manager -->
+        
+    </action-mappings>
+</struts-config>

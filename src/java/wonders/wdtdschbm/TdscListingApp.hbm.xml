@@ -1,0 +1,111 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscListingApp" 
+    table="TDSC_LISTING_APP"
+>
+
+    <id
+        name="listingAppId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LISTING_APP_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="listingId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LISTING_ID"
+        length="64"
+    />
+    <property
+        name="listingSer"
+        type="java.math.BigDecimal"
+        column="LISTING_SER"
+        length="20"
+    />
+    <property
+        name="priceType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PRICE_TYPE"
+        length="2"
+    />
+    <property
+        name="priceNum"
+        type="java.math.BigDecimal"
+        column="PRICE_NUM"
+        length="20"
+    />
+    <property
+        name="listCert"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LIST_CERT"
+        length="100"
+    />
+    <property
+        name="listNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LIST_NO"
+        length="100"
+    />
+    <property
+        name="listPrice"
+        type="java.math.BigDecimal"
+        column="LIST_PRICE"
+        length="20"
+    />
+    <property
+        name="addPrice"
+        type="java.math.BigDecimal"
+        column="ADD_PRICE"
+        length="20"
+    />
+    <property
+        name="listDate"
+        type="java.sql.Timestamp"
+        column="LIST_DATE"
+        length="20"
+    />
+    <property
+        name="listPlace"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LIST_PLACE"
+        length="500"
+    />
+    <property
+        name="listModeratpr"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LIST_MODERATPR"
+        length="100"
+    />
+    <property
+        name="listNorar"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LIST_NORAR"
+        length="100"
+    />
+    <property
+        name="yktXh"
+        type="com.wonders.esframework.common.type.AppString"
+        column="YKT_XH"
+        length="50"
+    />
+     <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="32"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

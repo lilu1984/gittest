@@ -1,0 +1,69 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockUsedInfo" 
+    table="TDSC_BLOCK_USED_INFO"
+>
+
+    <id
+        name="blockUsedId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_USED_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="blockId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_ID"
+        length="64"
+    />
+    <property
+        name="useId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USE_ID"
+        length="5"
+    />
+    <property
+        name="landUseType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="LAND_USE_TYPE"
+        length="10"
+    />
+    <property
+        name="planUseMemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PLAN_USE_MEMO"
+        length="300"
+    />
+    <property
+        name="surveyId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SURVEY_ID"
+        length="100"
+    />
+    <property
+        name="reportId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REPORT_ID"
+        length="100"
+    />
+    <property
+        name="buildingArea"
+        type="java.math.BigDecimal"
+        column="BUILDING_AREA"
+        length="18"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

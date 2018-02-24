@@ -1,0 +1,183 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBlockSelectApp" 
+    table="TDSC_BLOCK_SELECT_APP"
+>
+
+    <id
+        name="selectId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="appId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="APP_ID"
+        length="64"
+    />
+    <property
+        name="selectNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_NUM"
+        length="20"
+    />
+    <property
+        name="selectType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_TYPE"
+        length="10"
+    />
+    <property
+        name="selectedId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECTED_ID"
+        length="64"
+    />
+    <property
+        name="activityDate"
+        type="java.sql.Timestamp"
+        column="ACTIVITY_DATE"
+        length="20"
+    />
+    <property
+        name="activityLoc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTIVITY_LOC"
+        length="100"
+    />
+    <property
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+        length="8"
+    />
+    <property
+        name="nodeStat"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_STAT"
+        length="2"
+    />
+    <property
+        name="replyDeadline"
+        type="java.sql.Timestamp"
+        column="REPLY_DEADLINE"
+        length="7"
+    />
+    <property
+        name="unlockTime"
+        type="java.sql.Timestamp"
+        column="UNLOCK_TIME"
+        length="20"
+    />
+    <property
+        name="replyStatus"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REPLY_STATUS"
+        length="2"
+    />
+    <property
+        name="replyDate"
+        type="java.sql.Timestamp"
+        column="REPLY_DATE"
+        length="20"
+    />
+    <property
+        name="selectUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_USER"
+        length="100"
+    />
+    <property
+        name="selectDate"
+        type="java.sql.Timestamp"
+        column="SELECT_DATE"
+        length="20"
+    />
+    <property
+        name="isValid"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_VALID"
+        length="2"
+    />
+    <property
+        name="specialistType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPECIALIST_TYPE"
+        length="10"
+    />    
+    <property
+        name="operateTime"
+        type="java.sql.Timestamp"
+        column="OPERATE_TIME"
+        length="20"
+    />
+    
+   <!-- zbw增加字段  -->  
+     <property
+        name="selectRemark"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SELECT_REMARK"
+        length="500"
+    />
+       <property
+        name="blockNoticeNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_NOTICE_NO"
+        length="200"
+    />
+
+    <property
+        name="blockName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_NAME"
+        length="400"
+    />
+
+    <property
+        name="marginEndDate"
+        type="java.sql.Date"
+        column="MARGIN_END_DATE"
+        length="20"
+    />
+
+    <property
+        name="listEndDate"
+        type="java.sql.Timestamp"
+        column="LIST_END_DATE"
+        length="20"
+    />
+
+    <property
+        name="sceBidDate"
+        type="java.sql.Timestamp"
+        column="SCE_BID_DATE"
+        length="20"
+    />
+
+    <property
+        name="sceBidLoc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SCE_BID_LOC"
+        length="400"
+    />
+    
+     
+    <!-- 结束 -->
+  
+    
+    
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

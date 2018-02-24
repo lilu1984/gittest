@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC  "-//Apache Software Foundation//DTD Struts Configuration 1.1//EN"
+    "http://jakarta.apache.org/struts/dtds/struts-config_1_1.dtd">
+
+<struts-config>
+
+    <!-- ********** Form bean definition ********** -->    
+    <form-beans />
+    
+    
+    <!-- ********** Action mapping definition ********** -->    
+    <action-mappings>
+ 
+ <!--jzm simplequery start  -->
+        <action path="/tdsc/simpleQuery" type="com.wonders.common.simplequery.web.SimpleQueryAction"
+                scope="request" parameter="method">
+                <forward name="queryCondition" path="/tdsc/simplequery/query_condition.jsp"></forward>
+                <forward name="queryDefine" path="/tdsc/simplequery/query_define.jsp"></forward>
+                <forward name="queryResult" path="/tdsc/simplequery/query_result.jsp"></forward>
+                <forward name="querySave" path="/tdsc/simplequery/query_save.jsp"></forward>
+                <forward name="queryTheme" path="/tdsc/simplequery/query_theme.jsp"></forward>
+                <forward name="saveAllQuery" path="/tdsc/simplequery/query_resultSave.jsp"></forward>
+        </action>
+        <!--jzm simplequery end  -->
+     </action-mappings>
+
+</struts-config>

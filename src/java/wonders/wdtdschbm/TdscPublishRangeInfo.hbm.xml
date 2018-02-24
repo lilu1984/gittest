@@ -1,0 +1,66 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscPublishRangeInfo" 
+    table="TDSC_PUBLISH_RANGE_INFO"
+>
+
+    <id
+        name="infoId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INFO_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="cnName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CN_NAME"
+        length="1000"
+    />
+    <property
+        name="email"
+        type="com.wonders.esframework.common.type.AppString"
+        column="EMAIL"
+        length="1000"
+    />
+    <property
+        name="phone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PHONE"
+        length="1000"
+    />
+    <property
+        name="webAddress"
+        type="com.wonders.esframework.common.type.AppString"
+        column="WEBADDRESS"
+        length="1000"
+    /><property
+        name="planId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PLAN_ID"
+        length="64"
+    /><property
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+        length="64"
+    /><property
+        name="fileId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_ID"
+        length="64"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

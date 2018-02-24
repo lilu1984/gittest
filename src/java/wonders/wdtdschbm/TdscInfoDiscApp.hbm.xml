@@ -1,0 +1,63 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscInfoDiscApp" 
+    table="TDSC_INFO_DISC_APP"
+>
+
+    <id
+        name="infoId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INFO_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="infoType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INFO_TYPE"
+        length="2"
+    />
+    <property
+        name="initDate"
+        type="java.sql.Date"
+        column="INIT_DATE"
+        length="7"
+    />
+    <property
+        name="initUser"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INIT_USER"
+        length="300"
+    />
+    <property
+        name="status"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STATUS"
+        length="8"
+    />
+    <property
+        name="statusDate"
+        type="java.sql.Date"
+        column="STATUS_DATE"
+        length="7"
+    />
+    <property
+        name="infoUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="INFO_URL"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

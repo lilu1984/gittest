@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+    <bean id="tdscTradeViewDao" class="com.wonders.wsjy.dao.TdscTradeViewDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="subscribeDAO" class="com.wonders.wsjy.dao.SubscribeDAO">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="personInfoDAO" class="com.wonders.wsjy.dao.PersonInfoDAO">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- 李路新增，银行接口方面 -->
+	<bean id="wsjyBankAppDao" class="com.wonders.wsjy.dao.WsjyBankAppDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+	<bean id="dicBankDao" class="com.wonders.wsjy.dao.DicBankDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+	<bean id="wsjyBankLogDao" class="com.wonders.wsjy.dao.WsjyBankLogDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- 李路新增，银行接口方面 -->
+    <bean id="tradeServer" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.wsjy.service.TradeServer">
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao" />
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao" />
+				<property name="tdscListingInfoDao" ref="tdscListingInfoDao"/>
+				<property name="tdscListingAppDao" ref="tdscListingAppDao"/>
+				<property name="tdscNoticeAppDao" ref="tdscNoticeAppDao"/>
+				<property name="tdscBidderViewDao" ref="tdscBidderViewDao"/>
+				<property name="tdscBlockInfoDao" ref="tdscBlockInfoDao"/>
+				<property name="tdscAppDao" ref="tdscAppDao"/>
+				<property name="tdscOpnnDao" ref="tdscOpnnDao"/>
+				<property name="tdscAppNodeStatDao" ref="tdscAppNodeStatDao"/>
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao"/>
+				<property name="tdscTradeViewDao" ref="tdscTradeViewDao"/>
+				<property name="tdscBlockPartDao" ref="tdscBlockPartDao"/>
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao"/>
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl"/>
+				<property name="personInfoDAO" ref="personInfoDAO"/>
+				<property name="commonQueryService" ref="commonQueryService"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<bean id="subscribeService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.wsjy.service.SubscribeService">
+				<property name="subscribeDAO" ref="subscribeDAO" />
+				<property name="personInfoDAO" ref="personInfoDAO"/>
+				<property name="idSpringManager" ref="tdscIdSpringManagerImpl"/>
+				<property name="tradeServer" ref="tradeServer"/>
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao"/>
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao"/>
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao"/>
+				<property name="wsjyBankAppDao" ref="wsjyBankAppDao"/>
+				<property name="tdscBidderViewDao" ref="tdscBidderViewDao"/>
+				<property name="fileRefDao" ref="fileRefDao"/>
+				<property name="tdscCorpInfoDao" ref="tdscCorpInfoDao"/>
+			</bean>	
+		</property>
+	</bean>
+	<bean id="appService" parent="tdscManagerProxyTemplate">
+		<property name="target">
+			<bean class="com.wonders.android.service.AppService">
+				<property name="tdscTradeViewDao" ref="tdscTradeViewDao"/>
+				<property name="tdscPublishInfoNoticeAppDao"  ref="tdscPublishInfoNoticeAppDao"/>
+				<property name="tdscBidderAppDao" ref="tdscBidderAppDao"/>
+				<property name="tdscListingAppDao" ref="tdscListingAppDao"/>
+				<property name="tdscBidderPersonAppDao" ref="tdscBidderPersonAppDao"/>
+				<property name="tdscBidderViewDao" ref="tdscBidderViewDao"/>
+				<property name="personInfoDao" ref="personInfoDAO"/>
+				<property name="tdscBlockTranAppDao" ref="tdscBlockTranAppDao"/>
+				<property name="tdscBlockPlanTableDao" ref="tdscBlockPlanTableDao"/>
+				<property name="tdscListingInfoDao" ref="tdscListingInfoDao"/>
+			</bean>
+		</property>
+	</bean>
+    <bean name="/wsjy/wxlogin" class="com.wonders.wsjy.web.WxLoginAction" singleton="false">
+        <property name="tradeServer" ref="tradeServer"/>
+        <property name="subscribeService" ref="subscribeService"/>
+    </bean>
+     <bean name="/wsjy/trade" class="com.wonders.wsjy.web.TradeAction" singleton="false">
+        <property name="tradeServer" ref="tradeServer"/>
+        <property name="subscribeService" ref="subscribeService"/>
+    </bean>
+     <bean name="/wsjy/manage" class="com.wonders.wsjy.web.ManageAction" singleton="false">
+        <property name="tradeServer" ref="tradeServer"/>
+    </bean>
+    <bean name="/wsjy/trans" class="com.wonders.wsjy.web.MyTransAction" singleton="false">
+    		<property name="tradeServer" ref="tradeServer"/>
+         <property name="commonQueryService" ref="commonQueryService"/>
+         <property name="tdscBidderAppService" ref="tdscBidderAppService"/>
+         <property name="tdscLocalTradeService" ref="tdscLocalTradeService"/>
+         <property name="tdscScheduletableService" ref="tdscScheduletableService"/>
+         <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+         <property name="subscribeService" ref="subscribeService"/>
+    </bean>
+    <bean name="/wsjy/monitor" class="com.wonders.wsjy.web.MonitorAction" singleton="false">
+    	 <property name="tradeServer" ref="tradeServer"/>
+    </bean>
+    
+    <bean name="/wsjy/file" class="com.wonders.wsjy.web.GetFile" singleton="false">
+    	 <property name="commonQueryService" ref="commonQueryService"/>
+    	 <property name="tdscNoticeService" ref="tdscNoticeService"/>
+    	 <property name="tdscBlockInfoService" ref="tdscBlockInfoService"/>
+    </bean>
+    
+    <bean name="/wsjy/subscribe" class="com.wonders.wsjy.web.SubscribeAction" singleton="true">
+	    <property name="commonQueryService" ref="commonQueryService"/>
+	    <property name="subscribeService" ref="subscribeService"/>
+	    <property name="tradeServer" ref="tradeServer"/>
+    </bean>
+    <bean name="/android/notice" class="com.wonders.android.web.NoticeAction" singleton="true">
+	    <property name="appService" ref="appService"/>
+    </bean>
+    <bean name="/android/trade" class="com.wonders.android.web.TradeAction" singleton="true">
+	    <property name="appService" ref="appService"/>
+    </bean>
+    <bean name="/android/monitor" class="com.wonders.android.web.MonitorAction" singleton="true">
+	    <property name="appService" ref="appService"/>
+    </bean>
+    <bean name="/android/myTrade" class="com.wonders.android.web.MyTradeAction" singleton="true">
+	    <property name="appService" ref="appService"/>
+	    <property name="subscribeService" ref="subscribeService"/>
+	    <property name="commonQueryService" ref="commonQueryService"/>
+    </bean>
+</beans>

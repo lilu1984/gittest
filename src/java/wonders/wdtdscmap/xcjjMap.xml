@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="GB2312"?>
+<mapping>
+	<class name="com.wonders.tdsc.bo.BlockAuctionInfo">
+        <map-to xml="root"/>
+        <field name="blockNoticeNo" type="java.lang.String">
+	    	<bind-xml name="blockNoticeNo" node="element"/>
+	    </field>
+	    <field name="list" type="com.wonders.tdsc.bo.BlockAuctionPrice" collection="collection">
+        	<bind-xml name="context"/>
+        </field> 
+    </class>
+    <class name="com.wonders.tdsc.bo.BlockAuctionPrice">
+        <field name="currentNum" type="java.lang.String">
+	            <bind-xml name="currentNum" node="element"/>
+	    </field>
+	    <field name="haoPai" type="java.lang.String">
+	            <bind-xml name="haoPai" node="element"/>
+	    </field>
+    	<field name="currentPrice" type="java.lang.String">
+	            <bind-xml name="currentPrice" node="element"/>
+	    </field> 
+		<field name="unitPrice" type="java.lang.String">
+	            <bind-xml name="unitPrice" node="element"/>
+	    </field>
+	    <field name="premiumRate" type="java.lang.String">
+	            <bind-xml name="premiumRate" node="element"/>
+	    </field>
+    </class>
+</mapping>
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,56 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscExplorInfo" 
+    table="TDSC_EXPLOR_INFO"
+>
+
+    <id
+        name="explorId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="EXPLOR_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="attendNum"
+        type="java.math.BigDecimal"
+        column="ATTEND_NUM"
+        length="20"
+    />
+    <property
+        name="explorStat"
+        type="com.wonders.esframework.common.type.AppString"
+        column="EXPLOR_STAT"
+        length="500"
+    />
+    <property
+        name="staff"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STAFF"
+        length="100"
+    />
+    <property
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORDID"
+        length="16"
+    />
+    <property
+        name="fileName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="FILE_NAME"
+        length="200"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

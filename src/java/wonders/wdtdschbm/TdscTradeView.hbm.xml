@@ -1,0 +1,140 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+    <class name="com.wonders.wsjy.bo.TdscTradeView" table="TDSC_TRADE_VIEW" >
+         <id name="appId"
+        type="com.wonders.esframework.common.type.AppString" column="APP_ID" >
+        <generator class="uuid.hex" />
+    	</id>
+            <property name="blockId" type="com.wonders.esframework.common.type.AppString">
+                <column name="BLOCK_ID" length="64" />
+            </property>
+            <property name="noticeId" type="com.wonders.esframework.common.type.AppString">
+                <column name="NOTICE_ID" length="64" />
+            </property>
+            <property name="planId" type="com.wonders.esframework.common.type.AppString">
+                <column name="PLAN_ID" length="64" />
+            </property>
+            <property name="blockName" type="com.wonders.esframework.common.type.AppString">
+                <column name="BLOCK_NAME" length="400" />
+            </property>
+            <property name="districtId" type="java.lang.Integer">
+                <column name="DISTRICT_ID" precision="10" scale="0" />
+            </property>
+            <property name="landLocation" type="com.wonders.esframework.common.type.AppString">
+                <column name="LAND_LOCATION" length="200" />
+            </property>
+            <property name="totalLandArea" type="java.math.BigDecimal">
+                <column name="TOTAL_LAND_AREA" precision="20" />
+            </property>
+            <property name="totalBuildingArea" type="java.math.BigDecimal">
+                <column name="TOTAL_BUILDING_AREA" precision="20" />
+            </property>
+            <property name="blockStatus" type="com.wonders.esframework.common.type.AppString">
+                <column name="BLOCK_STATUS" length="8" />
+            </property>
+            <property name="blockQuality" type="com.wonders.esframework.common.type.AppString">
+                <column name="BLOCK_QUALITY" length="200" />
+            </property>
+            <property name="noitceNo" type="com.wonders.esframework.common.type.AppString">
+                <column name="NOITCE_NO" length="200" />
+            </property>
+            <property name="xuHao" type="java.lang.Integer">
+                <column name="XU_HAO" precision="22" scale="0" />
+            </property>
+            <property name="isPurposeBlock" type="com.wonders.esframework.common.type.AppString">
+                <column name="IS_PURPOSE_BLOCK" length="1" />
+            </property>
+            <property name="blockNoticeNo" type="com.wonders.esframework.common.type.AppString">
+                <column name="BLOCK_NOTICE_NO" length="200" />
+            </property>
+            <property name="tradeStatus" type="com.wonders.esframework.common.type.AppString">
+                <column name="TRADE_STATUS" length="2" />
+            </property>
+            <property name="initPrice" type="java.math.BigDecimal">
+                <column name="INIT_PRICE" precision="20" scale="4" />
+            </property>
+            <property name="priceAdd" type="java.math.BigDecimal">
+                <column name="PRICE_ADD" precision="20" scale="4" />
+            </property>
+            <property name="resultNo" type="com.wonders.esframework.common.type.AppString">
+                <column name="RESULT_NO" length="100" />
+            </property>
+            <property name="tranResult" type="com.wonders.esframework.common.type.AppString">
+                <column name="TRAN_RESULT" length="10" />
+            </property>
+            <property name="resultDate" type="java.sql.Timestamp">
+                <column name="RESULT_DATE" length="7" />
+            </property>
+            <property name="resultPrice" type="java.math.BigDecimal">
+                <column name="RESULT_PRICE" precision="20" scale="4" />
+            </property>
+            <property name="resultCert" type="com.wonders.esframework.common.type.AppString">
+                <column name="RESULT_CERT" length="100" />
+            </property>
+            <property name="resultName" type="com.wonders.esframework.common.type.AppString">
+                <column name="RESULT_NAME" length="300" />
+            </property>
+            <property name="transferMode" type="com.wonders.esframework.common.type.AppString">
+                <column name="TRANSFER_MODE" length="10" />
+            </property>
+            <property name="guapaiCurrPrice" type="java.math.BigDecimal">
+                <column name="GUAPAI_CURR_PRICE" precision="20" scale="4" />
+            </property>
+            <property name="guapaiCurrRound" type="java.lang.Long">
+                <column name="GUAPAI_CURR_ROUND" precision="20" scale="0" />
+            </property>
+            <property name="guapaiListDate" type="java.sql.Timestamp">
+                <column name="GUAPAI_LIST_DATE" length="7" />
+            </property>
+            <property name="guapaiListCert" type="com.wonders.esframework.common.type.AppString">
+                <column name="GUAPAI_LIST_CERT" length="100" />
+            </property>
+            <property name="ifOnLine" type="com.wonders.esframework.common.type.AppString">
+                <column name="IF_ON_LINE" length="1" />
+            </property>
+            <property name="listStartDate" type="java.sql.Timestamp">
+                <column name="LIST_START_DATE" length="7" />
+            </property>
+            <property name="listEndDate" type="java.sql.Timestamp">
+                <column name="LIST_END_DATE" length="7" />
+            </property>
+            <property name="onLineStatDate" type="java.sql.Timestamp">
+                <column name="ON_LINE_STAT_DATE" length="7" />
+            </property>
+            <property name="onLineEndDate" type="java.sql.Timestamp">
+                <column name="ON_LINE_END_DATE" length="7" />
+            </property>
+            <property name="resultShowDate" type="java.sql.Timestamp">
+                <column name="RESULT_SHOW_DATE" length="7" />
+            </property>
+            <property name="guapaiListNo" type="com.wonders.esframework.common.type.AppString">
+               <column name="GUAPAI_LIST_NO" length="100" />
+            </property>
+		    <property name="sceBidDate" type="java.sql.Timestamp">
+		    <column name="SCE_BID_DATE" length="20" />
+		    </property>
+		    <property name="maxPrice" type="java.math.BigDecimal">
+		    <column name="MAX_PRICE" length="20" />
+		    </property>
+		    <property name="partakeBidderConNum" type="com.wonders.esframework.common.type.AppString">
+		    <column name="PARTAKE_BIDDER_CON_NUM" length="200" />
+		    </property>
+		    <property name="accAppStatDate" type="java.sql.Timestamp">
+		    <column name="ACC_APP_STAT_DATE" length="20" />
+		    </property>
+		    <property name="accAppEndDate" type="java.sql.Timestamp">
+		    <column name="ACC_APP_END_DATE" length="20" />
+		    </property>
+		   <property name="marginAmount" type="java.math.BigDecimal">
+		    <column name="MARGIN_AMOUNT" length="20" />
+		    </property>
+		    <property name="marginEndDate" type="java.sql.Timestamp">
+                <column name="MARGIN_END_DATE" length="7" />
+            </property>
+    </class>
+</hibernate-mapping>

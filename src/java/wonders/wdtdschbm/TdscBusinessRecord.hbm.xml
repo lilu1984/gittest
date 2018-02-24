@@ -1,0 +1,75 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBusinessRecord" 
+    table="TDSC_BUSINESS_RECORD"
+>
+
+    <id
+        name="recordId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RECORD_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="userId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="USER_ID"
+        length="64"
+    />
+    <property
+        name="regionId"
+        type="java.lang.Integer"
+        column="REGION_ID"
+        length="2"
+    />
+    <property
+        name="busiType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BUSI_TYPE"
+        length="10"
+    />
+    <property
+        name="busiId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BUSI_ID"
+        length="64"
+    />
+    <property
+        name="provideCount"
+        type="java.lang.Integer"
+        column="PROVIDE_COUNT"
+        length="4"
+    />
+    <property
+        name="bakCol1"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BAK_COL1"
+        length="100"
+    />
+    <property
+        name="bakCol2"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BAK_COL2"
+        length="100"
+    />
+    <property
+        name="bakCol3"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BAK_COL3"
+        length="100"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

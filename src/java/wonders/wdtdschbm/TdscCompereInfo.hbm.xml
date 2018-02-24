@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscCompereInfo" 
+    table="TDSC_COMPERE_INFO"
+>
+
+    <id
+        name="compereId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="compereName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_NAME"
+        length="50"
+    />
+    <property
+        name="compereGender"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_GENDER"
+        length="4"
+    />
+    <property
+        name="compereAge"
+        type="java.lang.Integer"
+        column="COMPERE_AGE"
+        length="3"
+    />
+    <property
+        name="comperePhone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_PHONE"
+        length="50"
+    />
+    <property
+        name="compereAddress"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_ADDRESS"
+        length="100"
+    />
+    <property
+        name="compereEmail"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_EMAIL"
+        length="50"
+    />
+    <property
+        name="validity"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VALIDITY"
+        length="1"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="200"
+    />
+    <property
+        name="compereIdentityCard"
+        type="com.wonders.esframework.common.type.AppString"
+        column="COMPERE_IDENTITY_CARD"
+        length="20"
+    />
+    <property
+        name="certificateNumber"
+        type="java.lang.Integer"
+        column="CERTIFICATE_NUMBER"
+        length="20"
+    />
+    <property
+        name="certificateIssueDate"
+        type="java.sql.Date"
+        column="CERTIFICATE_ISSUE_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

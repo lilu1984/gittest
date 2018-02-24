@@ -1,0 +1,104 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscBankApp" 
+    table="TDSC_BANK_APP"
+>
+
+    <id
+        name="id"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="payName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PAY_NAME"
+        length="200"
+    />
+    <property
+        name="accountNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACCOUNT_NUM"
+        length="100"
+    />
+    <property
+        name="payDate"
+        type="java.sql.Timestamp"
+        column="PAY_DATE"
+        length="20"
+    />
+	<property
+        name="money"
+        type="java.math.BigDecimal"
+        column="MONEY"
+        length="20"
+    />
+    <property
+        name="acceptBank"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACCEPT_BANK"
+        length="10"
+    />
+    <property
+        name="serialNum"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SERIAL_NUM"
+        length="50"
+    />
+    <property
+        name="operatingTime"
+        type="java.sql.Timestamp"
+        column="OPERATING_TIME"
+        length="100"
+    />
+    <property
+        name="operator"
+        type="com.wonders.esframework.common.type.AppString"
+        column="OPERATOR"
+        length="100"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="100"
+    />
+    <property
+        name="status"
+        type="com.wonders.esframework.common.type.AppString"
+        column="STATUS"
+        length="10"
+    />
+    <property
+        name="bidderId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BIDDER_ID"
+        length="64"
+    />
+    <property
+        name="acceptBankName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACCEPT_BANK_NAME"
+        length="100"
+    />
+    <property
+        name="noticeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NOTICE_ID"
+        length="64"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

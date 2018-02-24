@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.wonders.tdsc.user.model.AuthorityResource"
+    table="TDSC_ES_RESOURCE"
+>
+
+    <id
+        name="resourceId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESOURCE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="resourceName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESOURCE_NAME"
+        length="100"
+    />
+    <property
+        name="resourceLevel"
+        type="java.lang.Integer"
+        column="RESOURCE_LEVEL"
+        length="22"
+    />
+    <property
+        name="parentId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PARENT_ID"
+        length="64"
+    />
+    <property
+        name="sortOrder"
+        type="java.lang.Integer"
+        column="SORT_ORDER"
+        length="22"
+    />
+    <property
+        name="type"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TYPE"
+        length="10"
+    />
+    <property
+        name="value"
+        type="com.wonders.esframework.common.type.AppString"
+        column="VALUE"
+        length="32"
+    />
+	<property
+        name="resourceUrl"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESOURCE_URL"
+    />
+    
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

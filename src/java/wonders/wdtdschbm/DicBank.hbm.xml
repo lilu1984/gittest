@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+<!--
+    Created by the Middlegen Hibernate plugin 2.1
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class
+    name="com.wonders.wsjy.bo.DicBank"
+    table="DIC_BANK"
+>
+
+    <id
+        name="dicCode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="Dic_Code"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dicValue"
+        type="com.wonders.esframework.common.type.AppString"
+        column="Dic_Value"
+        length="30"
+    />
+    <property
+        name="dicNum"
+        type="java.math.BigDecimal"
+        column="DIC_NUM"
+        length="12"
+    />
+    <property
+        name="dicDescribe"
+        type="com.wonders.esframework.common.type.AppString"
+        column="DIC_DESCRIBE"
+        length="2"
+    />
+    <property
+        name="isValidity"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_VALIDITY"
+        length="2"
+    />
+    <property
+        name="bankIp"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANK_IP"
+        length="32"
+    />
+    <property
+        name="bankPort"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANK_PORT"
+        length="32"
+    />
+    <property
+        name="bankIcon"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BANK_ICON"
+        length="200"
+    />
+    <property
+        name="bankNum"
+        type="java.math.BigDecimal"
+        column="BANK_NUM"
+        length="12"
+    />
+    <!-- Associations -->
+
+
+</class>
+</hibernate-mapping>

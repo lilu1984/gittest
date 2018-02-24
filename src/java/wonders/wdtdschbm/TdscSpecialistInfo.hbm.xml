@@ -1,0 +1,183 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscSpecialistInfo" 
+    table="TDSC_SPECIALIST_INFO"
+>
+
+    <id
+        name="specialistId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPECIALIST_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="specialistName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPECIALIST_NAME"
+        length="64"
+    />
+    <property
+        name="photo"
+        type="java.sql.Blob"
+        column="PHOTO"
+        length="4000"
+    />
+    <property
+        name="sex"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SEX"
+        length="32"
+    />
+    <property
+        name="birthday"
+        type="java.sql.Date"
+        column="BIRTHDAY"
+        length="7"
+    />
+    <property
+        name="regTime"
+        type="java.sql.Date"
+        column="REG_TIME"
+        length="7"
+    />
+    <property
+        name="corpName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_NAME"
+        length="200"
+    />
+    <property
+        name="corpAddress"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_ADDRESS"
+        length="200"
+    />
+    <property
+        name="corpCharacter"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_CHARACTER"
+        length="64"
+    />
+    <property
+        name="corpPost"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_POST"
+        length="32"
+    />
+    <property
+        name="corpLeader"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CORP_LEADER"
+        length="64"
+    />
+    <property
+        name="trade"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRADE"
+        length="64"
+    />
+    <property
+        name="technicalPost"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TECHNICAL_POST"
+        length="64"
+    />
+    <property
+        name="homeAddress"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HOME_ADDRESS"
+        length="200"
+    />
+    <property
+        name="homePost"
+        type="com.wonders.esframework.common.type.AppString"
+        column="HOME_POST"
+        length="22"
+    />
+    <property
+        name="phone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PHONE"
+        length="22"
+    />
+    <property
+        name="mobilphone"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MOBILPHONE"
+        length="22"
+    />
+    <property
+        name="email"
+        type="com.wonders.esframework.common.type.AppString"
+        column="EMAIL"
+        length="64"
+    />
+    <property
+        name="certificateType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CERTIFICATE_TYPE"
+        length="64"
+    />
+    <property
+        name="certificateNumber"
+        type="com.wonders.esframework.common.type.AppString"
+        column="CERTIFICATE_NUMBER"
+        length="32"
+    />
+    <property
+        name="auditingRecord"
+        type="com.wonders.esframework.common.type.AppString"
+        column="AUDITING_RECORD"
+        length="500"
+    />
+    <property
+        name="archivesId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ARCHIVES_ID"
+        length="32"
+    />
+    <property
+        name="memo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="1000"
+    />
+    <property
+        name="meeting"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEETING"
+        length="500"
+    />
+    <property
+        name="gradeResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="GRADE_RESULT"
+        length="128"
+    />
+    <property
+        name="revisitedState"
+        type="com.wonders.esframework.common.type.AppString"
+        column="REVISITED_STATE"
+        length="200"
+    />
+    <property
+        name="specialistType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SPECIALIST_TYPE"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

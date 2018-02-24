@@ -1,0 +1,93 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscFlowPostStatus" 
+    table="TDSC_FLOW_POST_STATUS"
+>
+
+    <id
+        name="id"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="transferMode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TRANSFER_MODE"
+        length="2"
+    />
+    <property
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+        length="8"
+    />
+    <property
+        name="actionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="ACTION_ID"
+        length="8"
+    />
+    <property
+        name="resultId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_ID"
+        length="8"
+    />
+    <property
+        name="resultName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="RESULT_NAME"
+        length="300"
+    />
+    <property
+        name="isDefaultResult"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IS_DEFAULT_RESULT"
+        length="2"
+    />
+    <property
+        name="ifCloseNode"
+        type="com.wonders.esframework.common.type.AppString"
+        column="IF_CLOSE_NODE"
+        length="2"
+    />
+    <property
+        name="postActionId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="POST_ACTION_ID"
+        length="8"
+    />
+    <property
+        name="postNodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="POST_NODE_ID"
+        length="8"
+    />
+    <property
+        name="postStatusId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="POST_STATUS_ID"
+        length="8"
+    />
+    <property
+        name="syFlowAction"
+        type="com.wonders.esframework.common.type.AppString"
+        column="SY_FLOW_ACTION"
+        length="50"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,137 @@
+<?xml version="1.0"?> 
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.tdsc.bo.TdscTenderApp" 
+    table="TDSC_TENDER_APP"
+>
+
+    <id
+        name="tenderAppId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_APP_ID"
+    >
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="tenderId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_ID"
+        length="64"
+    />
+    <property
+        name="tenderSer"
+        type="java.math.BigDecimal"
+        column="TENDER_SER"
+        length="20"
+    />
+    <property
+        name="tenderCert"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_CERT"
+        length="100"
+    />
+    <property
+        name="norarId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NORAR_ID"
+        length="100"
+    />
+    <property
+        name="norar"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NORAR"
+        length="300"
+    />
+    <property
+        name="worker"
+        type="com.wonders.esframework.common.type.AppString"
+        column="WORKER"
+        length="300"
+    />
+    <property
+        name="tenderDate"
+        type="java.sql.Timestamp"
+        column="TENDER_DATE"
+        length="7"
+    />
+    <property
+        name="tenderPlace"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_PLACE"
+        length="500"
+    />
+    <property
+        name="priceShares"
+        type="java.math.BigDecimal"
+        column="PRICE_SHARES"
+        length="20"
+    />
+    <property
+        name="businessShares"
+        type="java.math.BigDecimal"
+        column="BUSINESS_SHARES"
+        length="20"
+    />
+    <property
+        name="techShares"
+        type="java.math.BigDecimal"
+        column="TECH_SHARES"
+        length="20"
+    />
+    <property
+        name="docShares"
+        type="java.math.BigDecimal"
+        column="DOC_SHARES"
+        length="20"
+    />
+    <property
+        name="tenderType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_TYPE"
+        length="10"
+    />
+    <property
+        name="tenderAppType"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_APP_TYPE"
+        length="10"
+    />
+    
+    <property
+        name="tenderNo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_NO"
+        length="10"
+    />
+
+	<property
+        name="tenderPersonName"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_PERSON_NAME"
+        length="16"
+    />
+    
+    <property
+        name="tenderMemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="TENDER_MEMO"
+        length="500"
+    />
+    <property
+        name="tenderPrice"
+        type="java.math.BigDecimal"
+        column="TENDER_PRICE"
+        length="20"
+    />
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

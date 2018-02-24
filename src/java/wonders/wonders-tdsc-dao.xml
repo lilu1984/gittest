@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+    "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- datasource -->
+	<bean id="tdscDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+		<property name="driverClassName"><value>oracle.jdbc.driver.OracleDriver</value></property>
+		<!--property name="url"><value>jdbc:oracle:thin:@127.0.0.1:1521:rac</value></property-->
+		<property name="url"><value>jdbc:oracle:thin:@localhost:1521:ORCL2</value></property>
+		<property name="username"><value>WXLANDTRADE</value></property>
+		<property name="password"><value>WXLANDTRADE</value></property>
+		<property name="initialSize"><value>10</value></property>
+		<property name="minIdle"><value>2</value></property>
+		<property name="maxActive"><value>10</value></property>
+		<property name="removeAbandoned"><value>true</value></property>
+		<property name="removeAbandonedTimeout"><value>6</value></property>
+	</bean>
+	
+	<!-- dbcp native jdbc extractor -->
+    <bean id="tdscNativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.CommonsDbcpNativeJdbcExtractor"></bean>
+    
+    <!--**** OracleLobHandler ****-->
+    <!--bean id="nativeJdbcExtractor" class="org.springframework.jdbc.support.nativejdbc.SimpleNativeJdbcExtractor"></bean-->
+    
+    <bean id="tdscOracleLobHandler" class="org.springframework.jdbc.support.lob.OracleLobHandler">
+        <property name="nativeJdbcExtractor" ref="tdscNativeJdbcExtractor"/>
+    </bean>
+
+	<bean id="tdscSessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+	    <property name="dataSource" ref="tdscDataSource"/>
+	    <property name="lobHandler" ref="tdscOracleLobHandler"/>
+	    <!--property name="mappingJarLocations">
+	        <list>
+	            <value>classpath:WEB-INF/lib/wonder-shenbao-1.0.jar</value>
+	        </list>
+	    </property-->
+	    <property name="mappingDirectoryLocations">
+	        <list>
+	            <value>classpath:/wonders/wdtdschbm/</value>
+	        </list>
+	    </property>
+	    <property name="hibernateProperties">
+	        <props>
+	            <prop key="hibernate.dialect">org.hibernate.dialect.Oracle9Dialect</prop>
+	            <prop key="hibernate.show_sql">true</prop>
+	            <prop key="hibernate.jdbc.fetch_size">25</prop>
+	            <prop key="hibernate.jdbc.batch_size">25</prop>
+	            <prop key="hibernate.query.factory_class">org.hibernate.hql.classic.ClassicQueryTranslatorFactory</prop>
+	        </props>
+	    </property>
+	</bean>
+
+    <!-- Dic Manager-->
+    <bean id="tdscDicConfigDao" class="com.wonders.esframework.dic.dao.impl.DicConfigDaoImpl">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscDicDataQueryDao" class="com.wonders.esframework.dic.dao.impl.DicDataQueryDaoImpl">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscDicPropertyDao" class="com.wonders.esframework.dic.dao.impl.DicPropertyDaoImpl">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- id Manager-->
+    <bean id="tdscIncrementIdHibernateDao" class="com.wonders.esframework.id.dao.IncrementIdHibernateDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+	<bean id="incrementIdDao" class="com.wonders.tdsc.blockwork.dao.IncrementIdDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- User Manager -->
+  
+    <bean id="tdscResourceDao" class="com.wonders.tdsc.user.dao.impl.AuthorityResourceDaoImpl">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- Schedular Manager -->
+    <bean id="tdscTaskPlanDao" class="com.wonders.esframework.scheduler.dao.impl.TaskPlanDaoImpl">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- common query -->
+    <bean id="tdscCommonQueryDao" class="com.wonders.tdsc.tdscbase.dao.CommonQueryDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBidderViewDao" class="com.wonders.tdsc.tdscbase.dao.TdscBidderViewDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- common flow -->
+    <bean id="tdscFlowConfigDao" class="com.wonders.tdsc.flowadapter.dao.TdscFlowConfigDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscAppNodeStatDao" class="com.wonders.tdsc.flowadapter.dao.TdscAppNodeStatDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscAppDao" class="com.wonders.tdsc.flowadapter.dao.TdscAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscOpnnDao" class="com.wonders.tdsc.flowadapter.dao.TdscOpnnDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscFlowPostStatusDao" class="com.wonders.tdsc.flowadapter.dao.TdscFlowPostStatusDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscAppWorkflowInstanceRelDao" class="com.wonders.tdsc.flowadapter.dao.TdscAppWorkflowInstanceRelDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- bidder service -->
+    <bean id="tdscBlockTranAppDao" class="com.wonders.tdsc.bidder.dao.TdscBlockTranAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscBidderAppDao" class="com.wonders.tdsc.bidder.dao.TdscBidderAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscBusinessRecordDao" class="com.wonders.tdsc.bidder.dao.TdscBusinessRecordDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscBidderPersonAppDao" class="com.wonders.tdsc.bidder.dao.TdscBidderPersonAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscBidderMaterialDao" class="com.wonders.tdsc.bidder.dao.TdscBidderMaterialDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <!-- randomselect service -->
+    <bean id="tdscSpecialistInfoDao" class="com.wonders.tdsc.randomselect.dao.SpecialistInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBlockSelectAppDao" class="com.wonders.tdsc.randomselect.dao.TdscBlockSelectAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+	<bean id="tdscNotaryInfoDao" class="com.wonders.tdsc.randomselect.dao.TdscNotaryInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- blockinfo service -->
+    <bean id="tdscBlockInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBlockMaterialDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockMaterialDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="BlockTranAppDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockTranAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBlockUsedInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockUsedInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>   
+    <bean id="tdscBlockPlanTableDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockPlanTableDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBlockConInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockConInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscPublishRangeInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscPublishRangeInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- zzf20080610 -->
+    <bean id="tdscBlockPartDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockPartDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- wzc 20071114 -->
+    <bean id="tdscExplorInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscExplorInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBlockScheduleTableDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockScheduleTableDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- wzc 20071119 -->
+    <bean id="tdscFaqInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscFaqInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!-- wzc -->
+    <bean id="tdscReplyConfInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscReplyConfInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscBlockFileAppDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockFileAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscNoticeAppDao" class="com.wonders.tdsc.blockwork.dao.TdscNoticeAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscFileSaleInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscFileSaleInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscBidderProvideDao" class="com.wonders.tdsc.bidder.dao.TdscBidderProvideDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscCompereInfoDao" class="com.wonders.tdsc.randomselect.dao.TdscCompereInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <!--trade -->
+    <bean id="tdscListingInfoDao" class="com.wonders.tdsc.localtrade.dao.TdscListingInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscListingAppDao" class="com.wonders.tdsc.localtrade.dao.TdscListingAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscAuctionInfoDao" class="com.wonders.tdsc.localtrade.dao.TdscAuctionInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscAuctionAppDao" class="com.wonders.tdsc.localtrade.dao.TdscAuctionAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="tdscTenderAppDao" class="com.wonders.tdsc.localtrade.dao.TdscTenderAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+     <!-- selfhelp -->
+    <bean id="TdscListingAppDao" class="com.wonders.tdsc.selfhelp.dao.TdscListingAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscPublishInfoNoticeAppDao" class="com.wonders.tdsc.publishinfo.dao.TdscNoticeAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscTransResultDao" class="com.wonders.tdsc.publishinfo.dao.TdscTransResultDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>    
+	
+    <bean id="tdscReplyRecordDao" class="com.wonders.tdsc.publishinfo.dao.TdscReplyRecordDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>	
+	
+	<bean id="tdscTenderInfoDao" class="com.wonders.tdsc.localtrade.dao.TdscTenderInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <!-- clob dao 20080307 weedlu -->
+    <bean id="tdscEsClobDao" class="com.wonders.tdsc.lob.dao.TdscEsClobDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBlockQqjcInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockQqjcInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBlockContractInfoDao" class="com.wonders.tdsc.publishinfo.dao.TdscBlockContractInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+
+    <bean id="tdscSendEmailInfoDao" class="com.wonders.tdsc.publishinfo.dao.TdscSendEmailInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscCorpInfoDao" class="com.wonders.tdsc.credit.dao.TdscCorpInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBidderCxAppDao" class="com.wonders.tdsc.credit.dao.TdscBidderCxAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBlockPjxxInfoDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockPjxxInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscXbOrgAppDao" class="com.wonders.tdsc.xborg.dao.TdscXbOrgAppDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>  
+    <bean id="tdscXbOrgHistoryDao" class="com.wonders.tdsc.xborg.dao.TdscXbOrgHistoryDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean> 
+    <bean id="tdscXbOrgInfoDao" class="com.wonders.tdsc.xborg.dao.TdscXbOrgInfoDao">
+        <property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean> 
+    
+    <bean id="tdscBlockRemisemoneyDefrayDao" class="com.wonders.tdsc.blockwork.dao.TdscBlockRemisemoneyDefrayDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBlockSolveDao" class="com.wonders.tdsc.solve.dao.TdscBlockSolveDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscReturnBailDao" class="com.wonders.tdsc.retbail.dao.TdscReturnBailDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+     <bean id="miningtranAppDao" class="com.wonders.tdsc.kyq.dao.MiningTranAppDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    <bean id="miningBidderAppDao" class="com.wonders.tdsc.kyq.dao.MiningBidderAppDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+   <bean id="kyqNoticeDao" class="com.wonders.tdsc.kyq.dao.KyqNoticeDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBankAppDao" class="com.wonders.tdsc.bank.dao.TdscBankAppDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="tdscBlockPresellDao" class="com.wonders.tdsc.presell.dao.TdscBlockPresellDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="fileRefDao" class="com.wonders.tdsc.presell.dao.FileRefDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+    
+    <bean id="webDocumentFileDao" class="com.wonders.tdsc.blockwork.dao.WebDocumentFileDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+        <bean id="wxPersonInfoDao" class="com.wonders.tdsc.blockwork.dao.WxPersonInfoDao">
+    	<property name="sessionFactory" ref="tdscSessionFactory"/>
+    </bean>
+</beans>

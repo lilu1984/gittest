@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN" 
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+    
+<hibernate-mapping>
+
+<class  name="com.wonders.tdsc.bo.TdscBlockPjxxInfo"  table="TDSC_BLOCK_PJXX_INFO">
+    
+    <id name="pjxxInfoId" type="com.wonders.esframework.common.type.AppString" column="PJXX_INFO_ID">        
+        <generator class="uuid.hex" />
+    </id>
+
+    <property
+        name="blockId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="BLOCK_ID"
+        length="64"
+    />
+    <property
+        name="priceXdfj"
+        type="java.math.BigDecimal"
+        column="PRICE_XDFJ"
+        length="64"
+    />
+    <property
+        name="countLzfpj"
+        type="java.lang.Integer"
+        column="COUNT_LZFPJ"
+        length="8"
+    />
+    <property
+        name="countJjsyf"
+        type="java.lang.Integer"
+        column="COUNT_JJSYF"
+        length="8"
+    />
+    <property
+        name="areaLandLjf"
+        type="java.math.BigDecimal"
+        column="AREA_LAND_LJF"
+        length="10"
+    />
+    <property
+        name="areaLandLzf"
+        type="java.math.BigDecimal"
+        column="AREA_LAND_LZF"
+        length="10"
+    />
+    <property
+        name="areaLandJjf"
+        type="java.math.BigDecimal"
+        column="AREA_LAND_JJF"
+        length="10"
+    />
+    <property
+        name="areaBuildXjf"
+        type="java.math.BigDecimal"
+        column="AREA_BUILD_XJF"
+        length="10"
+    />
+    <property
+        name="areaBuildLzf"
+        type="java.math.BigDecimal"
+        column="AREA_BUILD_LZF"
+        length="10"
+    />
+    <property
+        name="areaBuildJjf"
+        type="java.math.BigDecimal"
+        column="AREA_BUILD_JJF"
+        length="10"
+    />
+    <property
+        name="pjxxMemo"
+        type="com.wonders.esframework.common.type.AppString"
+        column="MEMO"
+        length="2000"
+    />
+    <property
+        name="pjlxs"
+        type="com.wonders.esframework.common.type.AppString"
+        column="PJLXS"
+        length="20"
+    />
+</class>
+</hibernate-mapping>
+

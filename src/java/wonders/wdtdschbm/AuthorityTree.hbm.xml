@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+    
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+
+<class 
+    name="com.wonders.common.authority.bo.AuthorityTree" 
+    table="UA_AUTHORITY_TREE"
+>
+
+    <id
+        name="nodeId"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_ID"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="nodeDesc"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_DESC"
+        length="100"
+    />
+    <property
+        name="nodeLevel"
+        type="java.lang.Integer"
+        column="NODE_LEVEL"
+        length="4"
+    />
+    <property
+        name="nodePid"
+        type="com.wonders.esframework.common.type.AppString"
+        column="NODE_PID"
+        length="32"
+    />
+    <property
+        name="nodeOrder"
+        type="java.lang.Integer"
+        column="NODE_ORDER"
+        length="4"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>
